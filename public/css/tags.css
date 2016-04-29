@@ -1,0 +1,7 @@
+.tags #wall {
+    min-height: 800px;
+}
+
+.tags .picture .image {
+    max-width: 92%;
+}

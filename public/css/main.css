@@ -1,0 +1,293 @@
+/* Circles */
+
+.sidebar #circles {
+  padding-left: 13px;
+} 
+
+#circles .posts {
+    min-height: 200px;
+}
+
+#about-circle {
+    min-height: 155px;
+}
+
+#circles span.circ-wrapper  {
+    border: 5px solid white;
+    height: 150px;
+    -moz-border-radius:75px;
+    -webkit-border-radius: 75px;
+    border-radius: 75px;
+    width: 150px;
+    opacity: 0.5;
+    cursor: pointer;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+#circles span:hover {
+    opacity: 1;
+}
+
+#about-joe-circle {
+    background-color: #BFB8A3;
+    background-image: url('/images/laravel_trainings/joe.jpg');
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position-x: -35px;
+    background-position-y: -35px;
+}
+
+#about-me-circle {
+    background-color: #BFB8A3;
+    background-image: url('/img/me.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+#angular-circle {
+    background-color: #BFB8A3;
+    background-image: url('/img/angular_circle.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#projects-circle {
+    background-color: #F2E0C9;
+    font-size: 3em;
+    text-align: center;
+    overflow: hidden;
+}
+
+#projects-circle p {
+    margin: auto;
+    padding: 40% 20%;
+    text-align: center;
+    font-size: .5em;
+}
+
+#drupal-circle {
+    background-color: #BFB8A3;
+    background-image: url('/img/da.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#blog-circle {
+    background-color: #F2B9AC;
+    font-size: 3em;
+    text-align: center;
+    overflow: hidden;
+}
+
+#blog-circle p {
+    margin: auto;
+    padding: 40% 20%;
+    text-align: center;
+    font-size: .5em;
+}
+
+
+#php-circle {
+    background-color: #596AA1;
+    background-image: url("/img/php.png");
+    background-size: 119%;
+    background-repeat: no-repeat;
+    background-position: -13px 28px;
+}
+
+#php-circle {
+    background-color: #596AA1;
+    background-image: url("/img/php.png");
+    background-size: 119%;
+    background-repeat: no-repeat;
+    background-position: -13px 28px;
+}
+
+#jquery-circle {
+    background-color: #fff;
+    background-image: url("/img/jquery-logo.gif");
+    background-size: 123%;
+    background-repeat: no-repeat;
+    background-position: -17px 29px;
+}
+
+
+#gplus-circle {
+    background-color: #D97E7E;
+    background-image: url('/img/gplus.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+#rails-circle {
+    background-color: #D97E7E;
+    background-image: url('/img/rails-circle.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#behat-circle {
+    background-color: #D8D8D8;
+    background-image: url('/img/behat-circle.png');
+    background-size: 123%;
+    background-position: -13px 35px;
+    background-repeat: no-repeat;
+}
+
+#laravel-circle {
+    background-color: #3F3F3F;
+    background-image: url('/img/laravel_circle.png');
+    background-size: 100%;
+    background-position: 0px 10px;
+    background-repeat: no-repeat;
+}
+
+#hfc-circle {
+    background-color: #D97E7E;
+    background-image: url('/img/hfc-circle.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#linkedin-circle {
+    background-color: #D97E7E;
+    background-image: url('/img/linked.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#twitter-circle {
+    background-color: #F2E0C9;
+    background-image: url('/img/twitter.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#amazon-circle {
+    background-color: #F2E0C9;
+    background-image: url('/img/amazon.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+.circle-row {
+    margin-bottom: 20px;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: auto;
+}
+
+.testimonials-wrapper {
+    padding: 20px;
+    overflow: hidden;
+    height: 200px;
+}
+
+.testimonies blockquote {
+    display: none;
+}
+
+.posts a {
+    text-decoration: underline;
+}
+
+
+.home-intro p {
+    font-size: 16px;
+}
+
+.site a {
+    padding-right: 5px;
+}
+
+ul.about li {
+    font-size: 15px;
+}
+
+ul { list-style: inherit; margin-left: 25px; }
+
+pre {
+    text-shadow: none;
+}
+
+ul.blog-sidebar {
+    list-style: none;
+    margin-left: 0px
+}
+
+
+.posts h2 { font: 23px; }
+.posts h3 { font-size: 21px; }
+.posts h4 { font-size: 19px; margin-top: 10px }
+
+#wall .item {
+    margin: 5px;
+}
+
+#feed img {
+    opacity: .5;
+    max-width: 57px;
+}
+
+/*Live Search styles start*/
+ul.searchresultspopup {
+    border: #a4bed4 1px solid;
+    margin-top: 0px;
+    padding: 0px;
+    z-index: 99999!important;
+    position: fixed;
+    background-color: white;
+    /*max-height:200px;*/
+    border-collapse: separate;
+    overflow-y: hidden;
+    margin-left: 0px;
+}
+
+ul.searchresultspopup > li {
+    cursor: pointer;
+    padding-left: 1px;
+    text-align: left;
+    list-style: none;
+    line-height: 20px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+}
+
+
+ul.searchresultspopup li a
+{
+    color: #646060;
+    font-size: 18px;
+    line-height: 2;
+    padding-left: 11px;
+}
+
+ul.searchresultspopup li.selected, ul.searchresultspopup li:hover {
+    background-color: #ededed;
+}
+
+ul.searchresultspopup b {
+    color: blue;
+}
+
+ul.searchresultspopup strong {
+    color: green;
+}
+/*Live Search styles end*/
+
+
+.p-large {
+    font-size: 163%;
+    line-height: 170%;
+}
+
+ul.font-larger li, .font-larger
+{
+    font-size: 135%;
+}

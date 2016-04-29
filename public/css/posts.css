@@ -1,0 +1,9 @@
+.post-content p, .post-content .post-description {
+    font-size: 16px;
+    line-height: 31px;
+}
+
+li.blog-link a.active {
+    background-color: #08c;
+    color: #ffffff;
+}

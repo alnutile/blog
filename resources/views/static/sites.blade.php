@@ -1,0 +1,112 @@
+<br>
+<div class="site">http://www.alfrednutile.info/projects/44
+    <i class="halflings-icon play"></i>
+    <i class="halflings-icon leaf"></i>
+    <i class="halflings-icon stop"></i>
+    <i class="halflings-icon certificate"></i>
+    <i class="halflings-icon user"></i>
+    </div>
+<div class="site">https://github.com/alnutile/cms
+    <i class="halflings-icon star"></i>
+    <i class="halflings-icon magnet"></i>
+    <i class="halflings-icon stop"></i>
+    <i class="halflings-icon leaf"></i>
+</div>
+<div class="site">https://github.com/alnutile/behat_angular_frontend_core
+    <i class="halflings-icon star"></i>
+    <i class="halflings-icon magnet"></i>
+    <i class="halflings-icon leaf"></i>
+</div>
+<div class="site">http://behat-wrapper.alfrednutile.info/
+    <i class="halflings-icon star"></i>
+    <i class="halflings-icon stop"></i>
+</div>
+<div class="site">https://github.com/alnutile/behat_editor
+    <i class="halflings-icon star"></i>
+    <i class="halflings-icon magnet"></i>
+    <i class="halflings-icon leaf"></i>
+    <i class="halflings-icon certificate"></i>
+    <i class="halflings-icon user"></i>
+</div>
+<div class="site">http://staging.basurvey.com/ (no longer active)
+    <i class="halflings-icon star"></i>
+    <i class="halflings-icon leaf"></i>
+    <i class="halflings-icon eye-open"></i>
+    <i class="halflings-icon certificate"></i>
+    <i class="halflings-icon user"></i>
+</div>
+
+<div class="site">http://www.pse.umass.edu/
+    <i class="halflings-icon cog"></i>
+    <i class="halflings-icon leaf"></i>
+</div>
+
+<div class="site">http://www.campusservices.harvard.edu<i class="halflings-icon cog"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site-ignore"><a class="fiber" href="/posts/4">javascript example</a><i class="halflings-icon star"></i><i class="halflings-icon leaf"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon user"></i></div>
+
+<div class="site">http://activelivingresearch.org<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon tag"></i></div>
+
+<div class="site">http://digitalshingle.mit.edu<i class="halflings-icon cog"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://speakers.drsforamerica.org<i class="halflings-icon star"></i><i class="halflings-icon eye-open"></i><i class="halflings-icon user"></i><i class="halflings-icon tag"></i>
+</div>
+
+<div class="site">http://www.law.uconn.edu<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon tag"></i></div>
+
+<div class="site">http://www.fullercenter.org<i class="halflings-icon cog"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon tag"></i></div>
+
+<div class="site">http://science.mit.edu<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon tag"></i></div>
+
+<div class="site">http://americanrepertorytheater.org<i class="halflings-icon cog"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://www.vtinvasives.org/
+    <i class="halflings-icon cog"></i>
+    <i class="halflings-icon stop"></i>
+    <i class="halflings-icon star"></i>
+    <i class="halflings-icon certificate"></i>
+</div>
+
+<div class="site">http://alfrednutile.info<i class="halflings-icon star"></i><i class="halflings-icon leaf"></i><i class="halflings-icon eye-open"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://burnesscommunications.com<i class="halflings-icon cog"></i><i class="halflings-icon leaf"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://www.vtinvasives.org<i class="halflings-icon star"></i><i class="halflings-icon leaf"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://alumni.williams.edu<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon tag"></i></div>
+
+<div class="site">http://ohionet.org<i class="halflings-icon star"></i></span><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon tag"></i></div>
+
+<div class="site">http://www.acm-ne.org<i class="halflings-icon star"></i><i class="halflings-icon leaf"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon tag"></i></div>
+
+<div class="site">http://signaturesounds.com<i class="halflings-icon star"></i><i class="halflings-icon leaf"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon tag"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://www.ophthalmicedge.org<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://fieldeddy.com<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://www.myersinfosys.com<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site-ignore"><a class="broma" href="/posts/17">javascript example</a><i class="halflings-icon cog"></i><i class="halflings-icon leaf"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://clpp.hampshire.edu/<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://drupalcampma.com<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://www.gaiauniversity.org<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon leaf"></i><i class="halflings-icon certificate"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://www.rfc.org <i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://leaderresource.org<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon leaf"></i><i class="halflings-icon certificate"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://nationalpriorities.org<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon leaf"></i><i class="halflings-icon certificate"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://www.real-user-monitoring.com<i class="halflings-icon cog"></i><i class="halflings-icon stop"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://www.ctconservation.org<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon leaf"></i><i class="halflings-icon certificate"></i><i class="halflings-icon tag"></i></div>
+
+<div class="site">http://www.cradlefamily.com<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon leaf"></i><i class="halflings-icon certificate"></i><span class=notactive></span><span class=notactive></span></div>
+
+<div class="site">http://www.stopitnow.org<i class="halflings-icon star"></i><i class="halflings-icon stop"></i><i class="halflings-icon leaf"></i><i class="halflings-icon certificate"></i><i class="halflings-icon certificate"></i></div>
+
+<div class="site">http://3blmedia.com<i class="halflings-icon cog"></i><i class="halflings-icon stop"></i><i class="halflings-icon leaf"></i><i class="halflings-icon certificate"></i><i class="halflings-icon certificate"></i></div>
