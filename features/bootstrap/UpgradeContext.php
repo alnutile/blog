@@ -160,4 +160,12 @@ class UpgradeContext extends MinkContext implements Context, SnippetAcceptingCon
 
         PHPUnit_Framework_Assert::assertContains('DrupalCamp Western Mass', $results);
     }
+
+    /**
+     * @Given I am on the page with posts
+     */
+    public function iAmOnThePageWithPosts()
+    {
+        $this->visit(route('posts.index'));
+    }
 }

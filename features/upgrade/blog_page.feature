@@ -6,7 +6,7 @@ Feature: Blog Page needs to work
 
 
   Scenario: On the blog page
-    Given I am on homepage
+    Given I am on the page with posts
     Then I should have the top banner and projects under it
     And it should have the needed menu area
     And it should have tags
