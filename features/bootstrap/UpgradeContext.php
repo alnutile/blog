@@ -1,9 +1,11 @@
 <?php
 
+use App\Post;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\MinkExtension\Context\MinkContext;
+use Illuminate\Support\Facades\File;
 
 /**
  * Created by PhpStorm.
@@ -13,6 +15,9 @@ use Behat\MinkExtension\Context\MinkContext;
  */
 class UpgradeContext extends MinkContext implements Context, SnippetAcceptingContext
 {
+
+    use \Illuminate\Foundation\Testing\DatabaseTransactions;
+
     private $baseUrl;
 
     public function __construct()
@@ -167,5 +172,47 @@ class UpgradeContext extends MinkContext implements Context, SnippetAcceptingCon
     public function iAmOnThePageWithPosts()
     {
         $this->visit(route('posts.index'));
+    }
+
+    /**
+     * @Given I search for foo
+     */
+    public function iSearchForFoo()
+    {
+        //Setup the world?
+        factory(\App\Post::class, 3)->create(['title' => 'baz']);
+
+        factory(\App\Post::class)->create(['title' => 'foo']);
+
+        $this->visit('search?search=foo');
+
+
+
+    }
+
+    /**
+     * @Then I should get only so many results
+     */
+    public function iShouldGetOnlySoManyResults()
+    {
+        $results = $this->getSession()->getPage()->getContent();
+
+        PHPUnit_Framework_Assert::assertContains('foo', $results);
+
+        PHPUnit_Framework_Assert::assertNotContains('baz', $results);
+    }
+
+    /**
+     * @Then that should be less than the total results the system offers
+     */
+    public function thatShouldBeLessThanTheTotalResultsTheSystemOffers()
+    {
+        $results = $this->getSession()->getPage()->getContent();
+        $total_post = Post::allActive()->toArray();
+
+        File::put(base_path('tests/fixtures/search.json'), json_encode(json_decode($results, true), JSON_PRETTY_PRINT));
+        $total_found = json_decode($results, true);
+        PHPUnit_Framework_Assert::assertGreaterThan(count($total_found), $total_post, "Results larger than all posts");
+
     }
 }

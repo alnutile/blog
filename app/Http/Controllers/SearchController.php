@@ -8,14 +8,13 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
 class SearchController extends  BaseController {
-    public function search()
+    public function search(Request $request)
     {
-        $args = Request::get('q');
+        $args = $request->input('search');
         $results = \SearchAls::find($args);
 
         return Response::json($results->toArray(), 200);
