@@ -39,6 +39,12 @@ Façades
     'Rss' 			  => 'Thujohn\Rss\RssFacade'
 
 
+## Assets
+
+This is old laravel 4 updated to 5 and those are still in public :(
+
+And gulp right now has not been updated so you need to run 'gulp scripts', 'gulp angular' and or 'gulp css' before pushing to add new updates to production
+
 ## Password Reset
 
 php artisan password_reset

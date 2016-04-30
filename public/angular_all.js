@@ -20761,10 +20761,10 @@ app.controller("SearchController", function($scope, $http, $q, $window) {
 
       $http.get("/search?search=" + params.query)
         .then(function(response) {
-          if(!response.data.data) {
+          if(!response.data) {
             defer.resolve([]);
           }
-            var results = response.data.data.map(function(post) {
+            var results = response.data.map(function(post) {
               return {
                 "id": post.id,
                 "title": trimString(post.title)

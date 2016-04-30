@@ -181,7 +181,7 @@
 
 
 
-@if(App::environment() =='local')
+@if(App::environment() =='foo')
     <script src="/js/angular.js"></script>
     <script src="/js/liveSearch.js"></script>
     <script src="/js/app/search.js"></script>
