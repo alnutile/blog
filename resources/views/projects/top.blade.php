@@ -7,7 +7,7 @@
                 <div class="span7 media-body">
                     <h3 class="media-heading">{{$project->title}}</h3>
                     <div class="starting">
-                       {{$project->body}}
+                       {!! $project->body !!}
                     </div>
                     <div class="tags">
                         <h3>Tags:</h3>
