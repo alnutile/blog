@@ -1,6 +1,6 @@
 <div class="media">
     <a class="pull-left" href="http://www.developershangout.io/">
-        <img class="media-object" src="/images/devshangout.jpg">
+        <img class="media-object thumbnail" src="/images/devshangout.jpg">
     </a>
     <div class="media-body">
         <h4 class="media-heading">
