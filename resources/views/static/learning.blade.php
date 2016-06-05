@@ -10,7 +10,7 @@
     <div class="row-fluid">
         <div class="span12">
             <h3><i class="icon-book"></i> Colection of Readings, Podcasts etc</h3>
-            <img src="https://lh3.googleusercontent.com/36usLkvM5uPsmCkTzu9yz2jHMNBnUQgpEV48vfpENPRHVjNpUnI=w1772-h1172-no" class="thumbnail">
+            <img src="/images/learnings.png" class="thumbnail">
             <br>
             <p class="lead">
                 <span class="dropcap dark">J</span>ust wanted to stash here many of the books read, podcasts listened to, sites visited that have helped to bring about
