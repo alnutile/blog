@@ -16,7 +16,9 @@
                 <span class="dropcap dark">J</span>ust wanted to stash here many of the books read, podcasts listened to, sites visited that have helped to bring about
                 a better sense of code design, team work and overall day to day goals. 
             </p>
-            <p class="lead"><span class="dropcap dark">A</span>lso check out my podcast <a href='http://www.developershangout.io/'>DevelopersHangout.io</a></p>
+            <p class="lead"><span class="dropcap dark">A</span>lso check out my podcast
+                <a class="btn btn-default btn-inverse" href='http://www.developershangout.io/'>
+                    <i class="fa fa-icon-headphones"></i>&nbsp;DevelopersHangout.io</a></p>
         </div>
     </div> <!--end top row-->
     <hr>
