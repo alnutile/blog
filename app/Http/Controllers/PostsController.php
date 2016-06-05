@@ -144,6 +144,7 @@ class PostsController extends BaseController {
         });
 
         $active = $post->id;
+
 		return View::make('posts.show', compact('post', 'posts', 'active'));
 	}
 

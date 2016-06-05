@@ -22,7 +22,13 @@
                     <p>
                         Resume <a href="https://www.dropbox.com/s/vl5o2tdvg91dnpf/Resume.docx">doc version</a> and <a href="https://dl.dropboxusercontent.com/u/54803135/Resume.pdf">pdf version</a>, past work can be seen below and on <a href="/portfolio">portfolio page</a>.
                     </p>
-                    <p><a href='http://www.developershangout.io/'>DevelopersHangout Podcast!</a></p>
+                    <p>
+                        <a class="btn btn-default btn-inverse"
+                           href='http://www.developershangout.io/'>
+                            <i class="fa fa-icon-headphones"></i>
+                            &nbsp;DevelopersHangout Podcast!
+                        </a>
+                    </p>
                 </div>
                 <div class="row-fluid">
                     <div class="text-center">

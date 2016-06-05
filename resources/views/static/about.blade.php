@@ -43,6 +43,8 @@
             </div>
         </div>
         <div class="span4 sidebar">
+            @include('shared._podcast')
+
             <div class="keys well">
                 <h4>Keys</h4>
                 <div><i class="halflings-icon star"></i>In on Full Build</div>
