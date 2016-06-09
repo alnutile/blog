@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "69e53d054029e2ede17e9869382db0cf",
-    "content-hash": "8f75ff21c5c59e7668303de487d69da0",
+    "hash": "e258bfdc0e4c6a83d6dfd0dd576a82c0",
+    "content-hash": "2c02ac140abe0ab068f8dce509316f21",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1508,6 +1508,52 @@
             ],
             "description": "Flysystem adapter for the AWS S3 SDK v3.x",
             "time": "2016-04-19 20:27:15"
+        },
+        {
+            "name": "mayconbordin/rss-l5",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mayconbordin/rss-l5.git",
+                "reference": "b476053600ac39d49451ef499d70ea34aa785302"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mayconbordin/rss-l5/zipball/b476053600ac39d49451ef499d70ea34aa785302",
+                "reference": "b476053600ac39d49451ef499d70ea34aa785302",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Thujohn\\Rss\\": "src/Thujohn/Rss/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "thujohn",
+                    "email": "jonathan.thuau@gmail.com"
+                },
+                {
+                    "name": "Maycon Viana Bordin",
+                    "email": "mayconvianabordin@gmail.com"
+                }
+            ],
+            "description": "RSS builder for Laravel 5",
+            "keywords": [
+                "laravel",
+                "laravel5",
+                "rss"
+            ],
+            "time": "2015-07-08 00:03:25"
         },
         {
             "name": "michelf/php-markdown",

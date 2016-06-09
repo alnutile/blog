@@ -64,8 +64,8 @@
                 <h3>More info</h3>
                 <h4>Resume</h4>
                 <p>
-                    <i class="halflings-icon  user"></i><a href="https://dl.dropboxusercontent.comu/54803135/Resume.pdf" target="_blank">PDF Here</a></br>
-                    <i class="halflings-icon  user"></i><a href="https://dl.dropboxusercontent.com/u/54803135/Resume.doc" target="_blank">DOC Here</a>
+                    <i class="halflings-icon  user"></i><a href="https://goo.gl/z9R72W" target="_blank">PDF Here</a></br>
+                    <i class="halflings-icon  user"></i><a href="https://goo.gl/z9R72W" target="_blank">DOC Here</a>
                 </p>
             </div>
             <hr>

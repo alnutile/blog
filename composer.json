@@ -16,7 +16,8 @@
         "league/flysystem-aws-s3-v3": "~1.0",
         "cebe/markdown": "~1.0.1",
         "michelf/php-markdown": "^1.6",
-        "laravelcollective/html": "^5.2"
+        "laravelcollective/html": "^5.2",
+        "mayconbordin/rss-l5": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

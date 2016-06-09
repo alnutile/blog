@@ -20,7 +20,7 @@
                         Focused on building RESTful APIs in Laravel/PHP, and building apps in AngularJS.
                     </p>
                     <p>
-                        Resume <a href="https://www.dropbox.com/s/vl5o2tdvg91dnpf/Resume.docx">doc version</a> and <a href="https://dl.dropboxusercontent.com/u/54803135/Resume.pdf">pdf version</a>, past work can be seen below and on <a href="/portfolio">portfolio page</a>.
+                        Resume <a href="https://goo.gl/z9R72W">doc version</a> and <a href="https://goo.gl/z9R72W">pdf version</a>, past work can be seen below and on <a href="/portfolio">portfolio page</a>.
                     </p>
                     <p>
                         <a class="btn btn-default btn-inverse"
