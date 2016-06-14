@@ -56,22 +56,25 @@ Route::get('rss', function()
     return Response::make($feed, 200, array('Content-Type' => 'text/xml'));
 });
 
-//Route::get('rss_full', function()
-//{
-//
-//    $feed = Rss::feed('2.0', 'UTF-8');
-//    $feed->channel(
-//        array('title' => 'Alfred Nutile RSS', 'description' => 'Laravel, Angular Practical Solutions try https://www.alfrednutile.info/rss_full', 'link' => 'https://www.alfrednutile.info/'));
-//
-//    $items = Post::Published()->OrderByCreatedAt()->get();
-//
-//    foreach($items as $item)
-//    {
-//        $trimmed = getBody($item, true);
-//        $feed->item(array('title' => $item->title, 'description|cdata' => $trimmed, 'link' => url('posts/' . $item->id)));
-//    }
-//    return Response::make($feed, 200, array('Content-Type' => 'text/xml'));
-//});
+Route::get('rss_full', function()
+{
+
+    $rss = new Rss();
+
+    $feed = $rss->feed('2.0', 'UTF-8');
+
+    $feed->channel(
+        array('title' => 'Alfred Nutile RSS', 'description' => 'Laravel, Angular Practical Solutions try https://www.alfrednutile.info/rss_full', 'link' => 'https://www.alfrednutile.info/'));
+
+    $items = Post::Published()->OrderByCreatedAt()->get();
+
+    foreach($items as $item)
+    {
+        $trimmed = getBody($item, true);
+        $feed->item(array('title' => $item->title, 'description|cdata' => $trimmed, 'link' => url('posts/' . $item->id)));
+    }
+    return Response::make($feed, 200, array('Content-Type' => 'text/xml'));
+});
 
 function getBody($item, $full)
 {
