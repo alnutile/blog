@@ -109,7 +109,7 @@
                       </a>
                   </li>
                   <li id='feed'class='span2'>
-                      <a href="https://www.alfrednutile.info/rss">
+                      <a href="/rss">
                           <img src="/img/feed-9-xl.png">
                       </a>
                   </li>
