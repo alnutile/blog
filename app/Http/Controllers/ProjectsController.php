@@ -186,7 +186,7 @@ class ProjectsController extends BaseController {
         } else {
             $data['photo_file_name'] = $project->photo_file_name;
         }
-        $data['rendered_body']  = $this->getMarkdownTool()->defaultTransform($data['body']);
+        $data['html']  = $this->getMarkdownTool()->defaultTransform($data['mark_down']);
         $project->update($data);
         $project->tags()->detach();
         if(Input::get('tags') && count(Input::get('tags')) > 0) {
