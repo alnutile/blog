@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Validator;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -39,6 +43,23 @@ class AuthController extends Controller
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
+
+    /**
+     * Get the throttle key for the given request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string
+     */
+    protected function getThrottleKey(Request $request)
+    {
+        if (Config::get('auth.throttle_key') == 'ip') {
+            return $request->ip();
+        } else {
+            return Str::lower($request->input($this->username())).'|'.$request->ip();
+        }
+    }
+
+
 
     /**
      * Get a validator for an incoming registration request.
