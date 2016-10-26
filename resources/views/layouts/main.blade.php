@@ -42,7 +42,8 @@
     @else
         <link href="/all.css" rel="stylesheet" type="text/css">
     @endif
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 </head>
 <body onload="prettyPrint()">
 
