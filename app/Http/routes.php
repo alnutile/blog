@@ -88,5 +88,13 @@ function getBody($item, $full)
 
     return ($full) ? $render : strip_tags(substr($render, 0, 200));
 }
+
 Route::auth();
 
+Route::post('register', function() {
+    return redirect('login')->withErrors(["email" => "Not allowed to register"]);
+});
+
+Route::get('register', function() {
+    return redirect('login')->withErrors(["email" => "Not allowed to register"]);
+});
