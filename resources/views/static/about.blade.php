@@ -14,6 +14,12 @@
                 Software Writer and System Architect
             </p>
             <p>
+            <div class="lead">
+                Author of <a href="https://www.packtpub.com/web-development/laravel-5x-cookbook" target="_blank"
+                style="text-decoration: underline;">
+                    Laravel 5.x Cookbook
+                </a>
+            </div>
             <ul class="check_list about">
                 <li>Over 8 years building websites and web apps from start to end. Using technologies like Angular.js, Laravel, AWS, Linux, PHP, Drupal, Rails, JavaScript, jQuery, Apache, etc.</li>
                 <li>Over 7 years managing projects, clients and staff. Working alone or with a team to make sure the projects get done.</li>
