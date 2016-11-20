@@ -16,13 +16,24 @@
             <label>Tags</label>
             {{ Form::text('tags', $tags_string, array('class' => 'controls span6')) }}
 
-            <label>Body</label>
-            {{ Form::textarea('body', null, array('rows' => 80, 'class' => 'controls span12')) }}
+            <div class="form-group @if($errors->has('markdown')) has-error @endif">
+                <label for="markdown">Body Markdown</label>
+                <textarea class="form-control" id="markdown"
+                          rows="20" name="body">{{ is_null(old("body")) ? $post->body : old("body")}}</textarea>
+                <script>
+                    var simplemde = new SimpleMDE({ element: document.getElementById("markdown") });
+                </script>
+                @if($errors->has("body"))
+                    <span class="help-block alert alert-warning">{{ $errors->first("body") }}</span>
+                @endif
+            </div>
+
             <div class="controls">
                 <div class="checkbox">
                     <label class="checkbox">{{ Form::checkbox('active') }}Active</label>
                 </div>
             </div>
+
             <div class="controls">
                 {{ Form::submit('Update Post', array('class' => 'btn btn-success')) }}
                 <br>
