@@ -20,8 +20,17 @@
         {{ Form::text('tags', null, array('class' => 'controls span6')) }}
 
         <label>Body</label>
-        {{ Form::textarea('body', null, array('rows' => 80, 'class' => 'controls span12')) }}
-        <div class="controls">
+
+        <div class="form-group">
+            <label for="markdown">Body Markdown</label>
+            <textarea class="form-control" id="markdown"
+                      rows="20" name="body"></textarea>
+            <script>
+                var simplemde = new SimpleMDE({ element: document.getElementById("markdown") });
+            </script>
+        </div>
+
+          <div class="controls">
             <div class="checkbox">
                 <label class="checkbox">{{ Form::checkbox('active') }}Active</label>
             </div>
