@@ -2,6 +2,20 @@
 
     <blockquote>
         <p>
+            “I don’t have inspiration. I only have ideas. Ideas and deadlines.”
+        </p>
+        <small><cite>Stan Lee</cite></small>
+    </blockquote>
+    
+    <blockquote>
+        <p>
+            “I'm not a great programmer; I'm just a good programmer with great habits.”
+        </p>
+        <small><cite>Kent Beck</cite></small>
+    </blockquote>
+    
+    <blockquote>
+        <p>
             "...professional and very easy to work with.  He ran the project right on time, thought of potential issues and enhancements, and was very patient and responsive with making adjustments to make the final product work great!"
         </p>
         <small><cite>Alice Chen MD http://www.drsforamerica.org/</cite></small>
