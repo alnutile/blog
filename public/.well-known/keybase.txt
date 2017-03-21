@@ -1,0 +1,69 @@
+==================================================================
+https://keybase.io/alfrednutile
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://alfrednutile.info
+  * I am alfrednutile (https://keybase.io/alfrednutile) on keybase.
+  * I have a public key with fingerprint 9E37 A135 9B41 67A8 8252  819A 75F3 3A19 75EB 9121
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101ec44f4aa87962e793029ae4034d57e37e3e0cc31e6289a73b3043b4dc29b722f0a",
+            "fingerprint": "9e37a1359b4167a88252819a75f33a1975eb9121",
+            "host": "keybase.io",
+            "key_id": "75f33a1975eb9121",
+            "kid": "0101ec44f4aa87962e793029ae4034d57e37e3e0cc31e6289a73b3043b4dc29b722f0a",
+            "uid": "d8168498bbb5aa98e513d2a7f04abf19",
+            "username": "alfrednutile"
+        },
+        "service": {
+            "hostname": "alfrednutile.info",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1490113718,
+    "expire_in": 157680000,
+    "prev": "27c33868381a7472d5df43b9aa6fd3ad94a6efbe8189f0be97ff512ca888f5a9",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.66
+Comment: https://keybase.io/crypto
+
+yMInAnicrVJbSFRBGN7tYriLZVBRQWwcCozUzpw5l5l9iHqqoKCbZWptc86Zs3tc
+PWc9e9YylXroAsoWBZZtYPYSWulLaghFJV2oqMhAMipUogdN7EJEdLE5Um89NgwM
+M//3ffN9/8ydnOm+gH9GzpgdvjvR5390uzXlK362vaeWU229hgvXcnE6tdAKnSbd
+SNzUuTDHAx5QTRQNkRCkYFmgCoa8gAkVeSjqkkIhm5TXNAioLCBMFKhCXoSqqGsC
+VhVBMHjC5XOGaUWpk3BMy2WymNEIgBJWRSArBCFBEhBgZMmAkACsSFTFQACMGLOT
+HoOZU0mSFpo2O2ObyJS9f+D/s+/UlJyOgIxEjFRVlQjBiEoA6gJRDF4kqgGwB0xS
+xyKVlKFJheFQ3Uq5ZgXl6vM5Vqk2Neo110vzD1ShaRlesIRju7ZmV7ByzHUTybBH
+d2sSHn4fVSN/lCKqaemsoYxRTZ2kaVtcGDCk5pqeNBAxDwBUAMrn6P6E6dCI6SEk
+RUY8G949tJpJCooGIZIRRIAooiLokm6wFmBCZEOHRMcikamhUgQQNniVYsUwJCBo
+7MGQIREvdpJWWTYXFplNEmWSSTNqETflsOB9t8pm+PwBX9bMad5H8wWyc/9+vzJh
+1iQ9XjuS2fjmxoD/Rt7yvvbYs1SwObqnIXfuWGj+JhwM9rYGDusP3o3n/fxRmH4e
+/7Ty6oK6V8ezO0oKrscGMgcfhpaen7vhVDpyRNmqDXWqsZtvf6Xrzdwzjd0XJ+vO
+Li9Jr2o82ff0xd7Bk6XnZjfhRO8DoXH3h13FBS1rPw60dHbC/d8fz8uUg/c40l3W
+3jDSfGJxaGdTYAW3uf9DR9u9+7NDxxZljb6uHPTP2SI6E+sTHXz7yq7M0UvLYu97
+e65+vbxt3aWil6u/lJtzTj1ZE1wSOHQgWFPVNSzXP5ksLcHtV5rOpRPxUNHpoZaF
+3675LvR3fR5uq99RMp7fsHGWO5r5DcliRbQ=
+=1uZc
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/alfrednutile
+
+==================================================================
+
