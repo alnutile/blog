@@ -8,3 +8,4 @@ Homestead.json
 Thumbs.db
 .env_boot.php
 node_modules/*
+.well-known
