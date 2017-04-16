@@ -7,6 +7,22 @@
 
 <div id="wrapper" class="full">
     <div class="row-fluid">
+        <div class="span6">
+            <h2>Nerd Summit 2017 (New England Regional Developers)</h2>
+            <p class="lead">
+                Laravel Getting Started. You can see more about it here
+                https://nerdsummit.org/#laravel-getting-started
+                Click on image to see the slide-show.
+            </p>
+        </div>
+        <div class="span6">
+            <a class="devs" href="https://docs.google.com/presentation/d/1YU3AbftAmLw0J6epiUZyuyXKwKRAzuhaDUx1QqDj_jw/edit?usp=sharing">
+                <img class="img-responsive img-thumbnail" src="/images/laravel_getting_started.png" alt=""/>
+            </a>
+        </div>
+    </div> <!--end top row-->
+    <hr>
+    <div class="row-fluid">
         <div class="span7">
             <a class="statuschecker" href="http://www.developershangout.io/">
                 <img class="img-responsive img-thumbnail" src="/images/devshangout.png" alt=""/>
