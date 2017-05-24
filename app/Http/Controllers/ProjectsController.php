@@ -77,8 +77,7 @@ class ProjectsController extends BaseController {
 
                 $contents = file_get_contents($request->file('photo_file_name')->getRealPath());
 
-                Storage::put($request->file('photo_file_name')->getClientOriginalName(), $contents);
-                Storage::setVisibility($request->file('photo_file_name')->getClientOriginalName(), 'public');
+                Storage::put($request->file('photo_file_name')->getClientOriginalName(), $contents, 'public');
             } catch(\Exception $e) {
                 Log::info("Error uploading file " . $e->getMessage());
             }
@@ -177,8 +176,7 @@ class ProjectsController extends BaseController {
             try {
                 $contents = file_get_contents($request->file('photo_file_name')->getRealPath());
 
-                Storage::put($request->file('photo_file_name')->getClientOriginalName(), $contents);
-                Storage::setVisibility($request->file('photo_file_name')->getClientOriginalName(), 'public');
+                Storage::put($request->file('photo_file_name')->getClientOriginalName(), $contents, 'public');
             } catch(\Exception $e) {
                 //dd("Error uploading file " . $e->getMessage());
             }
