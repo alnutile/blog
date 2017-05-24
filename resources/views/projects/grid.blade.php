@@ -9,11 +9,11 @@
             {{ strip_tags(substr($project->body, 0, 200)) }}
         </p>
         <div class="meta">
-                        <span><i class="fa-icon-tags"></i>
-                            @foreach($project->tags as $tag)
-                                <a href="/tags/{{$tag->id}}">{{$tag->name}}</a>
-                            @endforeach
-                        </span>
+            <span><i class="fa-icon-tags"></i>
+                @foreach($project->tags as $tag)
+                    <a href="/tags/{{$tag->id}}">{{$tag->name}}</a>
+                @endforeach
+            </span>
         </div>
     </div>
 </div>
