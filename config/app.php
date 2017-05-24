@@ -161,6 +161,8 @@ return [
         App\Services\ImageService::class,
 
         Collective\Html\HtmlServiceProvider::class,
+
+        \AlfredNutileInc\Incomings\IncomingsServiceProvider::class
     ],
 
     /*

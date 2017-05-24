@@ -4,9 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e258bfdc0e4c6a83d6dfd0dd576a82c0",
-    "content-hash": "2c02ac140abe0ab068f8dce509316f21",
+    "hash": "79cf45e6320ed1dfb80230c6b3a362e6",
+    "content-hash": "b211de443de6b762ceebd032e05f6bb4",
     "packages": [
+        {
+            "name": "alfred-nutile-inc/incomings-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alfred-nutile-inc/incomings-client.git",
+                "reference": "e760a6a43e4d969779f3d3968edaa9978c8b9265"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alfred-nutile-inc/incomings-client/zipball/e760a6a43e4d969779f3d3968edaa9978c8b9265",
+                "reference": "e760a6a43e4d969779f3d3968edaa9978c8b9265",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "1.4.0",
+                "guzzlehttp/guzzle": "~5.3|~6.0",
+                "mockery/mockery": "*",
+                "phpunit/phpunit": "~4.0",
+                "symfony/var-dumper": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlfredNutileInc\\Incomings\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Alfred Nutile Inc",
+                    "email": "me@alfrednutile.info"
+                }
+            ],
+            "description": "Connects to incomings.io",
+            "time": "2016-09-29 12:47:00"
+        },
         {
             "name": "aws/aws-sdk-php",
             "version": "3.18.4",
@@ -4470,7 +4510,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "behat/mink-extension": 20
+        "behat/mink-extension": 20,
+        "alfred-nutile-inc/incomings-client": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
