@@ -1,6 +1,8 @@
 ## Going Laravel 5
 
+## Notes 
 
+Logging can be seen at Incomings.io 
 
 ## Todo
 

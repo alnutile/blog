@@ -20,11 +20,26 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Project::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->name,
+        'body' => $faker->realText(),
+        'rendered_body' => $faker->realText(),
+    ];
+});
+
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'title' => $faker->name,
         'body' => $faker->name,
         'rendered_body' => $faker->name,
+    ];
+});
+
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
     ];
 });

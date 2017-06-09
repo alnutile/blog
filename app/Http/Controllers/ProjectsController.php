@@ -7,6 +7,7 @@ use App\MarkdownExtraParser;
 use App\MarkDownHelper;
 use App\Post;
 use App\Project;
+use App\ProjectRepo;
 use App\Services\SchedulerAls;
 use App\Tag;
 use Illuminate\Http\Request;
@@ -78,7 +79,7 @@ class ProjectsController extends BaseController {
 
                 $contents = file_get_contents($request->file('photo_file_name')->getRealPath());
 
-                Storage::disk("s3")->put($request->file('photo_file_name')->getClientOriginalName(), $contents, 'public');
+                Storage::disk("local")->put($request->file('photo_file_name')->getClientOriginalName(), $contents, 'public');
 
             } catch(\Exception $e) {
                 Log::info("Error uploading file " . $e->getMessage());
@@ -165,51 +166,18 @@ class ProjectsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(Request $request, ProjectRepo $repo, $id)
 	{
-        $project = Project::findOrFail($id);
-
-        $data = $request->all();
-
         $this->validate($request, Post::$rules);
 
-        if($request->file('photo_file_name')) {
+        try {
+            $repo->handleUpdate($id, $request);
 
-            try {
-                $contents = file_get_contents($request->file('photo_file_name')->getRealPath());
-
-                Storage::disk("s3")->put($request->file('photo_file_name')->getClientOriginalName(), $contents, 'public');
-            } catch(\Exception $e) {
-                //dd("Error uploading file " . $e->getMessage());
-            }
-            $data['photo_file_name'] = $request->file('photo_file_name')->getClientOriginalName();
-        } else {
-            $data['photo_file_name'] = $project->photo_file_name;
+            return Redirect::route('projects.index');
+        } catch (\Exception $e) {
+            Log::info($e);
+            return back()->withInput($request->input())->withErrors(['could not update project see logs']);
         }
-        $project->update($data);
-        $project->tags()->detach();
-        if(Input::get('tags') && count(Input::get('tags')) > 0) {
-
-            //@TODO move into shared method
-
-            $tags = Input::get('tags');
-            $tag_ids = [];
-
-            if($tags) {
-                $date = $project->created_at;
-                $tags_array = explode(",", $tags);
-
-                foreach($tags_array as $tag) {
-                    $t = Tag::where("name", "=", trim($tag))->first();
-                    if(!$t) {
-                        $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
-                    }
-                    $project->tags()->attach( (array) $t->id, array('created_at' => $date, 'updated_at' => $date) );
-                }
-            }
-        }
-
-        return Redirect::route('projects.index');
 	}
 
 	/**

@@ -31,7 +31,7 @@ Route::resource('portfolio', 'ProjectsController');
 
 Route::resource('projects', 'ProjectsController');
 
-//Route::resource('tags', 'TagsController');
+Route::resource('tags', 'TagsController');
 
 
 Route::get('rss', function()
