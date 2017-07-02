@@ -8,7 +8,6 @@
 
 namespace App;
 
-
 trait MarkDownHelper
 {
     
@@ -19,8 +18,9 @@ trait MarkDownHelper
      */
     public function getMarkdownTool()
     {
-        if($this->markdown_tool == null)
+        if ($this->markdown_tool == null) {
             $this->setMarkdownTool();
+        }
         
         return $this->markdown_tool;
     }
@@ -30,10 +30,10 @@ trait MarkDownHelper
      */
     public function setMarkdownTool($markdown_tool = null)
     {
-        if($markdown_tool == null)
+        if ($markdown_tool == null) {
             $markdown_tool = new \App\MarkdownExtraParser();
+        }
         
         $this->markdown_tool = $markdown_tool;
     }
-
 }

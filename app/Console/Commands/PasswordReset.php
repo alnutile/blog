@@ -47,6 +47,5 @@ class PasswordReset extends Command
         $user->save();
         
         $this->info(sprintf("New password %s", $password));
-        
     }
 }

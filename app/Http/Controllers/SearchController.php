@@ -11,7 +11,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
-class SearchController extends  BaseController {
+class SearchController extends BaseController
+{
     public function search(Request $request)
     {
         $args = $request->input('search');
@@ -19,4 +20,4 @@ class SearchController extends  BaseController {
 
         return Response::json($results->toArray(), 200);
     }
-} 
+}

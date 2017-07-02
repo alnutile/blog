@@ -8,7 +8,7 @@
 
 namespace App\Search;
 
-
-interface SearchInterface {
+interface SearchInterface
+{
     public function find();
-} 
+}

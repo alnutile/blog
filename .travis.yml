@@ -35,8 +35,5 @@ after_script:
       php ocular.phar code-coverage:upload --format=php-clover coverage.clover
     fi
 
-deploy:
-  provider: script
-  script: deploy.sh
-  on:
-    branch: master
+after_success:
+  - ./deploy.sh

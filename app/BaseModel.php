@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class BaseModel extends Model {
+class BaseModel extends Model
+{
 
     public function scopePublished($query)
     {
@@ -11,7 +12,6 @@ class BaseModel extends Model {
 
     public function scopeOrderByCreatedAt($query)
     {
-        return $query->orderBy('created_at', null, TRUE);
+        return $query->orderBy('created_at', null, true);
     }
 }
-

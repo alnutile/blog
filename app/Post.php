@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\Cache;
 
-class Post extends BaseModel {
+class Post extends BaseModel
+{
 
-	// Add your validation rules here
-	public static $rules = [
-		'title' => 'required',
-	];
+    // Add your validation rules here
+    public static $rules = [
+        'title' => 'required',
+    ];
 
-	// Don't forget to fill this array
-	protected $fillable = ['title', 'name', 'body', 'rendered_body', 'created_at', 'updated_at', 'active', 'scheduled'];
+    // Don't forget to fill this array
+    protected $fillable = ['title', 'name', 'body', 'rendered_body', 'created_at', 'updated_at', 'active', 'scheduled'];
 
     public function tags()
     {
@@ -28,15 +29,13 @@ class Post extends BaseModel {
         $word = '%' . $word . '%';
         return $this
             ->select('title', 'id')
-            ->where('title', 'like', $word)->orWhere('body', 'like',  $word)
-            ->orWhere('rendered_body', 'like',  $word)->get();
+            ->where('title', 'like', $word)->orWhere('body', 'like', $word)
+            ->orWhere('rendered_body', 'like', $word)->get();
     }
 
     public static function allActive()
     {
         $actives = self::where('active', '=', 'true')->orderBy('created_at', 'desc')->get();
         return $actives;
-
     }
-
 }

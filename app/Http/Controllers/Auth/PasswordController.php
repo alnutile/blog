@@ -1,11 +1,13 @@
 <?php
 namespace App\Http\Controllers\Auth;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Password;
+
 class PasswordController extends Controller
 {
     /*
@@ -42,7 +44,7 @@ class PasswordController extends Controller
         $this->username = 'email';
         Log::debug("Validate");
 
-        if($this->hasTooManyLoginAttempts($request)) {
+        if ($this->hasTooManyLoginAttempts($request)) {
             return redirect()->back()->withErrors(['email' => "You have exceeded the limit of attempts. Please try again shortly"]);
         }
 
@@ -51,7 +53,8 @@ class PasswordController extends Controller
         $broker = $this->getBroker();
 
         $response = Password::broker($broker)->sendResetLink(
-            $request->only('email'), $this->resetEmailBuilder()
+            $request->only('email'),
+            $this->resetEmailBuilder()
         );
 
         switch ($response) {
@@ -62,7 +65,6 @@ class PasswordController extends Controller
             default:
                 return $this->getSendResetLinkEmailFailureResponse($response);
         }
-
     }
 
     public function loginUsername()

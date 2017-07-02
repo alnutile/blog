@@ -4,13 +4,13 @@ use App\Project;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 
-class StaticController extends BaseController {
+class StaticController extends BaseController
+{
 
     public function showHome()
     {
-        $projects = Cache::rememberForever('projects', function()
-        {
-            return Project::all()->sortBy('created_at', null, TRUE);
+        $projects = Cache::rememberForever('projects', function () {
+            return Project::all()->sortBy('created_at', null, true);
         });
 
         return View::make('static.home', compact('projects'));

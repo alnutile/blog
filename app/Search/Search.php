@@ -10,7 +10,8 @@ namespace App\Search;
 
 use App\Repositories\SearchRepository;
 
-class Search implements SearchInterface {
+class Search implements SearchInterface
+{
 
     protected $repo;
 
@@ -22,11 +23,11 @@ class Search implements SearchInterface {
     public function find()
     {
         $args = func_get_args();
-        if(count($args)) {
+        if (count($args)) {
             list($query) = $args;
             return $this->repo->find($query);
         } else {
             return $this->repo->findAll();
         }
     }
-} 
+}

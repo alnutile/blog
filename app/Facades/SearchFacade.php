@@ -11,10 +11,11 @@ namespace App\Facades;
 use App\Repositories\SearchRepository;
 use Illuminate\Support\Facades\Facade;
 
-class SearchFacade extends Facade {
+class SearchFacade extends Facade
+{
 
-    protected static function getFacadeAccessor() {
+    protected static function getFacadeAccessor()
+    {
         return 'SearchAls';
     }
-
-} 
+}

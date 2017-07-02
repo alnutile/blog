@@ -11,13 +11,14 @@ namespace App\Repositories;
 use App\Project;
 use App\Post;
 
-class SearchRepository implements AlsRepositoryInterface {
+class SearchRepository implements AlsRepositoryInterface
+{
 
     protected $post;
 
     public function __construct(Post $post)
     {
-      $this->post = $post;
+        $this->post = $post;
     }
 
     public function find($args)

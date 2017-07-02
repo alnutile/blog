@@ -2,13 +2,13 @@
 
 use Illuminate\Support\Facades\Cache;
 
-class ProjectsObserver {
+class ProjectsObserver
+{
 
 
     public function deleted($model)
     {
-        foreach(['projects', 'project'] as $value)
-        {
+        foreach (['projects', 'project'] as $value) {
             Cache::forget($value);
         }
 
@@ -17,8 +17,7 @@ class ProjectsObserver {
 
     public function saved($model)
     {
-        foreach(['projects', 'project'] as $value)
-        {
+        foreach (['projects', 'project'] as $value) {
             Cache::forget($value);
         }
 

@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\Cache;
  * Time: 10:05 PM
  */
 
-class PostObserver {
+class PostObserver
+{
 
 
     public function deleted($model)
     {
-        foreach(['posts_sidebar', 'posts'] as $value)
-        {
+        foreach (['posts_sidebar', 'posts'] as $value) {
             Cache::forget($value);
         }
 
@@ -26,8 +26,7 @@ class PostObserver {
 
     public function saved($model)
     {
-        foreach(['posts_sidebar', 'posts'] as $value)
-        {
+        foreach (['posts_sidebar', 'posts'] as $value) {
             Cache::forget($value);
         }
 

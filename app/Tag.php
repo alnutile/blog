@@ -1,7 +1,8 @@
 <?php namespace App;
 
-class Tag extends \Illuminate\Database\Eloquent\Model {
-	protected $fillable = ['name', 'created_at', 'updated_at'];
+class Tag extends \Illuminate\Database\Eloquent\Model
+{
+    protected $fillable = ['name', 'created_at', 'updated_at'];
     public $timestamps = false;
 
     public function posts()

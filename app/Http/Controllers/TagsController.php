@@ -37,7 +37,6 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-
     }
 
     /**
@@ -55,16 +54,16 @@ class TagsController extends Controller
 
             $posts = $tag->posts;
 
-            foreach($posts as $post) {
-                foreach($post->tags as $tag) {
+            foreach ($posts as $post) {
+                foreach ($post->tags as $tag) {
                     $tagsAll[$tag->id] = $tag->toArray();
                 }
             }
 
             $projects = $tag->projects;
 
-            foreach($projects as $project) {
-                foreach($project->tags as $tag) {
+            foreach ($projects as $project) {
+                foreach ($project->tags as $tag) {
                     $tagsAll[$tag->id] = $tag->toArray();
                 }
             }

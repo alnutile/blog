@@ -8,10 +8,9 @@
 
 namespace App\Repositories;
 
-
-interface AlsRepositoryInterface {
+interface AlsRepositoryInterface
+{
 
     public function find($arg);
     public function findAll();
-
-} 
+}

@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 
-class ProjectsController extends BaseController {
+class ProjectsController extends BaseController
+{
 
     use MarkDownHelper;
 
@@ -32,113 +33,110 @@ class ProjectsController extends BaseController {
     }
 
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
     public function index(Request $request)
     {
-        $projects = Cache::rememberForever('projects', function()
-        {
-            return Project::all()->sortBy('created_at', null, TRUE);
+        $projects = Cache::rememberForever('projects', function () {
+            return Project::all()->sortBy('created_at', null, true);
         });
 
         $projects->load('tags');
 
         $project = Project::orderBy("created_at", 'desc')->first();
 
-        if(!$request->isJson()) {
+        if (!$request->isJson()) {
             return View::make('projects.index', compact('projects', 'project'));
         } else {
             return Response::json(array('data' => $projects->toArray(), 'status'=>'success', 'message' => "Projects Index"), 200);
         }
     }
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
+    {
         return View::make('projects.create');
-	}
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store(Request $request, ProjectRepo $projectRepo)
-	{
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store(Request $request, ProjectRepo $projectRepo)
+    {
         try {
-
             $project = $projectRepo->createProject($request);
 
-            if($request->format() == 'html') {
+            if ($request->format() == 'html') {
                 return Redirect::route('projects.index');
             } else {
                 return Response::json(
                     array('data' => $project->toArray(),
                         'status'=>'success',
-                        'message' => "Project Created"), 200
+                        'message' => "Project Created"),
+                    200
                 );
             }
         } catch (\Exception $e) {
             Log::debug($e);
             return back(302)->withInput($request->all());
         }
-	}
+    }
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
+    {
 
 
-        $project = Cache::rememberForever('project_' . $id, function() use ($id)
-        {
+        $project = Cache::rememberForever('project_' . $id, function () use ($id) {
             return Project::find($id)->load('tags');
         });
 
-        $projects = Cache::rememberForever('projects', function()
-        {
-            return Project::all()->sortBy('created_at', null, TRUE);
+        $projects = Cache::rememberForever('projects', function () {
+            return Project::all()->sortBy('created_at', null, true);
         });
 
         return View::make('projects.show', compact('project', 'projects'));
-	}
+    }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
         $project = Project::find($id)->load('tags');
         $t = [];
-        foreach($project->tags as $tag) {
+        foreach ($project->tags as $tag) {
             $t[] = $tag->name;
         }
         $tags_string = implode(',', $t);
         return View::make('projects.edit', compact('project', 'tags_string'));
-	}
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update(Request $request, ProjectRepo $repo, $id)
-	{
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update(Request $request, ProjectRepo $repo, $id)
+    {
         $this->validate($request, Post::$rules);
 
         try {
@@ -149,19 +147,18 @@ class ProjectsController extends BaseController {
             Log::info($e);
             return back()->withInput($request->input())->withErrors(['could not update project see logs']);
         }
-	}
+    }
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
         Project::destroy($id);
 
         return Redirect::route('projects.index');
-	}
-
+    }
 }
