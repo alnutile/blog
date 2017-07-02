@@ -36,4 +36,4 @@ after_script:
     fi
 
 after_success:
-  - curl -k X GET ${deploy}
+  - curl -k X GET https://forge.laravel.com/servers/103/sites/172679/deploy/http?token=${TOKEN}
