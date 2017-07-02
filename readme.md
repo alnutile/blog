@@ -1,5 +1,7 @@
 ## Going Laravel 5
 
+[![Build Status](https://travis-ci.org/alnutile/alsblog5.svg?branch=mainline)](https://travis-ci.org/alnutile/alsblog5)
+
 ## Notes 
 
 Logging can be seen at Incomings.io 

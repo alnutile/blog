@@ -70,53 +70,42 @@ class ProjectsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(Request $request, ProjectRepo $projectRepo)
 	{
-        $data = $request->all();
+        try {
+            $data = $request->all();
 
-        if($request->file('photo_file_name')) {
-            try {
+            if($request->file('photo_file_name')) {
+                try {
+                    $contents = file_get_contents($request->file('photo_file_name')->getRealPath());
 
-                $contents = file_get_contents($request->file('photo_file_name')->getRealPath());
+                    Storage::disk("local")->put($request->file('photo_file_name')->getClientOriginalName(), $contents, 'public');
 
-                Storage::disk("local")->put($request->file('photo_file_name')->getClientOriginalName(), $contents, 'public');
-
-            } catch(\Exception $e) {
-                Log::info("Error uploading file " . $e->getMessage());
-            }
-            $data['photo_file_name'] = $request->file('photo_file_name')->getClientOriginalName();
-        }
-
-        //TODO REMOVE name field after imports
-
-        if(empty($data['tags'])) {
-            $data['tags'] = 0;
-        }
-
-        $data['rendered_body']  = $this->getMarkdownTool()->defaultTransform($data['body']);
-        $project = Project::create($data);
-        $date = $project->created_at;
-
-        if(Input::get('tags') && count(Input::get('tags')) > 0) {
-            //@TODO move into shared method
-            $tags = Input::get('tags');
-
-            if($tags) {
-                $tags_array = explode(",", $tags);
-                foreach($tags_array as $tag) {
-                    $t = Tag::where("name", "=", trim($tag))->first();
-                    if(!$t) {
-                        $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
-                    }
-                    $project->tags()->attach( (array) $t->id, array('created_at' => $date, 'updated_at' => $date) );
+                } catch(\Exception $e) {
+                    Log::info("Error uploading file " . $e->getMessage());
                 }
+                $data['photo_file_name'] = $request->file('photo_file_name')->getClientOriginalName();
             }
-        }
 
-        if($request->format() == 'html') {
-            return Redirect::route('projects.index');
-        } else {
-            return Response::json(array('data' => $project->toArray(), 'status'=>'success', 'message' => "Project Created"), 200);
+            if(empty($data['tags'])) {
+                $data['tags'] = 0;
+            }
+
+            $data['rendered_body']  = $this->getMarkdownTool()->defaultTransform($data['body']);
+
+            $project = Project::create($data);
+
+            $projectRepo->createProject($project, $request);
+
+            if($request->format() == 'html') {
+                Log::debug("Created");
+                return Redirect::route('projects.index');
+            } else {
+                return Response::json(array('data' => $project->toArray(), 'status'=>'success', 'message' => "Project Created"), 200);
+            }
+        } catch (\Exception $e) {
+            Log::debug($e);
+            return back(302)->withInput($request->all());
         }
 	}
 

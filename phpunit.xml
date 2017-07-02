@@ -26,6 +26,6 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
-        <env name="DB_NAME" value="test"/>
+        <env name="DB_DATABASE" value="test"/>
     </php>
 </phpunit>
