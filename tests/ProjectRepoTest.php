@@ -60,8 +60,9 @@ class ProjectRepoTest extends TestCase
 
         $this->assertNotNull($project);
 
+        $this->assertEquals("foo.jpg", $project->photo_file_name);
 
-        $this->assertFileExists(storage_path('/app/foo.png'));
+        $this->assertFileExists(storage_path('/app/foo.jpg'));
 
     }
 }

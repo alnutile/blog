@@ -39,4 +39,4 @@ deploy:
   provider: script
   script: deploy.sh
   on:
-    branch: mainline
+    branch: master
