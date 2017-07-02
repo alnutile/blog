@@ -36,8 +36,6 @@ class ProjectRepoTest extends TestCase
 
         $this->assertCount(2, $project->tags);
 
-        $this->assertFileExists(storage_path('/app/foo.png'));
-
     }
 
     public function testRefactorOutFilesToRepo() {
