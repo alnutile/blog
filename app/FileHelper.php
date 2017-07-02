@@ -17,12 +17,8 @@ trait FileHelper
             try {
                 $contents = file_get_contents($request->file($file_field_name)->getRealPath());
 
-                Storage::disk("local")
-                    ->put(
-                        $request
-                        ->file($file_field_name)
-                        ->getClientOriginalName(), $contents, 'public'
-                    );
+                $this->imageToRightPlace($request, $file_field_name, $contents);
+
                 return $request->file('photo_file_name')->getClientOriginalName();
 
             } catch(\Exception $e) {
@@ -32,5 +28,23 @@ trait FileHelper
         }
 
         return false;
+    }
+
+    protected function imageToRightPlace(Request $request, $file_field_name, $contents) {
+        if(env("APP_ENV") == 'testing' || env("APP_ENV") == 'local') {
+            Storage::disk("local")
+                ->put(
+                    $request
+                        ->file($file_field_name)
+                        ->getClientOriginalName(), $contents, 'public'
+                );
+        } else {
+            Storage::disk("s3")
+                ->put(
+                    $request
+                        ->file($file_field_name)
+                        ->getClientOriginalName(), $contents, 'public'
+                );
+        }
     }
 }
