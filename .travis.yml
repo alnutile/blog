@@ -35,5 +35,8 @@ after_script:
       php ocular.phar code-coverage:upload --format=php-clover coverage.clover
     fi
 
-after_success:
-  - curl -k X GET https://forge.laravel.com/servers/103/sites/172679/deploy/http?token=${TOKEN}
+deploy:
+  provider: script
+  script: deploy.sh
+  on:
+    branch: mainline
