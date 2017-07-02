@@ -35,4 +35,4 @@ after_script:
     fi
 
 after_success:
-  - ./deploy.sh
+  - bash ./deploy.sh
