@@ -1,7 +1,6 @@
 language: php
 
 php:
-  - 5.6
   - 7.1
 
 # This triggers builds to run on the new TravisCI infrastructure.
@@ -16,12 +15,8 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-matrix:
-  include:
-    - php: 5.6
-      env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
-
 before_script:
+  - cp .env.travis .env
   - mysql -e 'CREATE DATABASE test;'\
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
   - php artisan migrate
@@ -39,3 +34,6 @@ after_script:
       wget https://scrutinizer-ci.com/ocular.phar
       php ocular.phar code-coverage:upload --format=php-clover coverage.clover
     fi
+
+after_success:
+  - curl -k X GET ${deploy}

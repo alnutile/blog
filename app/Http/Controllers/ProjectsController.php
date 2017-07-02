@@ -73,35 +73,17 @@ class ProjectsController extends BaseController {
 	public function store(Request $request, ProjectRepo $projectRepo)
 	{
         try {
-            $data = $request->all();
 
-            if($request->file('photo_file_name')) {
-                try {
-                    $contents = file_get_contents($request->file('photo_file_name')->getRealPath());
-
-                    Storage::disk("local")->put($request->file('photo_file_name')->getClientOriginalName(), $contents, 'public');
-
-                } catch(\Exception $e) {
-                    Log::info("Error uploading file " . $e->getMessage());
-                }
-                $data['photo_file_name'] = $request->file('photo_file_name')->getClientOriginalName();
-            }
-
-            if(empty($data['tags'])) {
-                $data['tags'] = 0;
-            }
-
-            $data['rendered_body']  = $this->getMarkdownTool()->defaultTransform($data['body']);
-
-            $project = Project::create($data);
-
-            $projectRepo->createProject($project, $request);
+            $project = $projectRepo->createProject($request);
 
             if($request->format() == 'html') {
-                Log::debug("Created");
                 return Redirect::route('projects.index');
             } else {
-                return Response::json(array('data' => $project->toArray(), 'status'=>'success', 'message' => "Project Created"), 200);
+                return Response::json(
+                    array('data' => $project->toArray(),
+                        'status'=>'success',
+                        'message' => "Project Created"), 200
+                );
             }
         } catch (\Exception $e) {
             Log::debug($e);

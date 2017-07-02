@@ -12,7 +12,7 @@ class ProjectRepoTest extends TestCase
 
     use DatabaseMigrations, WithoutMiddleware;
 
-    public function testRefactorToRepo() {
+    public function testRefactorOutTagsToRepo() {
         $user = factory(\App\User::class)->create();
         $this->be($user);
         $path = base_path('tests/fixtures/foo.png');
@@ -33,24 +33,35 @@ class ProjectRepoTest extends TestCase
         $this->assertNotNull($project);
 
         $this->assertNotNull($project->tags);
+
         $this->assertCount(2, $project->tags);
+
+        $this->assertFileExists(storage_path('/app/foo.png'));
 
     }
 
-    public function testSaveFileLocally()
-    {
-        $localFile = base_path('/tests/fixtures/foo.png');
+    public function testRefactorOutFilesToRepo() {
+        $user = factory(\App\User::class)->create();
+        $this->be($user);
+        $path = base_path('tests/fixtures/foo.png');
 
-        $sym = new \Symfony\Component\HttpFoundation\File\UploadedFile($localFile, 'foo.png', null, null, null, true);
+        $faker = Faker\Factory::create();
+        $title = $faker->word;
 
-        $uploadfile = \Illuminate\Http\UploadedFile::createFromBase($sym);
+        $this->visit("/projects/create")
+            ->type($title, 'title')
+            ->type('baz, boo', 'tags')
+            ->type('lorem ipsum', 'body')
+            ->check('active')
+            ->attach($path, 'photo_file_name')
+            ->press("Create Project");
 
-        // array $query = array(), array $request = array(),
-        // array $attributes = array(), array $cookies = array(),
-        // array $files = array(), array $server = array(), $content = null
-        $request = new \Illuminate\Http\Request([], [], [], [], [$uploadfile], [], null);
+        $project = Project::with('tags')->where("title", $title)->first();
+
+        $this->assertNotNull($project);
 
 
-        //dd(sprintf("Has file %s", $request->hasFile('photo_file_name')));
+        $this->assertFileExists(storage_path('/app/foo.png'));
+
     }
 }
