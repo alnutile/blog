@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserSeeder::class);
+        $this->call(PostsTableSeeder::class);
 
         factory(\App\Tag::class, 5)->create();
 
@@ -22,13 +23,6 @@ class DatabaseSeeder extends Seeder
         $tags = \App\Tag::all()->get('id');
         foreach($projects as $project) {
             $project->tags()->attach($tags);
-        }
-
-        factory(\App\Post::class, 5)->create();
-
-        $posts = \App\Project::all();
-        foreach($posts as $post) {
-            $post->tags()->attach($tags);
         }
     }
 }

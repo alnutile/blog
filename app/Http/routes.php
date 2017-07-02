@@ -6,6 +6,22 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Thujohn\Rss\Rss;
 
+
+if(!function_exists('getBody')) {
+    function getBody($item, $full)
+        {
+            if ($item->rendered_body && strpos($item->rendered_body, 'Not Done Yet') == -1)
+            {
+                $render = $item->rendered_body;
+            }
+            else {
+                $render = $item->body;
+            }
+
+            return ($full) ? $render : strip_tags(substr($render, 0, 200));
+        }
+};
+
 Route::get('/', 'StaticController@showHome');
 Route::get('/about', 'StaticController@showAbout')->name('about');
 Route::get('/products', 'StaticController@showProducts')->name('products');
@@ -46,7 +62,7 @@ Route::get('rss', function()
     $feed->channel(
         array('title' => 'Alfred Nutile RSS', 'description' => 'Laravel, Angular Practical Solutions', 'link' => 'https://www.alfrednutile.info/'));
 
-    $items = Post::Published()->OrderByCreatedAt()->get();
+    $items = Post::published()->OrderByCreatedAt()->get();
 
     foreach($items as $item)
     {
@@ -76,18 +92,7 @@ Route::get('rss_full', function()
     return Response::make($feed, 200, array('Content-Type' => 'text/xml'));
 });
 
-function getBody($item, $full)
-{
-    if ($item->rendered_body && strpos($item->rendered_body, 'Not Done Yet') == -1)
-    {
-        $render = $item->rendered_body;
-    }
-    else {
-        $render = $item->body;
-    }
 
-    return ($full) ? $render : strip_tags(substr($render, 0, 200));
-}
 
 Route::auth();
 

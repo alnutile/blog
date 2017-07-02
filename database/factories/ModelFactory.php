@@ -33,6 +33,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'title' => $faker->name,
         'body' => $faker->name,
+        'active' => true,
         'rendered_body' => $faker->name,
     ];
 });
