@@ -22,8 +22,7 @@ before_script:
   - php artisan migrate
 
 script:
-  # will add this shortly
-  #- vendor/bin/phpcs --standard=psr2 src/
+  - vendor/bin/phpcs --ignore=app/Http/routes.php --standard=psr2 app/
   # will add this a little less shortly
   #- vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
   - vendor/bin/phpunit --no-coverage --stop-on-failure

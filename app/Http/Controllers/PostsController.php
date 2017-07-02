@@ -54,7 +54,13 @@ class PostsController extends BaseController
         if (!Request::isJson()) {
             return View::make('posts.index', compact('posts'));
         } else {
-            return Response::json(array('data' => $posts->toArray(), 'status'=>'success', 'message' => "Post Index"), 200);
+            return Response::json(
+                array('data' => $posts->toArray(),
+                    'status'=>'success',
+                    'message' => "Post Index"
+                ),
+                200
+            );
         }
     }
 
@@ -113,7 +119,12 @@ class PostsController extends BaseController
         if (Request::format() == 'html') {
             return Redirect::route('posts.index');
         } else {
-            return Response::json(array('data' => $post->toArray(), 'status'=>'success', 'message' => "Post Created"), 200);
+            return Response::json(
+                array('data' => $post->toArray(),
+                    'status'=>'success',
+                    'message' => "Post Created"),
+                200
+            );
         }
     }
 

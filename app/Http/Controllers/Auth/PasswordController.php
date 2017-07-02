@@ -38,14 +38,15 @@ class PasswordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return void
      */
-    protected function sendResetLinkEmail(Request $request)
+    public function sendResetLinkEmail(Request $request)
     {
         $this->incrementLoginAttempts($request);
         $this->username = 'email';
         Log::debug("Validate");
 
         if ($this->hasTooManyLoginAttempts($request)) {
-            return redirect()->back()->withErrors(['email' => "You have exceeded the limit of attempts. Please try again shortly"]);
+            $message = "You have exceeded the limit of attempts. Please try again shortly";
+            return redirect()->back()->withErrors(['email' => $message]);
         }
 
         $this->validate($request, ['email' => 'required|email']);

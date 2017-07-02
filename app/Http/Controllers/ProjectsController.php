@@ -51,7 +51,13 @@ class ProjectsController extends BaseController
         if (!$request->isJson()) {
             return View::make('projects.index', compact('projects', 'project'));
         } else {
-            return Response::json(array('data' => $projects->toArray(), 'status'=>'success', 'message' => "Projects Index"), 200);
+            return Response::json(
+                array('data' => $projects->toArray(),
+                    'status'=>'success',
+                    'message' => "Projects Index"
+                ),
+                200
+            );
         }
     }
 
