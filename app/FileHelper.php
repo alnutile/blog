@@ -58,6 +58,7 @@ trait FileHelper
     protected function imageToRightPlace($converted = [])
     {
         $contents   = $converted['content'];
+
         $name       = $converted['name'];
 
         if (env("APP_ENV") == 'testing' || env('APP_ENV') == 'local') {

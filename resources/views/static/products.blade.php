@@ -6,19 +6,18 @@
 </div>
 
 <div id="wrapper" class="full">
-
+    <hr>
     <div class="row-fluid">
         <div class="span7">
-            <a class="statuschecker" href="http://readorlisten.com/">
-                <img class="img-responsive img-thumbnail" src="/images/readorlisten_logo.png" alt=""/>
+            <a class="statuschecker" href="https://www.packtpub.com/web-development/laravel-5x-cookbook">
+                <img class="img-responsive img-thumbnail" src="https://s3.amazonaws.com/als-blog-production/smaller_book.jpg" alt=""/>
             </a>
         </div>
-
         <div class="span5">
-            <h2>ReadOrListen.com</h2>
+            <h2>Laravel Recipe Book</h2>
             <p class="lead">
-                Listen to some great articles read to you or read them yourself.
-                Check it out at <a href="http://readorlisten.com">http://readorlisten.com</a>
+                Laravel 5.2 Recipe Cookbook!
+                Check it out at <a href="https://www.packtpub.com/web-development/laravel-5x-cookbook">https://www.packtpub.com/web-development/laravel-5x-cookbook</a>
             </p>
         </div>
     </div> <!--end top row-->
@@ -40,23 +39,24 @@
     <hr>
     <div class="row-fluid">
         <div class="span7">
-            <a class="statuschecker" href="https://statuschecker.io/">
-                <img class="img-responsive img-thumbnail" src="/images/status_web.png" alt=""/>
+            <a class="statuschecker" href="http://readorlisten.com/">
+                <img class="img-responsive img-thumbnail" src="/images/readorlisten_logo.png" alt=""/>
             </a>
         </div>
 
         <div class="span5">
-            <h2>StatusChecker.io (Coming End of July 2015)</h2>
+            <h2>ReadOrListen.com</h2>
             <p class="lead">
-                Get notified on Slack as soon as a service is down! And create numerous projects to hit different Slack channels, and share with teams so you can all manage it.
-                Check it out at <a href="http://statuschecker.io/">http://statuschecker.io/</a>
+                Listen to some great articles read to you or read them yourself.
+                Check it out at <a href="http://readorlisten.com">http://readorlisten.com</a>
             </p>
         </div>
     </div> <!--end top row-->
+
     <hr>
     <div class="row-fluid">
         <div class="span5">
-            <h2>Incomings.io (Coming End of August 2015)</h2>
+            <h2>Incomings.io)</h2>
             <p class="lead">
                 Need a central place to watch a complex application flow?
 
