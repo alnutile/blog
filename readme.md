@@ -56,3 +56,8 @@ php artisan password_reset
 ## Tests
 
 Might as well hit the resume too
+
+
+## Deployments
+
+Travis will run tests and code style check the deploy via Forge GET

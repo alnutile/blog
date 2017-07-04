@@ -39,11 +39,12 @@
         <link href="/css/posts.css" rel="stylesheet" type="text/css">
         <link href="/css/jquery-ui-timepicker-addon.css" rel="stylesheet" type="text/css">
         <link href="/css/jquery-ui-1.10.4.min.css" rel="stylesheet" type="text/css">
+        <link href="/css/simplemde.min.css" rel="stylesheet" type="text/css">
     @else
         <link href="/all.css" rel="stylesheet" type="text/css">
     @endif
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <link rel="stylesheet" href="/css/simplemde.min.css">
+    <script src="/js/simplemde.min.js"></script>
 </head>
 <body onload="prettyPrint()">
 
@@ -182,7 +183,7 @@
 
 
 
-@if(App::environment() =='ddd')
+@if(App::environment() =='local')
     <script src="/js/angular.js"></script>
     <script src="/js/liveSearch.js"></script>
     <script src="/js/app/search.js"></script>
@@ -191,7 +192,7 @@
 @endif
 
 
-<script src="/lib/google-code-prettify/run_prettify.js?skin=sons-of-obsidian"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
 <script src="/lib/google-code-prettify/lang-css.js"></script>
 <script defer="defer" src="/lib/google-code-prettify/prettify.js"></script>
 

@@ -14,7 +14,8 @@ gulp.task('css', function() {
             './public/css/main.css',
             './public/css/posts.css',
             './public/css/jquery-ui-timepicker-addon.css',
-            './public/css/jquery-ui-1.10.4.min.css'
+            './public/css/jquery-ui-1.10.4.min.css',
+            './public/css/simplemde.min.css'
         ])
         .pipe(concat('all.css'))
         .pipe(gulp.dest('./public/'))
