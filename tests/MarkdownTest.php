@@ -5,7 +5,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Michelf\Markdown;
 
-class MarkdownTest extends TestCase
+class MarkdownTest extends BrowserKitTestCase
 {
     /**
      * @test

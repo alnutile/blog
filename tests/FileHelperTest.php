@@ -5,7 +5,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\File;
 
-class FileHelperTest extends TestCase
+class FileHelperTest extends BrowserKitTestCase
 {
 
 

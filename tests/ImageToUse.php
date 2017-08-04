@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ImageToUse extends TestCase
+class ImageToUse extends BrowserKitTestCase
 {
 
     public function testSeeingIfExistOnAWS()
