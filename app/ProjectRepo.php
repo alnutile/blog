@@ -77,7 +77,7 @@ class ProjectRepo
                     if (!$t) {
                         $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
                     }
-                    $project->tags()->attach((array) $t->id, array('created_at' => $date, 'updated_at' => $date));
+                    $project->tags()->attach((array) $t->id, ['created_at' => $date, 'updated_at' => $date]);
                 }
             }
         }
