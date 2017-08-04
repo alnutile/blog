@@ -15,7 +15,7 @@ class FileHelperTest extends TestCase
     {
         $dest = "/tmp/baz.jpg";
 
-        if(File::exists($dest)) {
+        if (File::exists($dest)) {
             File::delete($dest);
         }
 
@@ -26,6 +26,5 @@ class FileHelperTest extends TestCase
         $this->convertToJpg($root, "baz.png");
 
         $this->assertFileExists($dest);
-
     }
 }

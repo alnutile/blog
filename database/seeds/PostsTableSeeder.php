@@ -17,7 +17,7 @@ class PostsTableSeeder extends Seeder
 
         $tags = \App\Tag::all()->get('id');
 
-        foreach($posts as $post) {
+        foreach ($posts as $post) {
             $post->tags()->attach($tags);
         }
     }

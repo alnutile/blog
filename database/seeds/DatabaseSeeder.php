@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $projects = \App\Project::all();
 
         $tags = \App\Tag::all()->get('id');
-        foreach($projects as $project) {
+        foreach ($projects as $project) {
             $project->tags()->attach($tags);
         }
     }

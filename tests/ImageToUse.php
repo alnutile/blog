@@ -14,6 +14,5 @@ class ImageToUse extends TestCase
         $results = $image->exists("foo.png");
 
         $this->assertEquals("/img/foo.png", $results);
-
     }
 }

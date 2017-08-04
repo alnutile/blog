@@ -11,8 +11,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        if(env('YO') && env('YOP'))
-        {
+        if (env('YO') && env('YOP')) {
             factory(\App\User::class)->create(
                 [
                     'email' => env("YO"),

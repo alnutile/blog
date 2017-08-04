@@ -12,7 +12,7 @@ class AddUsernameToUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function(Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('username');
             $table->rememberToken();
         });
@@ -26,7 +26,7 @@ class AddUsernameToUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function(Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->string('username')->nullable();
             $table->dropColumn('remember_token');
         });
