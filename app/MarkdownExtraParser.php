@@ -26,11 +26,11 @@ class MarkdownExtraParser extends MarkdownExtra
 
         $codeblock = preg_replace_callback(
             '/^\n+/',
-            array($this, '_doFencedCodeBlocks_newlines'),
+            [$this, '_doFencedCodeBlocks_newlines'],
             $codeblock
         );
 
-        $classes = array();
+        $classes = [];
         if ($classname != "") {
             if ($classname{0} == '.') {
                 $classname = substr($classname, 1);

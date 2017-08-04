@@ -11,7 +11,7 @@ class BaseController extends Controller
      * @var \Michelf\MarkdownExtra
      */
     public $mk;
-    public $tags = array();
+    public $tags = [];
     public $scheduler;
 
     public function __construct(MarkdownExtraParser $mk, SchedulerAls $scheduler)
