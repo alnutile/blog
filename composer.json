@@ -9,7 +9,7 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
+        "laravel/framework": "5.4.*",
         "dflydev/markdown": "^1.0",
         "behat/mink": "^1.7",
         "behat/behat": "^3.1",
@@ -22,7 +22,8 @@
         "laravelcollective/html": "^5.2",
         "mayconbordin/rss-l5": "^1.1",
         "alfred-nutile-inc/incomings-client": "dev-master",
-        "squizlabs/php_codesniffer": "^2.3"
+        "squizlabs/php_codesniffer": "^2.3",
+        "laravel/tinker": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
