@@ -32,7 +32,5 @@ class TagsShowTest extends TestCase
             ->assertResponseOk();
 
         //assert can see
-
-
     }
 }

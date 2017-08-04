@@ -115,4 +115,3 @@ Route::post('register', function () {
 Route::get('register', function () {
     return redirect('login')->withErrors(["email" => "Not allowed to register"]);
 });
-
