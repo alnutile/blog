@@ -49,7 +49,7 @@ class SchedulerAls
     {
         if (!empty($post->scheduled)) {
             \Log::info("Testing: PushJob {$post->id}");
-            \Queue::push('Als\Services\SchedulerAls', array('post' => $post->id));
+            \Queue::push('Als\Services\SchedulerAls', ['post' => $post->id]);
         }
     }
 }

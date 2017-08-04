@@ -29,7 +29,7 @@ class ProjectsController extends BaseController
     public function __construct(MarkdownExtraParser $mk, SchedulerAls $scheduler)
     {
         parent::__construct($mk, $scheduler);
-        $this->middleware('auth', array('except' => ['index', 'show']));
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
 
@@ -52,10 +52,10 @@ class ProjectsController extends BaseController
             return View::make('projects.index', compact('projects', 'project'));
         } else {
             return Response::json(
-                array('data' => $projects->toArray(),
+                ['data' => $projects->toArray(),
                     'status'=>'success',
                     'message' => "Projects Index"
-                ),
+                ],
                 200
             );
         }
@@ -85,9 +85,9 @@ class ProjectsController extends BaseController
                 return Redirect::route('projects.index');
             } else {
                 return Response::json(
-                    array('data' => $project->toArray(),
+                    ['data' => $project->toArray(),
                         'status'=>'success',
-                        'message' => "Project Created"),
+                        'message' => "Project Created"],
                     200
                 );
             }
