@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\UploadedFile;
 
-class ProjectRepoTest extends TestCase
+class ProjectRepoTest extends BrowserKitTestCase
 {
 
     use DatabaseMigrations, WithoutMiddleware;
