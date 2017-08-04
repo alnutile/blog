@@ -14,7 +14,7 @@ class AddScheduledToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->timestamp('scheduled');
+            $table->timestamp('scheduled')->nullable();
         });
     }
 
