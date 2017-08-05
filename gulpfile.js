@@ -38,6 +38,7 @@ gulp.task('scripts', function() {
             './public/js/layerslider.kreaturamedia.jquery.js',
             './public/js/excanvas.js',
             './public/js/modernizr.js',
+            './public/js/jquery.lazyload.min.js',
             './public/js/retina.js',
             './public/js/custom.js',
             './public/js/main.js'

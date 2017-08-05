@@ -2,7 +2,10 @@
 <div class="{{$span}} item">
     <div class="picture">
         <a class="image" href="/projects/{{$project->id}}" title="{{$project->title}}">
-            <img src="{{ ImageToUse::exists($project->photo_file_name) }}" alt=""/>
+            <img
+                    data-original="{{ ImageToUse::exists($project->photo_file_name) }}"
+                    class="lazy"
+                    alt="" style="min-width:200px; min-height: 200px"/>
         </a>
         <h4><strong>{{$project->title}}</strong></h4>
         <p>
