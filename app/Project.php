@@ -2,6 +2,10 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @codeCoverageIgnore
+ * NOTE until needed ignored since not special work in here
+ */
 class Project extends Model
 {
 

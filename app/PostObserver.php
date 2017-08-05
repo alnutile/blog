@@ -5,12 +5,9 @@ namespace App;
 use Illuminate\Support\Facades\Cache;
 
 /**
- * Created by PhpStorm.
- * User: alfrednutile
- * Date: 5/21/15
- * Time: 10:05 PM
+ * @codeCoverageIgnore
+ * NOTE until needed ignored since not special work in here
  */
-
 class PostObserver
 {
 

@@ -1,5 +1,11 @@
 <?php namespace App;
 
+/**
+ * Class Tag
+ * @package App
+ * @codeCoverageIgnore
+ * NOTE until needed ignored since not special work in here
+ */
 class Tag extends \Illuminate\Database\Eloquent\Model
 {
     protected $fillable = ['name', 'created_at', 'updated_at'];

@@ -3,6 +3,12 @@
 use App\ImageToUse;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class ImageService
+ * @package App\Services
+ * @codeCoverageIgnore
+ * NOTE: Facade
+ */
 class ImageService extends ServiceProvider
 {
 

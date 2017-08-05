@@ -4,6 +4,12 @@ namespace App;
 
 use Michelf\MarkdownExtra;
 
+/**
+ * Class MarkdownExtraParser
+ * @package App
+ * @codeCoverageIgnore
+ * UGLY MINOR HACK REALLY NEED TO REPLACE THIS LIBRARY
+ */
 class MarkdownExtraParser extends MarkdownExtra
 {
 

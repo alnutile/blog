@@ -5,6 +5,11 @@ namespace App\Console\Commands;
 use App\User;
 use Illuminate\Console\Command;
 
+/**
+ * Class PasswordReset
+ * @package App\Console\Commands
+ * @codeCoverageIgnore
+ */
 class PasswordReset extends Command
 {
     /**

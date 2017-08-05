@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Post;
 use App\Project;
+use App\ProjectRepo;
 use BrowserKitTestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -84,6 +85,26 @@ class ProjectRepoTest extends BrowserKitTestCase
 
         $this->assertCount(3, $project->tags);
 
+    }
+
+    public function testDataTags() {
+        $data['tags'] = false;
+        $project_repo = new ProjectRepo();
+        $project_repo->setDataTags($data);
+        $this->assertEquals(0, $data['tags']);
+    }
+
+    /**
+     * @covers ::setDefaultFileName
+     */
+    public function testDefaultFileName() {
+        $project = factory(\App\Project::class)->create(
+            ['photo_file_name' => "foo.png"]
+        );
+        $project_repo = new ProjectRepo();
+        $data = [];
+        $results = $project_repo->setDefaultFileName($project, $data);
+        $this->assertEquals('foo.png', $results['photo_file_name']);
     }
 
     public function setUp()

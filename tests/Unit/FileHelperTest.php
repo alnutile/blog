@@ -22,6 +22,7 @@ class FileHelperTest extends BrowserKitTestCase
     /**
      * @covers ::convertToJpg
      * @covers ::handleFile
+     * @covers ::saveAndConvertFile
      */
     public function testMakePngJpg()
     {
@@ -38,5 +39,15 @@ class FileHelperTest extends BrowserKitTestCase
         $this->convertToJpg($root, "baz.png");
 
         $this->assertFileExists($dest);
+    }
+
+    public function testOriginalName()
+    {
+
+        $root = "/tmp/foo.jpg";
+
+        $results = $this->convertToJpg($root, "foo.jpg");
+
+        $this->assertEquals('foo.jpg', $results['name']);
     }
 }
