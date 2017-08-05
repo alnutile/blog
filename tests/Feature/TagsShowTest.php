@@ -1,9 +1,15 @@
 <?php
 
+namespace Tests\Feature;
+
+use BrowserKitTestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+/**
+ * @coversDefaultClass \App\Http\Controllers\TagsController
+ */
 class TagsShowTest extends BrowserKitTestCase
 {
 
@@ -13,6 +19,11 @@ class TagsShowTest extends BrowserKitTestCase
      * A basic test example.
      *
      * @return void
+     *
+     * @covers ::show
+     * @covers ::iterateOverPosts
+     * @covers ::iterateOverProjects
+     * @covers ::iterateOverTags
      */
     public function testShowpage()
     {
@@ -31,6 +42,5 @@ class TagsShowTest extends BrowserKitTestCase
             ->see($tag3->name)
             ->assertResponseOk();
 
-        //assert can see
     }
 }

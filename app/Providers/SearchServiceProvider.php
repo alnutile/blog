@@ -5,6 +5,9 @@ use App\Repositories\SearchRepository;
 use App\Search\Search;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @codeCoverageIgnore
+ */
 class SearchServiceProvider extends ServiceProvider
 {
 

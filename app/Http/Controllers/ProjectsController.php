@@ -21,6 +21,12 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 
+/**
+ * @codeCoverageIgnore
+ *
+ * Note: This is tested at the repo level
+ * and dusk
+ */
 class ProjectsController extends BaseController
 {
 
@@ -31,7 +37,6 @@ class ProjectsController extends BaseController
         parent::__construct($mk, $scheduler);
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
-
 
     /**
      * Display a listing of the resource.
@@ -105,8 +110,6 @@ class ProjectsController extends BaseController
      */
     public function show($id)
     {
-
-
         $project = Cache::rememberForever('project_' . $id, function () use ($id) {
             return Project::find($id)->load('tags');
         });

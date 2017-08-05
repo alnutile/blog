@@ -16,6 +16,7 @@ class SearchController extends BaseController
     public function search(Request $request)
     {
         $args = $request->input('search');
+
         $results = \SearchAls::find($args);
 
         return Response::json($results->toArray(), 200);

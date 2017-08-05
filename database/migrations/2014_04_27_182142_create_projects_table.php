@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('body');
-            $table->string('photo_file_name');
+            $table->string('photo_file_name')->nullable();
             $table->timestamps();
         });
     }

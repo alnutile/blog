@@ -44,42 +44,20 @@ class ProjectRepo
         $data = $request->all();
 
         if ($request->file('photo_file_name')) {
-            try {
-                $contents = file_get_contents($request->file('photo_file_name')->getRealPath());
+            $file_name = $this->handleFile($request, 'photo_file_name');
 
-                Storage::disk("local")->put(
-                    $request->file('photo_file_name')->getClientOriginalName(),
-                    $contents,
-                    'public'
-                );
-            } catch (\Exception $e) {
-                Log::debug(sprintf("Error with image upload %s", $e->getMessage()));
+            if ($file_name) {
+                $data['photo_file_name'] = $file_name;
             }
-            $data['photo_file_name'] = $request->file('photo_file_name')->getClientOriginalName();
         } else {
+            //Keep existing
             $data['photo_file_name'] = $project->photo_file_name;
         }
 
         $project->update($data);
+
         $project->tags()->detach();
-        if (Input::get('tags') && count(Input::get('tags')) > 0) {
-            //@TODO move into shared method
 
-            $tags = Input::get('tags');
-            $tag_ids = [];
-
-            if ($tags) {
-                $date = $project->created_at;
-                $tags_array = explode(",", $tags);
-
-                foreach ($tags_array as $tag) {
-                    $t = Tag::where("name", "=", trim($tag))->first();
-                    if (!$t) {
-                        $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
-                    }
-                    $project->tags()->attach((array) $t->id, ['created_at' => $date, 'updated_at' => $date]);
-                }
-            }
-        }
+        $this->handleTags($project, $request);
     }
 }

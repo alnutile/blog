@@ -43,7 +43,7 @@ Route::resource('portfolio', 'ProjectsController');
 
 Route::resource('projects', 'ProjectsController');
 
-Route::resource('tags', 'TagsController');
+Route::get('tags/{tag_id}', 'TagsController@show');
 
 
 Route::get('rss', function () {

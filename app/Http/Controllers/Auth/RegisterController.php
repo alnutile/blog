@@ -7,6 +7,9 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+/**
+ * @codeCoverageIgnore
+ */
 class RegisterController extends Controller
 {
     /*

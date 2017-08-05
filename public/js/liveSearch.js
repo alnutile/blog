@@ -14,7 +14,7 @@ angular.module("LiveSearch", ["ng"])
             liveSearchMaxResultSize: '=?',
             liveSearchMaxlength: '=?'
         },
-        template: "<input autofocus type='text' placeholder='search' id='search' class='input-xxlarge pull-left search-query'/>",
+        template: "<input name='search' autofocus type='text' placeholder='search' id='search' class='input-xxlarge pull-left search-query'/>",
         link: function (scope, element, attrs, controller) {
             var timeout;
 

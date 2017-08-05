@@ -5,7 +5,8 @@ php:
 
 # This triggers builds to run on the new TravisCI infrastructure.
 # See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
-sudo: false
+sudo: required
+dist: trusty
 
 services:
   - mysql
@@ -16,16 +17,20 @@ cache:
     - $HOME/.composer/cache
 
 before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - cp .env.travis .env
   - mysql -e 'CREATE DATABASE test;'\
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+  - php artisan serve > /dev/null 2>&1 &
   - php artisan migrate
-
 script:
-  - vendor/bin/phpcs --ignore=app/Http/routes.php --standard=psr2 app/
+  - vendor/bin/phpcs --standard=psr2 app/
   # will add this a little less shortly
   #- vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
   - vendor/bin/phpunit --no-coverage --stop-on-failure
+  - php artisan dusk
 
 after_script:
   - |

@@ -1,11 +1,10 @@
 <?php
 
 return [
-    
 
-    'default' => env('FILESYSTEM_DEFAULT', 's3'),
-    
-    'cloud' => 's3',
+    'default' => env('FILESYSTEM_DRIVER', 'local'),
+
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
 
     'disks' => [
 

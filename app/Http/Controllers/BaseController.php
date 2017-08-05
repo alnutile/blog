@@ -2,8 +2,12 @@
 
 use App\MarkdownExtraParser;
 use App\Services\SchedulerAls;
+use Illuminate\Support\Facades\View;
 use Michelf\Markdown;
 
+/**
+ * @codeCoverageIgnore
+ */
 class BaseController extends Controller
 {
 
