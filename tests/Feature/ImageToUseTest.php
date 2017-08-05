@@ -8,14 +8,6 @@ class ImageToUseTest extends BrowserKitTestCase
 {
 
 
-    public function testGettingAWSPath()
-    {
-        $image = new \App\ImageToUse();
-
-        $results = $image->exists("1.jpg");
-
-        $this->assertEquals("/img/foo.png", $results);
-    }
 
     public function testSeeingIfExistOnAWS()
     {
