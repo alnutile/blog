@@ -4,21 +4,25 @@ namespace Tests\Browser;
 
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Support\Facades\Log;
 use Tests\DuskTestCase;
-use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class LoginTest extends DuskTestCase
 {
-    use DatabaseMigrations, DatabaseTransactions;
+    use DatabaseMigrations;
     /**
      * @group login
      */
     public function testLogin()
     {
+
+        if($existing = \App\User::where("email", "foo@bar.com")->first()) {
+            $existing->delete();
+        }
+
         $user = factory(User::class)->create([
-            'email' => 'alfrednutile@gmail.com',
+            'email' => 'foo@bar.com',
         ]);
 
         $this->browse(function ($browser) use ($user) {
