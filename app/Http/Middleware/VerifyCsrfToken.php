@@ -33,8 +33,7 @@ class VerifyCsrfToken extends BaseVerifier
     public function handle($request, Closure $next)
     {
         //Dusk testing == local
-        if (
-            env("APP_ENV") == 'local' ||
+        if (env("APP_ENV") == 'local' ||
             $this->runningUnitTests() ||
             $this->isReading($request) ||
             $this->inExceptArray($request) ||

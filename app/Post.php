@@ -46,6 +46,4 @@ class Post extends BaseModel
             ])->orWhere('body', 'like', $word)
             ->orWhere('rendered_body', 'like', $word)->get();
     }
-
-
 }
