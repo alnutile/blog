@@ -7,7 +7,6 @@ use Michelf\MarkdownExtra;
 class MarkdownExtraParser extends MarkdownExtra
 {
 
-
     public $code_attr_on_pre = true;
 
     // @codingStandardsIgnoreLine

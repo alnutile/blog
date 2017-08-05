@@ -8,10 +8,17 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Michelf\Markdown;
 
+/**
+ * Class MarkdownTest
+ * @package Tests\Unit
+ *
+ * @coversDefaultClass \App\MarkdownExtraParser
+ */
 class MarkdownTest extends BrowserKitTestCase
 {
     /**
      * @test
+     * @covers ::_doFencedCodeBlocks_callback
      */
     public function should_create_markdown()
     {

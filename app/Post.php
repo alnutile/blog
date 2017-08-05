@@ -13,11 +13,18 @@ class Post extends BaseModel
     // Don't forget to fill this array
     protected $fillable = ['title', 'name', 'body', 'rendered_body', 'created_at', 'updated_at', 'active', 'scheduled'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @codeCoverageIgnore
+     */
     public function tags()
     {
         return $this->belongsToMany(\App\Tag::class);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public static function boot()
     {
         parent::boot();
@@ -29,13 +36,16 @@ class Post extends BaseModel
         $word = '%' . $word . '%';
         return $this
             ->select('title', 'id')
-            ->where('title', 'like', $word)->orWhere('body', 'like', $word)
+            ->where([
+                [
+                    'title', 'like', $word
+                ],
+                [
+                    'active', 1
+                ]
+            ])->orWhere('body', 'like', $word)
             ->orWhere('rendered_body', 'like', $word)->get();
     }
 
-    public static function allActive()
-    {
-        $actives = self::where('active', '=', 'true')->orderBy('created_at', 'desc')->get();
-        return $actives;
-    }
+
 }

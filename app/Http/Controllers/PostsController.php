@@ -28,7 +28,6 @@ class PostsController extends BaseController
 
     public function search()
     {
-
         $input = Input::get('search');
 
         $posts = (new Post())->search($input);

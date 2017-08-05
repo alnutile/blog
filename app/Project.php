@@ -14,11 +14,6 @@ class Project extends Model
         return $this->belongsToMany(\App\Tag::class);
     }
 
-    public static function allActive()
-    {
-        $actives = self::all()->orderBy('created_at', 'desc')->get();
-        return $actives;
-    }
 
     public static function boot()
     {

@@ -7,12 +7,22 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\File;
 
+/**
+ * Class FileHelperTest
+ * @package Tests\Unit
+ *
+ * @coversDefaultClass \App\FileHelper
+ */
 class FileHelperTest extends BrowserKitTestCase
 {
 
 
     use \App\FileHelper;
 
+    /**
+     * @covers ::convertToJpg
+     * @covers ::handleFile
+     */
     public function testMakePngJpg()
     {
         $dest = "/tmp/baz.jpg";
