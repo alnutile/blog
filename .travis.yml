@@ -22,7 +22,12 @@ before_script:
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - cp .env.travis .env
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+  - |
+    if [[ "$TRAVIS_BRANCH" == 'master' ]]; then
+      travis_retry composer install ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+    else
+      travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+    fi
   - php artisan serve &
   - php artisan migrate
 
@@ -42,4 +47,7 @@ after_script:
     fi
 
 after_success:
-  - bash ./deploy.sh
+  - |
+    if [[ "$TRAVIS_BRANCH" == 'master' ]]; then
+      bash ./deploy.sh
+    fi
