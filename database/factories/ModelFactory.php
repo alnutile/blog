@@ -17,9 +17,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
-        'created_at' => \Carbon\Carbon::now(),
-        'updated_at' => \Carbon\Carbon::now()
+        'remember_token' => str_random(10)
     ];
 });
 

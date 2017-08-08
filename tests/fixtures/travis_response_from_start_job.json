@@ -1,0 +1,28 @@
+{
+  "@type": "pending",
+  "remaining_requests": 9,
+  "repository": {
+    "@type": "repository",
+    "@href": "/repo/8504747",
+    "@representation": "minimal",
+    "id": 8504747,
+    "name": "alsblog5",
+    "slug": "alnutile/alsblog5"
+  },
+  "request": {
+    "repository": {
+      "id": 57419169,
+      "owner_name": "alnutile",
+      "name": "alsblog5"
+    },
+    "user": {
+      "id": 38316
+    },
+    "id": 78707660,
+    "message": null,
+    "branch": "canary-branch",
+    "config": {
+    }
+  },
+  "resource_type": "request"
+}
