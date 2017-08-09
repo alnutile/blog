@@ -46,6 +46,11 @@ class CanaryBuildCommand extends Command
             /** @var Response $results */
             $results = $this->buildService->triggerGitHubBuild();
 
+            /**
+             * 204 just means we had to run it manually
+             * cause there where not changes between the two
+             * branches
+             */
             if ($results->getStatusCode() == 204) {
                 $this->info(
                     sprintf(
@@ -59,9 +64,12 @@ class CanaryBuildCommand extends Command
 
                 $this->buildService->beginTravisWatcher(json_decode($results->getBody(), true));
 
-                $this->info(sprintf("Results from Travis %d", $results->getStatusCode()));
+                $this->info(sprintf(
+                    "Results from Travis Build State %d",
+                    $this->buildService->getTravisState()
+                ));
 
-                if ($results->getStatusCode() == 'passed') {
+                if ($this->buildService->getTravisState() == 'passed') {
                     $this->info("Going ahead with push to master");
                     $this->buildService->forceAMasterBuildSinceCanaryBranchIsPassing();
                 }

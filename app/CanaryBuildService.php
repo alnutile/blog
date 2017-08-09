@@ -77,9 +77,10 @@ class CanaryBuildService
     {
         //push
         $message = sprintf(
-            "Canary build passed so now forcing master to UPDATE with composer",
+            "Canary build passed so now forcing master to UPDATE with composer [update]",
             $this->getTravisJobId()
         );
+
         $results = $this->triggerTravisBuild($message, 'master');
 
         //wait for results
@@ -90,7 +91,8 @@ class CanaryBuildService
      */
     public function triggerTravisBuild($message = false, $branch = "canary-branch", $config = [])
     {
-        $message = ($message) ? : "Doing a scheduled Canary build via the application scheduler [update]";
+        $message = ($message) ?  : "Doing a scheduled Canary build via the application scheduler";
+
         $results = $this->client->post(
             sprintf("https://api.travis-ci.org/repo/%s/requests", urlencode($this->account_and_repo)),
             [
@@ -309,6 +311,7 @@ class CanaryBuildService
         $method = 'build' . ucfirst($build['state']);
         if (method_exists($this, $method)) {
             Log::info("Method " . $method);
+            $this->setTravisState($build['state']);
             $this->{$method}($build);
         } else {
             Log::info("Method not found " . $method);
