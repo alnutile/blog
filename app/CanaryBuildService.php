@@ -73,7 +73,8 @@ class CanaryBuildService
         return false;
     }
 
-    public function forceAMasterBuildSinceCanaryBranchIsPassing() {
+    public function forceAMasterBuildSinceCanaryBranchIsPassing()
+    {
         //push
         $message = sprintf(
             "Canary build passed so now forcing master to UPDATE with composer",
