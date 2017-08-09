@@ -67,7 +67,7 @@ class CanaryBuildTest extends \TestCase
     public function testIfErrorDoesItStop() {
         $client = \Mockery::mock(Client::class);
         $body = File::get(base_path('tests/fixtures/travis_getting_results_using_a_request_id.json'));
-        $body = str_replace("finished", "errored", $body);
+        $body = str_replace("passed", "errored", $body);
         $message2 = new \GuzzleHttp\Psr7\Response(
             200, $headers =[], $body
         );
