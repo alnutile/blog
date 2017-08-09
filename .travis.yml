@@ -22,14 +22,19 @@ before_script:
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - cp .env.travis .env
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+  - |
+    if [[ "$TRAVIS_BRANCH" == 'master' && "$TRAVIS_COMMIT_MESSAGE" != *'[update]'* ]]; then
+      travis_retry composer install ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+    else
+      travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+    fi
   - php artisan serve &
   - php artisan migrate
 
 script:
   - vendor/bin/phpcs --standard=psr2 app/
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
-  # Not working times out
+  # Dusk Not working times out :(
   # see error here https://travis-ci.org/alnutile/alsblog5/builds/261309412
   # will come back later otherwise run locally
   #- php artisan dusk
@@ -42,4 +47,7 @@ after_script:
     fi
 
 after_success:
-  - bash ./deploy.sh
+  - |
+    if [[ "$TRAVIS_BRANCH" == 'master' ]]; then
+      bash ./deploy.sh
+    fi

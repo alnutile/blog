@@ -1,0 +1,28 @@
+{
+  "@type": "pending",
+  "remaining_requests": 1,
+  "repository": {
+    "@type": "repository",
+    "@href": "/repo/39521",
+    "@representation": "minimal",
+    "id": 39521,
+    "name": "test-2",
+    "slug": "svenfuchs/test-2"
+  },
+  "request": {
+    "repository": {
+      "id": 44258138,
+      "owner_name": "svenfuchs",
+      "name": "test-2"
+    },
+    "user": {
+      "id": 3664
+    },
+    "id": 205729,
+    "message": null,
+    "branch": "master",
+    "config": {
+    }
+  },
+  "resource_type": "request"
+}

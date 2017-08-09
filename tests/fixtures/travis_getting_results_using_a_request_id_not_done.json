@@ -1,0 +1,59 @@
+{
+    "@type": "request",
+    "@href": "\/repo\/8504747\/request\/78708065",
+    "@representation": "standard",
+    "id": 78708065,
+    "state": "finished",
+    "result": "approved",
+    "message": null,
+    "repository": {
+        "@type": "repository",
+        "@href": "\/repo\/8504747",
+        "@representation": "minimal",
+        "id": 8504747,
+        "name": "alsblog5",
+        "slug": "alnutile\/alsblog5"
+    },
+    "branch_name": {
+        "@type": "branch",
+        "@href": "\/repo\/8504747\/branch\/canary-branch",
+        "@representation": "minimal",
+        "name": "canary-branch"
+    },
+    "commit": {
+        "@type": "commit",
+        "@representation": "minimal",
+        "id": 76091851,
+        "sha": "f69b01418f914769d43768717032690ad9717dfb",
+        "ref": null,
+        "message": "Nightly Canary Build",
+        "compare_url": "https:\/\/github.com\/alnutile\/alsblog5\/compare\/5de207fee6d55217f52089e8ddbf82774b03c3fc...f69b01418f914769d43768717032690ad9717dfb",
+        "committed_at": "2017-08-06T23:24:23Z"
+    },
+    "builds": [
+        {
+            "@type": "build",
+            "@href": "\/build\/261650830",
+            "@representation": "minimal",
+            "id": 261650830,
+            "number": "50",
+            "state": "running",
+            "duration": 67,
+            "event_type": "api",
+            "previous_state": "canceled",
+            "pull_request_title": null,
+            "pull_request_number": null,
+            "started_at": "2017-08-07T00:07:33Z",
+            "finished_at": "2017-08-07T00:08:40Z"
+        }
+    ],
+    "owner": {
+        "@type": "user",
+        "@href": "\/user\/38316",
+        "@representation": "minimal",
+        "id": 38316,
+        "login": "alnutile"
+    },
+    "created_at": "2017-08-07T00:06:21Z",
+    "event_type": "api"
+}
