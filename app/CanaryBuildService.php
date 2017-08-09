@@ -73,11 +73,23 @@ class CanaryBuildService
         return false;
     }
 
+    public function forceAMasterBuildSinceCanaryBranchIsPassing() {
+        //push
+        $message = sprintf(
+            "Canary build passed so now forcing master to UPDATE with composer",
+            $this->getTravisJobId()
+        );
+        $results = $this->triggerTravisBuild($message, 'master');
+
+        //wait for results
+    }
+
     /**
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function triggerTravisBuild()
+    public function triggerTravisBuild($message = false, $branch = "canary-branch", $config = [])
     {
+        $message = ($message) ? : "Doing a scheduled Canary build via the application scheduler [update]";
         $results = $this->client->post(
             sprintf("https://api.travis-ci.org/repo/%s/requests", urlencode($this->account_and_repo)),
             [
@@ -89,7 +101,8 @@ class CanaryBuildService
                 ],
                 'json' => [
                     'request' => [
-                        "branch" => "canary-branch"
+                        "branch" => $branch,
+                        "message" => $message
                     ]
                 ],
             ]

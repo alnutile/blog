@@ -60,6 +60,11 @@ class CanaryBuildCommand extends Command
                 $this->buildService->beginTravisWatcher(json_decode($results->getBody(), true));
 
                 $this->info(sprintf("Results from Travis %d", $results->getStatusCode()));
+
+                if($results->getStatusCode() == 'passed') {
+                    $this->info("Going ahead with push to master");
+                    $this->buildService->forceAMasterBuildSinceCanaryBranchIsPassing();
+                }
             }
         } catch (\Exception $e) {
             $message = sprintf(
