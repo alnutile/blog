@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\CanaryBuildService;
 use App\Console\Commands\CanaryBuildCommand;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\App;
@@ -18,25 +19,18 @@ class CanaryBuildTest extends \TestCase
     public function setUp()
     {
         parent::setUp();
-
-        $this->markTestIncomplete("Not mocked yet the command needs most of it pulled into a Service class so I can 
-        not deal with mocking a Command class");
     }
 
     public function testGetResultsOfDoneJobFromTravis() {
 
         $client = \Mockery::mock(Client::class);
-
         $body = File::get(base_path('tests/fixtures/travis_getting_results_using_a_request_id.json'));
-
         $message = new \GuzzleHttp\Psr7\Response(
             200, $headers =[], $body
         );
-        $client->shouldReceive('get')->once()->andReturn($message);
-        /** @var CanaryBuildCommand $command */
-        $command = new CanaryBuildCommand($client);
-        //$command = App::make(CanaryBuildCommand::class);
-
+        $client->shouldReceive('get')->twice()->andReturn($message);
+        /** @var CanaryBuildService $command */
+        $command = new CanaryBuildService($client);
         $response = $command->seeIfTravisJobDone(78708065);
 
         $command->beginTravisWatcher($response);
@@ -44,18 +38,52 @@ class CanaryBuildTest extends \TestCase
         $this->assertNotNull($command->getTravisJobId());
     }
 
-    public function testTravisTriggerJob() {
-
+    public function testCallsTwiceOnceEmptyBuildThenPassed() {
         $client = \Mockery::mock(Client::class);
+        $body = File::get(base_path('tests/fixtures/travis_getting_results_using_a_request_id.json'));
+        $body1 = json_decode($body, true);
+        $body1['builds'] = [];
+        $body1 = json_encode($body1);
+        $message1 = new \GuzzleHttp\Psr7\Response(
+            200, $headers =[], $body1
+        );
+        $client->shouldReceive('get')->once()->andReturn($message1);
+        $client->shouldReceive('get')->once()->andReturn($message1);
 
-        $client->shouldReceive('post')->once()->andReturn();
+        $message2 = new \GuzzleHttp\Psr7\Response(
+            200, $headers =[], $body
+        );
+        $client->shouldReceive('get')->once()->andReturn($message2);
+        /** @var CanaryBuildService $command */
+        $command = new CanaryBuildService($client);
+        $command->setSleep(1);
+        $response = $command->seeIfTravisJobDone(78708065);
 
-        /** @var CanaryBuildCommand $command */
-        $command = new CanaryBuildCommand($client);
-        //$command = App::make(CanaryBuildCommand::class);
-        $command->triggerTravisBuild();
-        //File::put(base_path('tests/fixtures/travis_response_from_starting_build.json'), $response->getBody());
+        $command->beginTravisWatcher($response);
+
+        $this->assertNotNull($command->getTravisJobId());
     }
+
+    public function testIfErrorDoesItStop() {
+        $client = \Mockery::mock(Client::class);
+        $body = File::get(base_path('tests/fixtures/travis_getting_results_using_a_request_id.json'));
+        $body = str_replace("finished", "errored", $body);
+        $message2 = new \GuzzleHttp\Psr7\Response(
+            200, $headers =[], $body
+        );
+        $client->shouldReceive('get')->twice()->andReturn($message2);
+        /** @var CanaryBuildService $command */
+        $command = new CanaryBuildService($client);
+        $command->setSleep(1);
+        $response = $command->seeIfTravisJobDone(78708065);
+
+        $command->beginTravisWatcher($response);
+
+        $this->assertNotNull($command->getTravisJobId());
+
+        $this->assertEquals('errored', $command->getTravisState());
+    }
+
 
 
 
@@ -72,7 +100,7 @@ class CanaryBuildTest extends \TestCase
             200, $headers =[], $body
         );
         $client->shouldReceive('get')->once()->andReturn($message);
-        $command = new CanaryBuildCommand($client);
+        $command = new CanaryBuildService($client);
 
         /** @var CanaryBuildCommand $command */
         $command->beginTravisWatcher($response);
@@ -103,8 +131,10 @@ class CanaryBuildTest extends \TestCase
             $message = new \GuzzleHttp\Psr7\Response(
                 200, $headers =[], $body
             );
-            $client->shouldReceive('get')->once()->andReturn($message);
-            $command = new CanaryBuildCommand($client);
+            $client->shouldReceive('get')->andReturn($message);
+            $command = new CanaryBuildService($client);
+            $command->setSleep(.05);
+            $command->setTries(99);
             /** @var CanaryBuildCommand $command */
             $command->beginTravisWatcher($response);
             $this->assertEquals($state, $command->getBuildState());
@@ -125,46 +155,10 @@ class CanaryBuildTest extends \TestCase
         $client->shouldReceive('get')->once()->andReturn($message);
         $mocked = \Mockery::mock('\Symfony\Component\Console\Command\Command');
         App::instance('\Symfony\Component\Console\Command\Command', $mocked);
-        $command = new CanaryBuildCommand($client);
+        $command = new CanaryBuildService($client);
         /** @var CanaryBuildCommand $command */
         $command->beginTravisWatcher($response);
 
     }
 
-    protected function testMethodNotFoundFirstTime() {
-
-    }
-
-    protected function testIfNotDoneShouldTryForFiveTries() {
-
-    }
-
-    public function testGettingResponseFromTravisAndReactingToNotDone()
-    {
-        //Should call to travis
-        //get not done the 1st time
-        //wait x seconds
-        //get done the next time
-        //close out
-
-        //$response = File::get(base_path('tests/fixtures/travis_not_done.json'));
-
-        /** @var CanaryBuildCommand $command */
-        $command = App::make(CanaryBuildCommand::class);
-
-        $command->seeIfTravisJobDone(39521);
-
-        $this->assertEquals('finished', $command->getTravisState());
-
-    }
-
-    public function testOnlyWaitsForTenCycles() {
-
-    }
-
-    public function testingStatesFromTravis() {
-        /** @var CanaryBuildCommand $command */
-        $command = App::make(CanaryBuildCommand::class);
-        $command->seeIfTravisJobDone(78708065);
-    }
 }
