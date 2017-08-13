@@ -30,6 +30,12 @@ class CanaryBuildService
     protected $tries = 1;
 
     /**
+     * @var string
+     * Message to skip build
+     */
+    protected $skip_ci = '[ci skip]';
+
+    /**
      * @var Client
      */
     protected $client;
@@ -37,6 +43,8 @@ class CanaryBuildService
     private $account_and_repo = "alnutile/alsblog5";
     private $travis_job_id;
     private $build_state;
+
+    protected $master_branch = 'master';
 
     public function __construct(Client $client)
     {
@@ -48,7 +56,7 @@ class CanaryBuildService
 
         if ($job_id) {
             $results = $this->client->get(
-                sprintf("https://api.travis-ci.org/repo/%s/request/%d", urlencode($this->account_and_repo), $job_id),
+                sprintf("https://api.travis-ci.org/repo/%s/request/%d", urlencode($this->getAccountAndRepo()), $job_id),
                 [
                     'headers' => [
                         'Content-Type' => 'application/json',
@@ -119,15 +127,15 @@ class CanaryBuildService
      */
     public function triggerGitHubBuild()
     {
-        return $this->client->post(sprintf("https://api.github.com/repos/%s/merges", $this->account_and_repo), [
+        return $this->client->post(sprintf("https://api.github.com/repos/%s/merges", $this->getAccountAndRepo()), [
             'headers' => [
                 'X-GitHub-Media-Type' => 'application/vnd.github.v3+json',
                 'Authorization' => 'token ' . env('GITHUB_TOKEN'),
             ],
             'json' => [
                 'base' => 'canary-branch',
-                'head' => 'master',
-                'commit_message' => 'Nightly Canary Build',
+                'head' => $this->getMasterBranch(),
+                'commit_message' => sprintf("Nightly Canary Build %s", $this->getSkipCi()),
             ],
         ]);
     }
@@ -229,6 +237,55 @@ class CanaryBuildService
     public function getSleep()
     {
         sleep($this->sleep);
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getMasterBranch()
+    {
+        return $this->master_branch;
+    }
+
+    /**
+     * @param string $master_branch
+     */
+    public function setMasterBranch($master_branch)
+    {
+        $this->master_branch = $master_branch;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccountAndRepo()
+    {
+        return $this->account_and_repo;
+    }
+
+    /**
+     * @param string $account_and_repo
+     */
+    public function setAccountAndRepo($account_and_repo)
+    {
+        $this->account_and_repo = $account_and_repo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSkipCi()
+    {
+        return $this->skip_ci;
+    }
+
+    /**
+     * @param string $skip_ci
+     */
+    public function setSkipCi($skip_ci)
+    {
+        $this->skip_ci = $skip_ci;
     }
 
     protected function buildErrored($build)

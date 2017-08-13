@@ -43,36 +43,26 @@ class CanaryBuildCommand extends Command
     public function handle()
     {
         try {
-            /** @var Response $results */
-            $results = $this->buildService->triggerGitHubBuild();
+            //Step 1 cause `master` to merge into the canary branch
+            $this->buildService->triggerGitHubBuild();
 
-            /**
-             * 204 just means we had to run it manually
-             * cause there where not changes between the two
-             * branches
-             */
-            if ($results->getStatusCode() == 204) {
-                $this->info(
-                    sprintf(
-                        "Results %d so going to manually trigger the build",
-                        $results->getStatusCode()
-                    )
-                );
-                //Well nothing to merge so just do a build anyways
-                //  else it would have done it i on it's own by just merging above
-                $results = $this->buildService->triggerTravisBuild();
+            //Not canary and travis update
+            $results = $this->buildService->triggerTravisBuild();
 
-                $this->buildService->beginTravisWatcher(json_decode($results->getBody(), true));
+            $this->buildService->beginTravisWatcher(json_decode($results->getBody(), true));
 
-                $this->info(sprintf(
-                    "Results from Travis Build State %d",
-                    $this->buildService->getTravisState()
-                ));
+            $this->info(sprintf(
+                "Results from Travis Build State %d",
+                $this->buildService->getTravisState()
+            ));
 
-                if ($this->buildService->getTravisState() == 'passed') {
-                    $this->info("Going ahead with push to master");
-                    $this->buildService->forceAMasterBuildSinceCanaryBranchIsPassing();
-                }
+            if ($this->buildService->getTravisState() == 'passed') {
+                $this->info("Going ahead with push to master");
+                /**
+                 * Compare composer files
+                 * Then push into master to force build if changes
+                 */
+                $this->buildService->forceAMasterBuildSinceCanaryBranchIsPassing();
             }
         } catch (\Exception $e) {
             $message = sprintf(
