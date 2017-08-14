@@ -29,21 +29,8 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Boogaloo">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Economica:700,400italic">
 
-    @if(App::environment() =='local')
-        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="/css/font-awesome.css" rel="stylesheet" type="text/css">
-        <link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
-        <link href="/css/style.css" rel="stylesheet" type="text/css">
-        <link href="/css/layerslider.css" rel="stylesheet" type="text/css">
-        <link href="/css/main.css" rel="stylesheet" type="text/css">
-        <link href="/css/posts.css" rel="stylesheet" type="text/css">
-        <link href="/css/jquery-ui-timepicker-addon.css" rel="stylesheet" type="text/css">
-        <link href="/css/jquery-ui-1.10.4.min.css" rel="stylesheet" type="text/css">
-        <link href="/css/simplemde.min.css" rel="stylesheet" type="text/css">
-    @else
-        <link href="/all.css" rel="stylesheet" type="text/css">
-    @endif
-    <link rel="stylesheet" href="/css/simplemde.min.css">
+    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+
     <script src="/js/simplemde.min.js"></script>
 </head>
 <body onload="prettyPrint()">
