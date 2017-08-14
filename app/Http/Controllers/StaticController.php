@@ -13,7 +13,7 @@ class StaticController extends BaseController
 //            return Project::paginate(20);
 //        });
 
-        $projects = Project::paginate(20);
+        $projects = Project::orderBy('created_at', null, true)->paginate(20);
 
         return View::make('static.home', compact('projects'));
     }
