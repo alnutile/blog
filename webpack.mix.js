@@ -16,7 +16,8 @@ mix.js([
     'resources/assets/js/vendor/jquery-ui-1.10.4.custom.min.js',
     'resources/assets/js/vendor/jquery-ui-timepicker-addon.min.js',
     'resources/assets/js/vendor/jquery.imagesloaded.js',
-    'resources/assets/js/vendor/bootstrap.js',
+    'resources/assets/js/vendor/bootstrap.min.js',
+    'resources/assets/js/vendor/bootstrap-collapse.js',
     'resources/assets/js/vendor/jquery-easing-1.3.js',
     'resources/assets/js/vendor/jquery.lazyload.min.js',
     'resources/assets/js/app/main.js'
@@ -29,6 +30,7 @@ mix.js([
     .styles([
         'resources/assets/css/vendor/*.css',
         'resources/assets/css/bootstrap.css',
+        'resources/assets/css/bootstrap-responsive.css',
         'resources/assets/css/posts.css',
         'resources/assets/css/style.css',
         'resources/assets/css/main.css',
