@@ -20,6 +20,7 @@
             <a class="btn btn-success" href="/posts/create">create</a>
             @endif
             @include('shared._podcast')
+            @include('shared._book')
             @include('shared.contactme')
             <div>
                 <h2>Articles</h2>

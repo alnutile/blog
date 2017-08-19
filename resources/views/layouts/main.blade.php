@@ -165,20 +165,10 @@
 <!-- end: Under Footer -->
 
 <!-- start: Java Script -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="/all.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/angular.js"></script>
 
-
-
-@if(App::environment() =='local')
-    <script src="/js/angular.js"></script>
-    <script src="/js/liveSearch.js"></script>
-    <script src="/js/app/search.js"></script>
-@else
-    <script src="/angular_all.js"></script>
-@endif
-
-
+<!-- had issues merging these in not sure why yet-->
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
 <script src="/lib/google-code-prettify/lang-css.js"></script>
 <script defer="defer" src="/lib/google-code-prettify/prettify.js"></script>

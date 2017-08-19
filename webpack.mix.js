@@ -11,10 +11,26 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
+mix.js([
+    'resources/assets/js/core/jquery-1.9.1.min.js',
+    'resources/assets/js/vendor/jquery-ui-1.10.4.custom.min.js',
+    'resources/assets/js/vendor/jquery-ui-timepicker-addon.min.js',
+    'resources/assets/js/vendor/jquery.imagesloaded.js',
+    'resources/assets/js/vendor/bootstrap.min.js',
+    'resources/assets/js/vendor/bootstrap-collapse.js',
+    'resources/assets/js/vendor/jquery-easing-1.3.js',
+    'resources/assets/js/vendor/jquery.lazyload.min.js',
+    'resources/assets/js/app/main.js'
+], 'public/js/app.js')
+    .js([
+        'resources/assets/js/core/angular.min.js',
+        'resources/assets/js/vendor/liveSearch.js',
+        'resources/assets/js/app/search.js'
+    ], 'public/js/angular.js')
     .styles([
         'resources/assets/css/vendor/*.css',
         'resources/assets/css/bootstrap.css',
+        'resources/assets/css/bootstrap-responsive.css',
         'resources/assets/css/posts.css',
         'resources/assets/css/style.css',
         'resources/assets/css/main.css',
