@@ -26,8 +26,6 @@
     <!-- start: CSS -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Boogaloo">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Economica:700,400italic">
 
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
@@ -168,10 +166,7 @@
 <script src="/js/app.js"></script>
 <script src="/js/angular.js"></script>
 
-<!-- had issues merging these in not sure why yet-->
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
-<script src="/lib/google-code-prettify/lang-css.js"></script>
-<script defer="defer" src="/lib/google-code-prettify/prettify.js"></script>
+
 
 
 <!-- end: Java Script -->
