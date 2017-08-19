@@ -9,10 +9,6 @@ class StaticController extends BaseController
 
     public function showHome()
     {
-//        $projects = Cache::rememberForever('projects', function () {
-//            return Project::paginate(20);
-//        });
-
         $projects = Project::paginate(20);
 
         return View::make('static.home', compact('projects'));
