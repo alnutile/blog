@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@include('posts/_editor')
+
 @section('content')
 <div id='page-title'>
     <h2>Update Post {{ $post->title }}</h2>

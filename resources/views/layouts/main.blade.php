@@ -21,6 +21,7 @@
     <meta property="og:type" content=""/>
     <meta property="og:url" content=""/>
     <meta property="og:image" content=""/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- end: Facebook Open Graph -->
 
     <!-- start: CSS -->
@@ -28,10 +29,8 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif">
 
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-
-    <script src="/js/simplemde.min.js"></script>
 </head>
-<body onload="prettyPrint()">
+<body>
 
 <!--start: Header -->
 @include('shared.nav')
@@ -39,9 +38,7 @@
 <!--start: Container -->
 <div class="container">
         @yield('content')
-
 <!--end: Container-->
-
 </div>
 <!-- end: Wrapper  -->
 
@@ -163,8 +160,7 @@
 <!-- end: Under Footer -->
 
 <!-- start: Java Script -->
-<script src="/js/app.js"></script>
-<script src="/js/angular.js"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 
 
 

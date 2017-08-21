@@ -20,13 +20,9 @@ mix.js([
     'resources/assets/js/vendor/bootstrap-collapse.js',
     'resources/assets/js/vendor/jquery-easing-1.3.js',
     'resources/assets/js/vendor/jquery.lazyload.min.js',
+    'resources/assets/js/app.js',
     'resources/assets/js/app/main.js'
 ], 'public/js/app.js')
-    .js([
-        'resources/assets/js/core/angular.min.js',
-        'resources/assets/js/vendor/liveSearch.js',
-        'resources/assets/js/app/search.js'
-    ], 'public/js/angular.js')
     .styles([
         'resources/assets/css/vendor/*.css',
         'resources/assets/css/bootstrap.css',
@@ -37,3 +33,4 @@ mix.js([
         'resources/assets/css/tags.css',
         'resources/assets/css/app.css'
     ], 'public/css/app.css');
+
