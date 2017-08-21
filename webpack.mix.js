@@ -34,3 +34,6 @@ mix.js([
         'resources/assets/css/app.css'
     ], 'public/css/app.css');
 
+if (mix.inProduction()) {
+    mix.version();
+}
