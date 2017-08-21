@@ -34,6 +34,24 @@ Basically in screen run:
 Xvfb :0 -screen 0 1280x8000x24 &
 ```
 
+### JS testing
+
+```
+npm run tests 
+```
+
+These are in tests/js
+
+This is using ava right now with help from:
+
+[https://laracasts.com/series/learn-vue-2-step-by-step/episodes/30](https://laracasts.com/series/learn-vue-2-step-by-step/episodes/30)
+
+and
+
+[https://github.com/GrupaZero](https://github.com/GrupaZero)
+
+Lots of examples there
+
 ## Deployments
 
 Travis will run tests and code style check the deploy via Forge GET
@@ -61,3 +79,16 @@ Main
 App
  * Login in items
     
+    
+## Scraps
+
+```
+ live-search-callback="mySearchCallback"
+ live-search-item-template="<a href='/posts/@{{result.id}}'>@{{result.title}}</a>"
+ live-search-select="fullName"
+ live-search-max-result-size="100"
+ ng-model="title"     
+ 
+ 
+  ng-app="search" ng-controller='SearchController' 
+```

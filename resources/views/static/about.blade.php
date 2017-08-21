@@ -50,6 +50,7 @@
         </div>
         <div class="span4 sidebar">
             @include('shared._podcast')
+            @include('shared._book')
 
             <div class="keys well">
                 <h4>Keys</h4>

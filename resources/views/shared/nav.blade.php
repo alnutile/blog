@@ -25,14 +25,21 @@
                         <li>
                             <a href="/posts">Blog &amp; Things</a>
                         </li>
-                        <li>
-                            <a href="/products">Products</a>
-                        </li>
-                        <li>
-                            <a href="/learnings">Resources</a>
-                        </li>
-                        <li>
-                            <a href="/talks">Talks</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Misc <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="/products">Products</a>
+                                </li>
+                                <li>
+                                    <a href="/learnings">Resources</a>
+                                </li>
+                                <li>
+                                    <a href="/talks">Talks</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

@@ -7,6 +7,7 @@
 </div>
 
 <div id="wrapper" class="full">
+<div id="app">
     <div class="row-fluid">
         @include('posts.search')
     </div>
@@ -17,7 +18,7 @@
         </div>
         <div class="sidebar span4 hidden-phone">
             @if(Auth::user())
-            <a class="btn btn-success" href="/posts/create">create</a>
+                <a class="btn btn-success" href="/posts/create">create</a>
             @endif
             @include('shared._podcast')
             @include('shared._book')
@@ -28,5 +29,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @stop
