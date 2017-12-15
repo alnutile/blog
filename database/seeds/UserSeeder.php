@@ -11,14 +11,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        if(env('YO') && env('YOP'))
-        {
             factory(\App\User::class)->create(
                 [
-                    'email' => env("YO"),
-                    'password' => bcrypt(env("YOP"))
+                    'email' => env("SEEDED_USER"),
+                    'password' => bcrypt(env("SEEDED_PASSWORD")),
                 ]
             );
-        }
     }
 }

@@ -23,17 +23,16 @@ class PostsController extends BaseController
     public function __construct(MarkdownExtraParser $mk, SchedulerAls $scheduler)
     {
         parent::__construct($mk, $scheduler);
-        $this->middleware('auth', array('except' => ['index', 'show', 'search']));
+        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
     }
 
     public function search()
     {
-
         $input = Input::get('search');
 
         $posts = (new Post())->search($input);
 
-        return Response::json(array('data' => $posts->toArray(), 'status'=>'success', 'message' => "Post Search"), 200);
+        return Response::json(['data' => $posts->toArray(), 'status'=>'success', 'message' => "Post Search"], 200);
     }
 
     public function index()
@@ -55,10 +54,10 @@ class PostsController extends BaseController
             return View::make('posts.index', compact('posts'));
         } else {
             return Response::json(
-                array('data' => $posts->toArray(),
+                ['data' => $posts->toArray(),
                     'status'=>'success',
                     'message' => "Post Index"
-                ),
+                ],
                 200
             );
         }
@@ -111,7 +110,7 @@ class PostsController extends BaseController
                     if (!$t) {
                         $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
                     }
-                    $post->tags()->attach((array) $t->id, array('created_at' => $date, 'updated_at' => $date));
+                    $post->tags()->attach((array) $t->id, ['created_at' => $date, 'updated_at' => $date]);
                 }
             }
         }
@@ -120,9 +119,9 @@ class PostsController extends BaseController
             return Redirect::route('posts.index');
         } else {
             return Response::json(
-                array('data' => $post->toArray(),
+                ['data' => $post->toArray(),
                     'status'=>'success',
-                    'message' => "Post Created"),
+                    'message' => "Post Created"],
                 200
             );
         }
@@ -199,7 +198,7 @@ class PostsController extends BaseController
                     if (!$t) {
                         $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
                     }
-                    $post->tags()->attach((array) $t->id, array('created_at' => $date, 'updated_at' => $date));
+                    $post->tags()->attach((array) $t->id, ['created_at' => $date, 'updated_at' => $date]);
                 }
             }
         }

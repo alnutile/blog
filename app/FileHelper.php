@@ -11,18 +11,20 @@ use Illuminate\Support\Facades\Storage;
 trait FileHelper
 {
 
+    /**
+     * @param Request $request
+     * @param $file_field_name
+     * @return bool
+     * @codeCoverageIgnore
+     * NOTE: this is just taking a request the work is in the
+     * @saveAndConvertFile method
+     */
     public function handleFile(Request $request, $file_field_name)
     {
 
         if ($request->file($file_field_name)) {
             try {
-                $path = $request->file($file_field_name)->getRealPath();
-
-                $original_name = $request->file($file_field_name)->getClientOriginalName();
-
-                $converted = $this->convertToJpg($path, $original_name);
-
-                $this->imageToRightPlace($converted);
+                $converted = $this->saveAndConvertFile($request, $file_field_name);
 
                 return $converted['name'];
             } catch (\Exception $e) {
@@ -55,6 +57,10 @@ trait FileHelper
         return ['content' => file_get_contents($full_path_to_file), 'name' => $name];
     }
 
+    /**
+     * @param array $converted
+     * @codeCoverageIgnore
+     */
     protected function imageToRightPlace($converted = [])
     {
         $contents   = $converted['content'];
@@ -66,5 +72,24 @@ trait FileHelper
         } else {
             Storage::disk("s3")->put($name, $contents, 'public');
         }
+    }
+
+    /**
+     * @param Request $request
+     * @param $file_field_name
+     * @return array
+     * @codeCoverageIgnore
+     * @NOTE tested in other methods
+     */
+    public function saveAndConvertFile(Request $request, $file_field_name)
+    {
+        $path = $request->file($file_field_name)->getRealPath();
+
+        $original_name = $request->file($file_field_name)->getClientOriginalName();
+
+        $converted = $this->convertToJpg($path, $original_name);
+
+        $this->imageToRightPlace($converted);
+        return $converted;
     }
 }

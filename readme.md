@@ -1,75 +1,94 @@
 ## Going Laravel 5
 
-[![Build Status](https://travis-ci.org/alnutile/alsblog5.svg?branch=mainline)](https://travis-ci.org/alnutile/alsblog5)
-
-## Notes 
-
-Logging can be seen at Incomings.io 
-
-## Todo
-
-Copy over migrations
-
-Make sure gulp is working for production files
-
-Get auth working
-
-Get theme into place
-
-Post working?
-
-Projects working?
-
-Markdown working?
-
-Import data?
-
-Setup AWS for this
-
-Plug RSS Back in
-
-Copy all images over from server to?
+[![Build Status](https://travis-ci.org/alnutile/alsblog5.svg?branch=master)](https://travis-ci.org/alnutile/alsblog5)
 
 
-Some other providers in app and then see the old Facased
-    'Schickling\Backup\BackupServiceProvider',
-    'Als\Services\ImageService',
-    'Als\ServiceProviders\SearchServiceProvider',
-    'Thujohn\Rss\RssServiceProvider'
-
-Façades
-    'ImageToUse'      => 'Als\Facades\ImageFacade',
-    'SearchAls'       => 'Als\Facades\SearchFacade',
-    'Rss' 			  => 'Thujohn\Rss\RssFacade'
-
+[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
+[![Quality Score][ico-code-quality]][link-code-quality]
 
 ## Assets
 
-This is old laravel 4 updated to 5 and those are still in public :(
+Updated to default format of [https://laravel.com/docs/5.4/mix](https://laravel.com/docs/5.4/mix)
 
-And gulp right now has not been updated so you need to run 'gulp scripts', 'gulp angular' and or 'gulp css' before pushing to add new updates to production
+`npm run dev` 
+
+Just like the docs note or watch
+
+`npm run watch`
+
+Then production for deployment:
+
+coming soon...
 
 ## Password Reset
 
 php artisan password_reset
 
-## Tests
+## Testing
 
-Might as well hit the resume too
+Follow notes [https://alfrednutile.info/posts/209](https://alfrednutile.info/posts/209)
 
-## Todos:
+Basically in screen run:
 
-- [ ] Write documentation
-- [ ] Write tests
-- [ ] Fix linting errors
-- [ ] Make sure code coverage hasn't dropped
-- [ ] Provide verification config / commands / resources
-- [ ] Enable "Allow edits from maintainers" for this PR
-- [ ] Update the messages below
+```
+Xvfb :0 -screen 0 1280x8000x24 &
+```
 
-***Is this ready for review?:*** NO
-***Is it a breaking change?:*** NO
+### JS testing
+
+```
+npm run tests 
+```
+
+These are in tests/js
+
+This is using ava right now with help from:
+
+[https://laracasts.com/series/learn-vue-2-step-by-step/episodes/30](https://laracasts.com/series/learn-vue-2-step-by-step/episodes/30)
+
+and
+
+[https://github.com/GrupaZero](https://github.com/GrupaZero)
+
+Lots of examples there
 
 ## Deployments
 
 Travis will run tests and code style check the deploy via Forge GET
+
+
+[ico-travis]: https://img.shields.io/travis/alnutile/alsblog5/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/alnutile/alsblog5.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/alnutile/alsblog5.svg?style=flat-square
+
+[link-travis]: https://travis-ci.org/alnutile/alsblog5
+[link-scrutinizer]: https://scrutinizer-ci.com/g/alnutile/alsblog5/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/alnutile/alsblog5
+
+
+## Layouts
+
+Main
+  * Home
+  * About
+  * Products
+  * Talks 
+  * Posts
+  * Projects/Portfolio
+  * Tags
+App
+ * Login in items
+    
+    
+## Scraps
+
+```
+ live-search-callback="mySearchCallback"
+ live-search-item-template="<a href='/posts/@{{result.id}}'>@{{result.title}}</a>"
+ live-search-select="fullName"
+ live-search-max-result-size="100"
+ ng-model="title"     
+ 
+ 
+  ng-app="search" ng-controller='SearchController' 
+```

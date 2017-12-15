@@ -9,3 +9,5 @@ Thumbs.db
 .env_boot.php
 node_modules/*
 .well-known
+/docs/coverage
+.DS_Store

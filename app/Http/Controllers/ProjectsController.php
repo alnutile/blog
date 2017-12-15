@@ -21,6 +21,12 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 
+/**
+ * @codeCoverageIgnore
+ *
+ * Note: This is tested at the repo level
+ * and dusk
+ */
 class ProjectsController extends BaseController
 {
 
@@ -29,9 +35,8 @@ class ProjectsController extends BaseController
     public function __construct(MarkdownExtraParser $mk, SchedulerAls $scheduler)
     {
         parent::__construct($mk, $scheduler);
-        $this->middleware('auth', array('except' => ['index', 'show']));
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
-
 
     /**
      * Display a listing of the resource.
@@ -52,10 +57,10 @@ class ProjectsController extends BaseController
             return View::make('projects.index', compact('projects', 'project'));
         } else {
             return Response::json(
-                array('data' => $projects->toArray(),
+                ['data' => $projects->toArray(),
                     'status'=>'success',
                     'message' => "Projects Index"
-                ),
+                ],
                 200
             );
         }
@@ -85,9 +90,9 @@ class ProjectsController extends BaseController
                 return Redirect::route('projects.index');
             } else {
                 return Response::json(
-                    array('data' => $project->toArray(),
+                    ['data' => $project->toArray(),
                         'status'=>'success',
-                        'message' => "Project Created"),
+                        'message' => "Project Created"],
                     200
                 );
             }
@@ -105,8 +110,6 @@ class ProjectsController extends BaseController
      */
     public function show($id)
     {
-
-
         $project = Cache::rememberForever('project_' . $id, function () use ($id) {
             return Project::find($id)->load('tags');
         });

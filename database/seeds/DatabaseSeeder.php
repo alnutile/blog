@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
 
         factory(\App\Tag::class, 5)->create();
 
-        factory(\App\Project::class, 5)->create();
+        factory(\App\Project::class, 30)->create();
 
         $projects = \App\Project::all();
 
         $tags = \App\Tag::all()->get('id');
-        foreach($projects as $project) {
+        foreach ($projects as $project) {
             $project->tags()->attach($tags);
         }
     }

@@ -8,13 +8,17 @@
 
 namespace App;
 
+/**
+ * @codeCoverageIgnore
+ * just a getter setter
+ */
 trait MarkDownHelper
 {
     
     protected $markdown_tool = null;
 
     /**
-     * @return null
+     * @return MarkdownExtraParser
      */
     public function getMarkdownTool()
     {

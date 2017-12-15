@@ -11,13 +11,13 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Post::class, 5)->create();
+        factory(\App\Post::class, 22)->create();
 
         $posts = \App\Project::all();
 
         $tags = \App\Tag::all()->get('id');
 
-        foreach($posts as $post) {
+        foreach ($posts as $post) {
             $post->tags()->attach($tags);
         }
     }

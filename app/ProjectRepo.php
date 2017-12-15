@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Storage;
 
 class ProjectRepo
 {
-
     use TagsHelper, FileHelper, MarkDownHelper;
 
     public function createProject(Request $request)
     {
+
         $data = $request->all();
 
         $file_name = $this->handleFile($request, 'photo_file_name');
@@ -24,9 +24,7 @@ class ProjectRepo
             $data['photo_file_name'] = $file_name;
         }
 
-        if (empty($data['tags'])) {
-            $data['tags'] = 0;
-        }
+        $data = $this->setDataTags($data);
 
         $data['rendered_body']  = $this->getMarkdownTool()->defaultTransform($data['body']);
 
@@ -44,42 +42,43 @@ class ProjectRepo
         $data = $request->all();
 
         if ($request->file('photo_file_name')) {
-            try {
-                $contents = file_get_contents($request->file('photo_file_name')->getRealPath());
-
-                Storage::disk("local")->put(
-                    $request->file('photo_file_name')->getClientOriginalName(),
-                    $contents,
-                    'public'
-                );
-            } catch (\Exception $e) {
-                Log::debug(sprintf("Error with image upload %s", $e->getMessage()));
+            $file_name = $this->handleFile($request, 'photo_file_name');
+            if ($file_name) {
+                $data['photo_file_name'] = $file_name;
             }
-            $data['photo_file_name'] = $request->file('photo_file_name')->getClientOriginalName();
         } else {
-            $data['photo_file_name'] = $project->photo_file_name;
+            //Keep existing
+            $data = $this->setDefaultFileName($project, $data);
         }
 
         $project->update($data);
+
         $project->tags()->detach();
-        if (Input::get('tags') && count(Input::get('tags')) > 0) {
-            //@TODO move into shared method
 
-            $tags = Input::get('tags');
-            $tag_ids = [];
+        $this->handleTags($project, $request);
+    }
 
-            if ($tags) {
-                $date = $project->created_at;
-                $tags_array = explode(",", $tags);
-
-                foreach ($tags_array as $tag) {
-                    $t = Tag::where("name", "=", trim($tag))->first();
-                    if (!$t) {
-                        $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
-                    }
-                    $project->tags()->attach((array) $t->id, array('created_at' => $date, 'updated_at' => $date));
-                }
-            }
+    /**
+     * @param $data
+     * @return mixed
+     * @TODO fix at the form level
+     */
+    public function setDataTags($data)
+    {
+        if (empty($data['tags'])) {
+            $data['tags'] = 0;
         }
+        return $data;
+    }
+
+    /**
+     * @param $project
+     * @param $data
+     * @return mixed
+     */
+    public function setDefaultFileName($project, $data)
+    {
+        $data['photo_file_name'] = $project->photo_file_name;
+        return $data;
     }
 }

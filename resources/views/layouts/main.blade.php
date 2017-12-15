@@ -21,32 +21,16 @@
     <meta property="og:type" content=""/>
     <meta property="og:url" content=""/>
     <meta property="og:image" content=""/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- end: Facebook Open Graph -->
 
     <!-- start: CSS -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Boogaloo">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Economica:700,400italic">
 
-    @if(App::environment() =='local')
-        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="/css/font-awesome.css" rel="stylesheet" type="text/css">
-        <link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
-        <link href="/css/style.css" rel="stylesheet" type="text/css">
-        <link href="/css/layerslider.css" rel="stylesheet" type="text/css">
-        <link href="/css/main.css" rel="stylesheet" type="text/css">
-        <link href="/css/posts.css" rel="stylesheet" type="text/css">
-        <link href="/css/jquery-ui-timepicker-addon.css" rel="stylesheet" type="text/css">
-        <link href="/css/jquery-ui-1.10.4.min.css" rel="stylesheet" type="text/css">
-        <link href="/css/simplemde.min.css" rel="stylesheet" type="text/css">
-    @else
-        <link href="/all.css" rel="stylesheet" type="text/css">
-    @endif
-    <link rel="stylesheet" href="/css/simplemde.min.css">
-    <script src="/js/simplemde.min.js"></script>
+    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
-<body onload="prettyPrint()">
+<body>
 
 <!--start: Header -->
 @include('shared.nav')
@@ -54,9 +38,7 @@
 <!--start: Container -->
 <div class="container">
         @yield('content')
-
 <!--end: Container-->
-
 </div>
 <!-- end: Wrapper  -->
 
@@ -178,23 +160,9 @@
 <!-- end: Under Footer -->
 
 <!-- start: Java Script -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="/all.js"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 
 
-
-@if(App::environment() =='local')
-    <script src="/js/angular.js"></script>
-    <script src="/js/liveSearch.js"></script>
-    <script src="/js/app/search.js"></script>
-@else
-    <script src="/angular_all.js"></script>
-@endif
-
-
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
-<script src="/lib/google-code-prettify/lang-css.js"></script>
-<script defer="defer" src="/lib/google-code-prettify/prettify.js"></script>
 
 
 <!-- end: Java Script -->

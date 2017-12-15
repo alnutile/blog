@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Cache;
 
+/**
+ * @codeCoverageIgnore
+ * NOTE until needed ignored since not special work in here
+ */
 class ProjectsObserver
 {
 

@@ -4,9 +4,14 @@ namespace App;
 
 use Michelf\MarkdownExtra;
 
+/**
+ * Class MarkdownExtraParser
+ * @package App
+ * @codeCoverageIgnore
+ * UGLY MINOR HACK REALLY NEED TO REPLACE THIS LIBRARY
+ */
 class MarkdownExtraParser extends MarkdownExtra
 {
-
 
     public $code_attr_on_pre = true;
 
@@ -26,11 +31,11 @@ class MarkdownExtraParser extends MarkdownExtra
 
         $codeblock = preg_replace_callback(
             '/^\n+/',
-            array($this, '_doFencedCodeBlocks_newlines'),
+            [$this, '_doFencedCodeBlocks_newlines'],
             $codeblock
         );
 
-        $classes = array();
+        $classes = [];
         if ($classname != "") {
             if ($classname{0} == '.') {
                 $classname = substr($classname, 1);

@@ -53,9 +53,19 @@
 <hr>
 <!-- start: Wall -->
 
+<div class="row-fluid">
+    {{ $projects->links() }}
+</div>
+
 <div id="wall" class="row-fluid">
     @include('projects.grid', array('span'=>'span3'))
 </div>
+
+<div class="row-fluid">
+    {{ $projects->links() }}
+</div>
+
+
 <!-- end: Wall -->
 </div>
 

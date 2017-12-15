@@ -1,11 +1,12 @@
 <?php
 
 return [
-    
 
-    'default' => env('FILESYSTEM_DEFAULT', 's3'),
-    
-    'cloud' => 's3',
+    'cdn' => 'https://dbfz0pdxv8lk5.cloudfront.net',
+
+    'default' => env('FILESYSTEM_DRIVER', 'local'),
+
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
 
     'disks' => [
 

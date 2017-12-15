@@ -14,7 +14,7 @@ class ImageToUse
     {
 
         if (Storage::exists($filename)) {
-            return Storage::url($filename);
+            return config('filesystems.cdn') . "/" . $filename;
         } elseif (File::exists(public_path() . '/dist/img/' . $filename)) {
             return '/dist/img/' . $filename;
         }

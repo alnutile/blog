@@ -9,9 +9,9 @@ class StaticController extends BaseController
 
     public function showHome()
     {
-        $projects = Cache::rememberForever('projects', function () {
-            return Project::all()->sortBy('created_at', null, true);
-        });
+
+        $projects = Project::orderBy('created_at', null, true)->paginate(20);
+
 
         return View::make('static.home', compact('projects'));
     }

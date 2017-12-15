@@ -2,8 +2,12 @@
 
 use App\MarkdownExtraParser;
 use App\Services\SchedulerAls;
+use Illuminate\Support\Facades\View;
 use Michelf\Markdown;
 
+/**
+ * @codeCoverageIgnore
+ */
 class BaseController extends Controller
 {
 
@@ -11,7 +15,7 @@ class BaseController extends Controller
      * @var \Michelf\MarkdownExtra
      */
     public $mk;
-    public $tags = array();
+    public $tags = [];
     public $scheduler;
 
     public function __construct(MarkdownExtraParser $mk, SchedulerAls $scheduler)

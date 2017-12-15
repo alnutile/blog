@@ -1,0 +1,39 @@
+{
+  "@type": "request",
+  "@href": "/repo/101/request/39521",
+  "@representation": "standard",
+  "id": 39521,
+  "state": "finished",
+  "result": null,
+  "message": null,
+  "repository": {
+    "@type": "repository",
+    "@href": "/repo/101",
+    "@representation": "minimal",
+    "id": 101,
+    "name": "grape",
+    "slug": "ruby-grape/grape"
+  },
+  "branch_name": {
+    "@type": "branch",
+    "@href": "/repo/101/branch/master",
+    "@representation": "minimal",
+    "name": "master"
+  },
+  "commit": {
+    "@type": "commit",
+    "@representation": "minimal",
+    "id": 39519,
+    "sha": "3c934203f91537a47768f3bdefb6137be3be3e47",
+    "ref": null,
+    "message": "Merge branch 'master' of github.com:intridea/grape",
+    "compare_url": "https://github.com/intridea/grape/compare/3ffde6a...3c93420",
+    "committed_at": "2011-07-07T05:42:33Z"
+  },
+  "builds": [
+
+  ],
+  "owner": null,
+  "created_at": "2011-07-07T05:42:44Z",
+  "event_type": "push"
+}
