@@ -31,7 +31,4 @@ class JsonToArrayController extends Controller
             return response([], 422);
         }
     }
-
-
-
 }

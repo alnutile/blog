@@ -7,6 +7,5 @@ class ArrayToJsonController extends Controller
 {
     public function process()
     {
-
     }
 }
