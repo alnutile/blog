@@ -11,6 +11,11 @@ class ArrayJsonConverterTest extends TestCase
             "tests/fixtures/complex.json"
         ));
 
+        $results = $this->json("POST", "j2a", [
+            'data' => $json
+        ])->assertStatus(200);
+
+        $this->assertNotNull($results);
 
     }
 

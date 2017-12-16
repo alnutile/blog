@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <!-- start: Meta -->
     <meta charset="utf-8">
     <title>Alfred Nutile Inc.::Developer[PHP, JavaScript, Laravel, Angular]</title>
-    <meta name="description" content="Alfred Nutile - PHP, JavaScript, Laravel, Angular"/>
+    <meta name="description" content="Alfred Nutile - PHP, JavaScript, Laravel, Angular" />
     <meta name="keywords" content="laravel, javascript, angular, php" />
-    <meta name="author" content="Alfred Nutile"/>
+    <meta name="author" content="Alfred Nutile" />
     <link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <!-- end: Meta -->
 
@@ -16,11 +17,11 @@
     <!-- end: Mobile Specific -->
 
     <!-- start: Facebook Open Graph -->
-    <meta property="og:title" content=""/>
-    <meta property="og:description" content=""/>
-    <meta property="og:type" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:image" content=""/>
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- end: Facebook Open Graph -->
 
@@ -30,28 +31,29 @@
 
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
+
 <body>
 
-<!--start: Header -->
-@include('shared.nav')
-<!--end: Header-->
-<!--start: Container -->
-<div class="container">
+    <!--start: Header -->
+    @include('shared.nav')
+    <!--end: Header-->
+    <!--start: Container -->
+    <div class="container" id="app">
         @yield('content')
-<!--end: Container-->
-</div>
-<!-- end: Wrapper  -->
+        <!--end: Container-->
+    </div>
+    <!-- end: Wrapper  -->
 
-<!-- start: Footer -->
-<div id="footer">
+    <!-- start: Footer -->
+    <div id="footer">
 
-    <!-- start: Container -->
-    <div class="container">
+        <!-- start: Container -->
+        <div class="container">
 
-        <!-- start: Row -->
-        <div class="row-fluid">
+            <!-- start: Row -->
+            <div class="row-fluid">
 
-           <span class="span3">
+                <span class="span3">
                 <address>
                     <h3>Alfred Nutile</h3>
                     <abbr title="Phone">P:</abbr> (413) 345-5103
@@ -63,14 +65,14 @@
                   Montague, MA 01351
               </address>
             </span>
-            <span class="span3">
+                <span class="span3">
                   <h3>More info</h3>
                   <h3>Resume</h3>
                   <p>
                       <i class="halflings-icon white user"></i><a href="https://docs.google.com/document/d/1CzorvUeHZh7o4N_v4c_Z6ClL_NgOf8bdbROqHMdFe2w/edit?usp=sharing" target="_blank">DOC Here</a>
                   </p>
             </span>
-            <span id="social-block" class="pull-right span6">
+                <span id="social-block" class="pull-right span6">
               <ul class="inline">
                   <li id='linked'class='span2'>
                       <a href="https://www.linkedin.com/in/alfrednutile/">
@@ -101,76 +103,88 @@
             </span>
 
 
-            <!-- end: Follow Us -->
+                <!-- end: Follow Us -->
+
+            </div>
+            <!-- end: Row -->
 
         </div>
-        <!-- end: Row -->
+        <!-- end: Container  -->
 
     </div>
-    <!-- end: Container  -->
+    <!-- end: Footer -->
 
-</div>
-<!-- end: Footer -->
+    <!-- start: Under Footer -->
+    <div id="under-footer">
 
-<!-- start: Under Footer -->
-<div id="under-footer">
+        <!-- start: Container -->
+        <div class="container">
 
-    <!-- start: Container -->
-    <div class="container">
+            <!-- start: Row -->
+            <div class="row-fluid">
 
-        <!-- start: Row -->
-        <div class="row-fluid">
-
-            <!-- start: Under Footer Logo -->
-            <div class="span2">
-                <div id="under-footer-logo">
-                    <a class="brand" href="#">tabula</a>
+                <!-- start: Under Footer Logo -->
+                <div class="span2">
+                    <div id="under-footer-logo">
+                        <a class="brand" href="#">tabula</a>
+                    </div>
                 </div>
-            </div>
-            <!-- end: Under Footer Logo -->
+                <!-- end: Under Footer Logo -->
 
-            <!-- start: Under Footer Copyright -->
-            <div class="span9">
+                <!-- start: Under Footer Copyright -->
+                <div class="span9">
 
-                <div id="under-footer-copyright">
-                    &copy; 2012, <a href="http://clabs.co">creativeLabs</a>.
-                    Designed by <a href="http://clabs.co">creativeLabs</a> in Poland <img src="/img/poland.png" alt="Poland" style="margin-top:-4px">
+                    <div id="under-footer-copyright">
+                        &copy; 2012, <a href="http://clabs.co">creativeLabs</a>. Designed by <a href="http://clabs.co">creativeLabs</a> in Poland <img src="/img/poland.png" alt="Poland" style="margin-top:-4px">
+                    </div>
+
                 </div>
+                <!-- end: Under Footer Copyright -->
 
-            </div>
-            <!-- end: Under Footer Copyright -->
+                <!-- start: Under Footer Back To Top -->
+                <div class="span1">
 
-            <!-- start: Under Footer Back To Top -->
-            <div class="span1">
+                    <div id="under-footer-back-to-top">
+                        <a href="#"></a>
+                    </div>
 
-                <div id="under-footer-back-to-top">
-                    <a href="#"></a>
                 </div>
+                <!-- end: Under Footer Back To Top -->
 
             </div>
-            <!-- end: Under Footer Back To Top -->
+            <!-- end: Row -->
 
         </div>
-        <!-- end: Row -->
+        <!-- end: Container  -->
 
     </div>
-    <!-- end: Container  -->
+    <!-- end: Under Footer -->
 
-</div>
-<!-- end: Under Footer -->
-
-<!-- start: Java Script -->
-<script src="{{ mix('js/app.js') }}"></script>
+    <!-- start: Java Script -->
+    <script src="{{ mix('js/app.js') }}"></script>
 
 
+    <!-- end: Java Script -->
+    <script>
+        var _gaq = [
+            ['_setAccount', 'UA-39925227-1'],
+            ['_trackPageview']
+        ];
+        (function(d, t) {
+            var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s)
+        }(document, 'script'));
+    </script>
 
-
-<!-- end: Java Script -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
-    var _gaq=[['_setAccount','UA-39925227-1'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1002021299472446",
+    enable_page_level_ads: true
+  });
 </script>
 </body>
+
 </html>

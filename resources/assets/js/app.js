@@ -1,5 +1,5 @@
-import Typeahead from 'vue-typeahead';
-import LiveSearch from './components/Search.vue';
+import Typeahead from "vue-typeahead";
+import LiveSearch from "./components/Search.vue";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -7,15 +7,16 @@ import LiveSearch from './components/Search.vue';
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
+window.Vue = require("vue");
 
+Vue.component("j2a-tool", require("./tools/J2A.vue"));
 
 const app = new Vue({
-    el: '#app',
-    components: {
-        Typeahead,
-        LiveSearch
-    }
+  el: "#app",
+  components: {
+    Typeahead,
+    LiveSearch
+  }
 });

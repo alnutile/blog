@@ -32,8 +32,8 @@ mix.js([
         'resources/assets/css/main.css',
         'resources/assets/css/tags.css',
         'resources/assets/css/app.css'
-    ], 'public/css/app.css');
-
+    ], 'public/css/app.css')
+    .sass('resources/assets/sass/app.scss', 'public/css/sass.css');
 if (mix.inProduction()) {
     mix.version();
 }

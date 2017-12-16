@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "axios-mock-adapter": "^1.9.0",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "modernizr-webpack-plugin": "^1.0.6",

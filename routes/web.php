@@ -1,5 +1,4 @@
 <?php
-
 use App\Post;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
@@ -14,7 +13,7 @@ if (!function_exists('getBody')) {
             $render = $item->body;
         }
 
-            return ($full) ? $render : strip_tags(substr($render, 0, 200));
+        return ($full) ? $render : strip_tags(substr($render, 0, 200));
     }
 };
 
@@ -67,7 +66,8 @@ Route::get('rss', function () {
     foreach ($items as $item) {
         $trimmed = getBody($item, $full);
         $feed->item(
-            ['title' => $item->title,
+            [
+                'title' => $item->title,
                 'description|cdata' => $trimmed,
                 'link' => url('posts/' . $item->id)
             ]
@@ -83,7 +83,8 @@ Route::get('rss_full', function () {
     $feed = $rss->feed('2.0', 'UTF-8');
 
     $feed->channel(
-        ['title' => 'Alfred Nutile RSS',
+        [
+            'title' => 'Alfred Nutile RSS',
             'description' => 'Laravel, Angular Practical Solutions try https://www.alfrednutile.info/rss_full',
             'link' => 'https://www.alfrednutile.info/'
         ]
@@ -115,3 +116,10 @@ Route::post('register', function () {
 Route::get('register', function () {
     return redirect('login')->withErrors(["email" => "Not allowed to register"]);
 });
+
+
+Route::get("j2a", "JsonToArrayController@show");
+
+Route::post("j2a", "JsonToArrayController@process");
+
+Route::post("a2j", "ArrayToJsonController@process");
