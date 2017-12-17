@@ -44,7 +44,6 @@ Route::resource('projects', 'ProjectsController');
 
 Route::get('tags/{tag_id}', 'TagsController@show');
 
-
 Route::get('rss', function () {
 
     $full = Input::get('full');

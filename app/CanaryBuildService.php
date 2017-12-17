@@ -25,7 +25,7 @@ class CanaryBuildService
      * remaining_requests is low like 10 per build
      * so I can not hit this too much
      */
-    protected $sleep = 30;
+    protected $sleep = 60;
 
     protected $tries = 1;
 

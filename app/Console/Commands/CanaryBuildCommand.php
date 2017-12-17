@@ -46,9 +46,10 @@ class CanaryBuildCommand extends Command
             //Step 1 cause `master` to merge into the canary branch
             $this->buildService->triggerGitHubBuild();
 
-            //Not canary and travis update
+            //Now canary and travis update
             $results = $this->buildService->triggerTravisBuild();
 
+            //This payload gives me info about the job
             $this->buildService->beginTravisWatcher(json_decode($results->getBody(), true));
 
             $this->info(sprintf(

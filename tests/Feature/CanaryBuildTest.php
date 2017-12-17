@@ -145,7 +145,6 @@ class CanaryBuildTest extends \TestCase
     public function testPassedAndTriesDone() {
         $response = json_decode(File::get(base_path('tests/fixtures/travis_response_from_start_job.json')), true);
         $body = File::get(base_path('tests/fixtures/travis_getting_results_using_a_request_id.json'));
-        $body = str_replace('passed', 'passed', $body);
         /** @var CanaryBuildCommand $command */
         //$command = App::make(CanaryBuildCommand::class);
         $client = \Mockery::mock(Client::class);
@@ -159,6 +158,32 @@ class CanaryBuildTest extends \TestCase
         /** @var CanaryBuildCommand $command */
         $command->beginTravisWatcher($response);
 
+    }
+
+    public function testReactToBuildState() {
+        $response = json_decode(File::get(base_path('tests/fixtures/travis_response_from_start_job.json')), true);
+        $body = File::get(base_path('tests/fixtures/travis_getting_results_using_a_request_id.json'));
+        $passed = $body;
+        $body = str_replace('passed', 'booting', $body);
+        /** @var CanaryBuildCommand $command */
+        //$command = App::make(CanaryBuildCommand::class);
+        $client = \Mockery::mock(Client::class);
+        $message = new \GuzzleHttp\Psr7\Response(
+            200, $headers =[], $body
+        );
+        $message_passed = new \GuzzleHttp\Psr7\Response(
+            200, $headers =[], $passed
+        );
+        $client->shouldReceive('get')->andReturn($message);
+        $client->shouldReceive('get')->andReturn($message_passed);
+        $mocked = \Mockery::mock('\Symfony\Component\Console\Command\Command');
+        App::instance('\Symfony\Component\Console\Command\Command', $mocked);
+        /** @var CanaryBuildService $command */
+        $command = \Mockery::mock('\App\CanaryBuildService', [$client])->shouldAllowMockingProtectedMethods()
+        ->makePartial();
+        $command->shouldReceive('buildBooting')->once();
+        /** @var CanaryBuildCommand $command */
+        $command->beginTravisWatcher($response);
     }
 
 }

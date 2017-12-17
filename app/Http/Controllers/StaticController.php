@@ -2,6 +2,7 @@
 
 use App\Project;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
 
 class StaticController extends BaseController
