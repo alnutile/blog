@@ -17663,6 +17663,7 @@ window.Vue = __webpack_require__(44);
 
 Vue.component("j2a-tool", __webpack_require__(135));
 Vue.component("a2j-tool", __webpack_require__(138));
+Vue.component("codename-tool", __webpack_require__(156));
 
 var app = new Vue({
   el: "#app",
@@ -38199,6 +38200,165 @@ $(document).ready(function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(24)
+/* script */
+var __vue_script__ = __webpack_require__(157)
+/* template */
+var __vue_template__ = __webpack_require__(158)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/tools/Codename.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-546ca87e", Component.options)
+  } else {
+    hotAPI.reload("data-v-546ca87e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 157 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+  mounted: function mounted() {
+    this.generate();
+  },
+  data: function data() {
+    return {
+      codename: null
+    };
+  },
+
+
+  methods: {
+    generate: function generate() {
+      var _this = this;
+
+      axios.post("codenames", {}).then(function (results) {
+        _this.codename = results.data;
+      });
+    }
+  }
+};
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("form", [
+      _c("div", { staticClass: "form-group" }, [
+        _c("h3", [_vm._v("Your Generated Name: " + _vm._s(_vm.codename))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-default",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                _vm.generate()
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fa fa-retweet" }),
+            _vm._v(" generate\n      ")
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("hr")
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-546ca87e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
