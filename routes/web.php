@@ -122,4 +122,6 @@ Route::get("j2a", "JsonToArrayController@show");
 
 Route::post("j2a", "JsonToArrayController@process");
 
+Route::get("a2j", "ArrayToJsonController@show");
+
 Route::post("a2j", "ArrayToJsonController@process");

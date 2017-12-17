@@ -17662,6 +17662,7 @@ __webpack_require__(113);
 window.Vue = __webpack_require__(43);
 
 Vue.component("j2a-tool", __webpack_require__(135));
+Vue.component("a2j-tool", __webpack_require__(143));
 
 var app = new Vue({
   el: "#app",
@@ -38004,6 +38005,226 @@ $(document).ready(function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(45)
+/* script */
+var __vue_script__ = __webpack_require__(144)
+/* template */
+var __vue_template__ = __webpack_require__(145)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/tools/A2J.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-f023883a", Component.options)
+  } else {
+    hotAPI.reload("data-v-f023883a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+  data: function data() {
+    return {
+      j2a: null,
+      a2j: null,
+      converted_j2a: null,
+      converted_a2j: null,
+      example: "{\n    \"_id\": \"5a35650546b80b34e40e362f\",\n    \"index\": 0,\n    \"guid\": \"69df2e54-dc5a-40d3-a945-1f6f046e9d72\",\n    \"isActive\": true,\n    \"balance\": \"$3,217.79\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 28,\n    \"eyeColor\": \"green\",\n    \"name\": \"Arlene Ward\",\n    \"gender\": \"female\",\n    \"company\": \"OVOLO\",\n    \"email\": \"arleneward@ovolo.com\"\n  }"
+    };
+  },
+
+
+  methods: {
+    sampleJ2A: function sampleJ2A() {
+      this.j2a = this.example;
+      this.convertJ2A();
+    },
+    convertJ2A: function convertJ2A() {
+      var _this = this;
+
+      axios.post("j2a", { data: this.j2a }).then(function (results) {
+        _this.converted_j2a = results.data;
+      });
+    },
+    convertA2J: function convertA2J() {
+      axios.post("j2a", { data: this.a2j }).then(function (results) {
+        return converted_a2j;
+      });
+    }
+  }
+};
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("form", [
+      _c("div", { staticClass: "form-group" }, [
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.j2a,
+              expression: "j2a"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            name: "j2a",
+            id: "j2a",
+            cols: "30",
+            rows: "10",
+            placeholder: "[ 'foo': 'baz' ]"
+          },
+          domProps: { value: _vm.j2a },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.j2a = $event.target.value
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c(
+            "submit",
+            {
+              staticClass: "btn btn-success",
+              on: {
+                click: function($event) {
+                  _vm.convertJ2A()
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "fa fa-retweet" }),
+              _vm._v(" convert\n      ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "submit",
+            {
+              staticClass: "btn btn-default",
+              on: {
+                click: function($event) {
+                  _vm.sampleJ2A()
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "fa fa-retweet" }),
+              _vm._v(" sample\n      ")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("h2", [_vm._v("Output")]),
+    _vm._v(" "),
+    _c("pre", [_vm._v(_vm._s(_vm.converted_j2a))])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-f023883a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
