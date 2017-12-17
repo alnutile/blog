@@ -41,13 +41,4 @@ class FileHelperTest extends BrowserKitTestCase
         $this->assertFileExists($dest);
     }
 
-    public function testOriginalName()
-    {
-
-        $root = "/tmp/foo.jpg";
-
-        $results = $this->convertToJpg($root, "foo.jpg");
-
-        $this->assertEquals('foo.jpg', $results['name']);
-    }
 }
