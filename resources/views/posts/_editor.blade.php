@@ -1,1 +1,2 @@
-<script src="/js/simplemde.min.js"></script>
+@push('scripts')
+<script src="/js/simplemde.min.js"></script> @endpush

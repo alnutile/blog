@@ -1,8 +1,4 @@
-@extends('layouts.main')
-
-@include('posts/_editor')
-
-@section('content')
+@extends('layouts.main') @include('posts/_editor') @section('content')
 <div id='page-title'>
     <h2>Update Post {{ $post->title }}</h2>
 </div>
@@ -20,13 +16,11 @@
 
             <div class="form-group @if($errors->has('markdown')) has-error @endif">
                 <label for="markdown">Body Markdown</label>
-                <textarea class="form-control" id="markdown"
-                          rows="20" name="body">{{ is_null(old("body")) ? $post->body : old("body")}}</textarea>
+                <textarea class="form-control" id="markdown" rows="20" name="body">{{ is_null(old("body")) ? $post->body : old("body")}}</textarea> @push("scripts")
                 <script>
                     var simplemde = new SimpleMDE({ element: document.getElementById("markdown") });
-                </script>
-                @if($errors->has("body"))
-                    <span class="help-block alert alert-warning">{{ $errors->first("body") }}</span>
+                </script> @endpush @if($errors->has("body"))
+                <span class="help-block alert alert-warning">{{ $errors->first("body") }}</span>
                 @endif
             </div>
 
@@ -42,12 +36,11 @@
             </div>
 
 
-            {{ Form::close() }}
-
-            {{ Form::open(['method' => 'DELETE', 'action' => ['PostsController@destroy', $post->id]]) }}
-                <button type="submit" class="btn btn-danger">Delete</button>
+            {{ Form::close() }} {{ Form::open(['method' => 'DELETE', 'action' => ['PostsController@destroy', $post->id]]) }}
+            <button type="submit" class="btn btn-danger">Delete</button>
             {{ Form::close() }}
         </div>
 
-    </div></div>
+    </div>
+</div>
 @stop

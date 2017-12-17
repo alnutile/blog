@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-
-    <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>Alfred Nutile Inc.::Developer[PHP, JavaScript, Laravel, Angular]</title>
+    <!--  -->
+    <title>Alfred Nutile Inc.::@yield("title", "Developer[PHP, JavaScript, Laravel, Angular]")</title>
+
     <meta name="description" content="Alfred Nutile - PHP, JavaScript, Laravel, Angular" />
     <meta name="keywords" content="laravel, javascript, angular, php" />
     <meta name="author" content="Alfred Nutile" />
@@ -28,8 +28,8 @@
     <!-- start: CSS -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif">
-
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -40,7 +40,6 @@
     <!--start: Container -->
     <div class="container" id="app">
         @yield('content')
-        <!--end: Container-->
     </div>
     <!-- end: Wrapper  -->
 
@@ -54,53 +53,56 @@
             <div class="row-fluid">
 
                 <span class="span3">
-                <address>
-                    <h3>Alfred Nutile</h3>
-                    <abbr title="Phone">P:</abbr> (413) 345-5103
-                </address>
-              <address>
-                  <a href="mailto:#">me@alfrednutile.info</a></br></br>
-                  Alfred Nutile, Inc<br>
-                  PO Box 72<br>
-                  Montague, MA 01351
-              </address>
-            </span>
+                    <address>
+                        <h3>Alfred Nutile</h3>
+                        <abbr title="Phone">P:</abbr> (413) 345-5103
+                    </address>
+                    <address>
+                        <a href="mailto:#">me@alfrednutile.info</a>
+                        </br>
+                        </br>
+                        Alfred Nutile, Inc
+                        <br> PO Box 72
+                        <br> Montague, MA 01351
+                    </address>
+                </span>
                 <span class="span3">
-                  <h3>More info</h3>
-                  <h3>Resume</h3>
-                  <p>
-                      <i class="halflings-icon white user"></i><a href="https://docs.google.com/document/d/1CzorvUeHZh7o4N_v4c_Z6ClL_NgOf8bdbROqHMdFe2w/edit?usp=sharing" target="_blank">DOC Here</a>
-                  </p>
-            </span>
+                    <h3>More info</h3>
+                    <h3>Resume</h3>
+                    <p>
+                        <i class="halflings-icon white user"></i>
+                        <a href="https://docs.google.com/document/d/1CzorvUeHZh7o4N_v4c_Z6ClL_NgOf8bdbROqHMdFe2w/edit?usp=sharing" target="_blank">DOC Here</a>
+                    </p>
+                </span>
                 <span id="social-block" class="pull-right span6">
-              <ul class="inline">
-                  <li id='linked'class='span2'>
-                      <a href="https://www.linkedin.com/in/alfrednutile/">
-                          <img src="/img/linkedin-4-xl.png">
-                      </a>
-                  </li>
-                  <li id='twitter'class='span2'>
-                      <a href="https://twitter.com/alnutile">
-                          <img src="/img/twitter-4-xl.png">
-                      </a>
-                  </li>
-                  <li id='gplus'class='span2'>
-                      <a href="https://plus.google.com/u/1/113385596438431897721/posts/p/pub">
-                          <img src="/img/google-plus-4-xl.png">
-                      </a>
-                  </li>
-                  <li id='github'class='span2'>
-                      <a href="https://github.com/alnutile">
-                          <img src="/img/github-9-xl.png">
-                      </a>
-                  </li>
-                  <li id='feed'class='span2'>
-                      <a href="/rss">
-                          <img src="/img/feed-9-xl.png">
-                      </a>
-                  </li>
-              </ul>
-            </span>
+                    <ul class="inline">
+                        <li id='linked' class='span2'>
+                            <a href="https://www.linkedin.com/in/alfrednutile/">
+                                <img src="/img/linkedin-4-xl.png">
+                            </a>
+                        </li>
+                        <li id='twitter' class='span2'>
+                            <a href="https://twitter.com/alnutile">
+                                <img src="/img/twitter-4-xl.png">
+                            </a>
+                        </li>
+                        <li id='gplus' class='span2'>
+                            <a href="https://plus.google.com/u/1/113385596438431897721/posts/p/pub">
+                                <img src="/img/google-plus-4-xl.png">
+                            </a>
+                        </li>
+                        <li id='github' class='span2'>
+                            <a href="https://github.com/alnutile">
+                                <img src="/img/github-9-xl.png">
+                            </a>
+                        </li>
+                        <li id='feed' class='span2'>
+                            <a href="/rss">
+                                <img src="/img/feed-9-xl.png">
+                            </a>
+                        </li>
+                    </ul>
+                </span>
 
 
                 <!-- end: Follow Us -->
@@ -135,7 +137,10 @@
                 <div class="span9">
 
                     <div id="under-footer-copyright">
-                        &copy; 2012, <a href="http://clabs.co">creativeLabs</a>. Designed by <a href="http://clabs.co">creativeLabs</a> in Poland <img src="/img/poland.png" alt="Poland" style="margin-top:-4px">
+                        &copy; 2012,
+                        <a href="http://clabs.co">creativeLabs</a>. Designed by
+                        <a href="http://clabs.co">creativeLabs</a> in Poland
+                        <img src="/img/poland.png" alt="Poland" style="margin-top:-4px">
                     </div>
 
                 </div>
@@ -170,7 +175,7 @@
             ['_setAccount', 'UA-39925227-1'],
             ['_trackPageview']
         ];
-        (function(d, t) {
+        (function (d, t) {
             var g = d.createElement(t),
                 s = d.getElementsByTagName(t)[0];
             g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
@@ -178,13 +183,15 @@
         }(document, 'script'));
     </script>
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1002021299472446",
-    enable_page_level_ads: true
-  });
-</script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1002021299472446",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- -->
+    @stack('scripts')
 </body>
 
 </html>

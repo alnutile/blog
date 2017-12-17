@@ -13,12 +13,12 @@
         </textarea>
       </div>
         <div class="form-group">
-          <submit class="btn btn-success" v-on:click="convertJ2A()">
+          <button class="btn btn-success" type="button" v-on:click="convertJ2A()">
             <i class="fa fa-retweet"></i> convert
-        </submit>
-        <submit class="btn btn-default" v-on:click="sampleJ2A()">
+        </button>
+        <button class="btn btn-default" type="button"  v-on:click="sampleJ2A()">
             <i class="fa fa-retweet"></i> sample
-        </submit>
+        </button>
         </div>
     </form>
     <hr>
@@ -33,9 +33,7 @@ export default {
   data() {
     return {
       j2a: null,
-      a2j: null,
       converted_j2a: null,
-      converted_a2j: null,
       example: `{
     "_id": "5a35650546b80b34e40e362f",
     "index": 0,
@@ -62,9 +60,6 @@ export default {
       axios.post("j2a", { data: this.j2a }).then(results => {
         this.converted_j2a = results.data;
       });
-    },
-    convertA2J() {
-      axios.post("j2a", { data: this.a2j }).then(results => converted_a2j);
     }
   }
 };

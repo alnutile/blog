@@ -5,25 +5,25 @@
 
         <textarea
         class="form-control"
-        v-model="j2a"
-        name="j2a"
-        id="j2a"
+        v-model="a2j"
+        name="a2j"
+        id="a2j"
         cols="30"
         rows="10" placeholder="[ 'foo': 'baz' ]">
         </textarea>
       </div>
         <div class="form-group">
-          <submit class="btn btn-success" v-on:click="convertJ2A()">
+          <button class="btn btn-success" type="button" v-on:click="convertA2J()">
             <i class="fa fa-retweet"></i> convert
-        </submit>
-        <submit class="btn btn-default" v-on:click="sampleJ2A()">
+        </button>
+        <button class="btn btn-default" type="button" v-on:click="sampleA2J()">
             <i class="fa fa-retweet"></i> sample
-        </submit>
+        </button>
         </div>
     </form>
     <hr>
     <h2>Output</h2>
-    <pre>{{ converted_j2a }}</pre>
+    <pre>{{ converted_a2j }}</pre>
   </div>
 </template>
 
@@ -32,39 +32,29 @@
 export default {
   data() {
     return {
-      j2a: null,
       a2j: null,
-      converted_j2a: null,
       converted_a2j: null,
-      example: `{
-    "_id": "5a35650546b80b34e40e362f",
-    "index": 0,
-    "guid": "69df2e54-dc5a-40d3-a945-1f6f046e9d72",
-    "isActive": true,
-    "balance": "$3,217.79",
-    "picture": "http://placehold.it/32x32",
-    "age": 28,
-    "eyeColor": "green",
-    "name": "Arlene Ward",
-    "gender": "female",
-    "company": "OVOLO",
-    "email": "arleneward@ovolo.com"
-  }`
+      example: `[
+        "foo" => "bar",
+        "baz" => [
+            1,2,3
+        ]
+]`
     };
   },
 
   methods: {
-    sampleJ2A() {
-      this.j2a = this.example;
-      this.convertJ2A();
-    },
-    convertJ2A() {
-      axios.post("j2a", { data: this.j2a }).then(results => {
-        this.converted_j2a = results.data;
-      });
+    sampleA2J() {
+      this.a2j = this.example;
+      console.log(Array.isArray(this.a2j));
+
+      this.convertA2J();
     },
     convertA2J() {
-      axios.post("j2a", { data: this.a2j }).then(results => converted_a2j);
+      axios.post("a2j", { data: this.a2j }).then(results => {
+        console.log(results.data);
+        this.converted_a2j = results.data;
+      });
     }
   }
 };
