@@ -57,6 +57,10 @@
                         <a href="/j2a">
                             <i class="fa fa-s15"></i>&nbsp;JSON to PHP Array</a>
                     </li>
+                    <li>
+                        <a href="/codenames">
+                            <i class="fa fa-film"></i>&nbsp;Generate CodeNames</a>
+                    </li>
                 </ul>
             </div>
         </div>
