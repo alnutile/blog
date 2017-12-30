@@ -1,6 +1,9 @@
 @extends('layouts.app')
 <!-- -->
 @section('content')
+
+@include("ads.google")
+
 <div class="panel panel-default">
     @section('title', 'PHP Array to JSON')
     <div class="panel-heading">PHP Array to JSON</div>
