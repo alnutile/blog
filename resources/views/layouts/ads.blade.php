@@ -22,13 +22,15 @@
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-1002021299472446",
-            enable_page_level_ads: true
-        });
-    </script>
+    @if(!\App::environment("local"))
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-1002021299472446",
+                enable_page_level_ads: true
+            });
+        </script>
+    @endif
 </head>
 
 <body>
@@ -106,9 +108,5 @@
             s.parentNode.insertBefore(g, s)
         }(document, 'script'));
     </script>
-
-    @stack('ads')
-
 </body>
-
 </html
