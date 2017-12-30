@@ -1,10 +1,6 @@
 @extends('layouts.app')
 <!-- -->
 @section('content')
-
-
-@include("ads.google")
-
 <div class="panel panel-default">
     @section('title', 'YACG Yet Another CodeName Generator')
     <div class="panel-heading">YACG Yet Another CodeName Generator</div>
@@ -15,4 +11,5 @@
         <codename-tool></codename-tool>
     </div>
 </div>
+@include("ads.google")
 @endsection
