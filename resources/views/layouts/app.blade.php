@@ -72,12 +72,10 @@
         <div class="row">
             <div id="app">
                 <div class="col-md-8">
-                    @yield('content') @include("ads.bottom")
+                    @yield('content')
                 </div>
             </div>
             <div id="sidebar" class="col-md-4">
-                @include("ads.sidebar")
-                <!-- -->
                 @stack("sidebar")
             </div>
         </div>
