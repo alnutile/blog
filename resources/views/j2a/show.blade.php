@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.ads')
 <!-- -->
 @section('content')
 
@@ -13,5 +13,4 @@
         <j2a-tool></j2a-tool>
     </div>
 </div>
-@include("ads.google")
 @endsection
