@@ -13,4 +13,5 @@
         <j2a-tool></j2a-tool>
     </div>
 </div>
+@include("ads.google")
 @endsection
