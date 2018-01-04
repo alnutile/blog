@@ -22,7 +22,7 @@
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
@@ -87,6 +87,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
     <script src="{{ mix('js/app.js') }}"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <!-- end: Java Script -->
     <script>
         var _gaq = [
@@ -99,9 +102,7 @@
             g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g, s)
         }(document, 'script'));
-    </script>
-
-    @stack('ads')
+    </script> @stack('ads')
 
 </body>
 

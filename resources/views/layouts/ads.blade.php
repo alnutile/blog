@@ -75,7 +75,10 @@
                 <!--  -->
                 @if(!\App::environment("foo"))
                 <!-- Homepage Leaderboard -->
-                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1002021299472446"></ins>
+                <!-- tools -->
+                <!-- tools -->
+                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1002021299472446" data-ad-slot="2583363170"></ins>
+
                 <!--  -->
                 @endif
             </div>

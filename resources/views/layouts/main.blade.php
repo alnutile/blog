@@ -30,7 +30,8 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif">
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @stack('head')
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> @stack('head')
 </head>
 
 <body>
@@ -169,7 +170,10 @@
     <!-- start: Java Script -->
     <script src="{{ mix('js/app.js') }}"></script>
 
-
+    <!--  -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <!-- end: Java Script -->
     <script>
         var _gaq = [

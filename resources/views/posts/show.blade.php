@@ -46,6 +46,8 @@
             @endif
             <!-- -->
             @include('shared._podcast')
+            <!--  -->
+            @include('shared._google_ads')
             <!-- -->
             @include('shared.contactme')
             <div>
