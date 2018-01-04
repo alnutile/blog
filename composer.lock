@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfb152acf31bc0c64b5849fde5463f87",
+    "content-hash": "7f6282b69076423a9382b22a26a75641",
     "packages": [
         {
             "name": "alfred-nutile-inc/incomings-client",
@@ -52,6 +52,50 @@
             ],
             "description": "Connects to incomings.io",
             "time": "2017-10-09T20:32:53+00:00"
+        },
+        {
+            "name": "ardyn/adsense",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ardyn/adsense.git",
+                "reference": "64ca750df1a4e49549428fdbc25bb5b9d8301491"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ardyn/adsense/zipball/64ca750df1a4e49549428fdbc25bb5b9d8301491",
+                "reference": "64ca750df1a4e49549428fdbc25bb5b9d8301491",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0",
+                "illuminate/support": "~5.0",
+                "illuminate/view": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ardyn\\Adsense": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shawn Solinko",
+                    "email": "shawnsolinko@gmail.com"
+                }
+            ],
+            "description": "A convenient way to include Google AdSense ads within your pages.",
+            "keywords": [
+                "adsense",
+                "google ads",
+                "laravel"
+            ],
+            "time": "2017-02-05T05:14:05+00:00"
         },
         {
             "name": "aws/aws-sdk-php",

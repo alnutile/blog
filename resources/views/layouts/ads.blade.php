@@ -22,15 +22,8 @@
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-    @if(!\App::environment("local"))
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-1002021299472446",
-                enable_page_level_ads: true
-            });
-        </script>
-    @endif
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 </head>
 
 <body>
@@ -78,13 +71,18 @@
 
     <div class="container">
         <div class="row">
+            <div class="ads col-md-12">
+                <!--  -->
+                @if(!\App::environment("foo"))
+                <!-- Homepage Leaderboard -->
+                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1002021299472446"></ins>
+                <!--  -->
+                @endif
+            </div>
             <div id="app">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     @yield('content')
                 </div>
-            </div>
-            <div id="sidebar" class="col-md-4">
-                @stack("sidebar")
             </div>
         </div>
     </div>
@@ -95,6 +93,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
     <script src="{{ mix('js/app.js') }}"></script>
+
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <!-- end: Java Script -->
     <script>
         var _gaq = [
