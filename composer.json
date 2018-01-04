@@ -17,8 +17,7 @@
         "laravelcollective/html": "^5.2",
         "mayconbordin/rss-l5": "^1.1",
         "alfred-nutile-inc/incomings-client": "dev-master",
-        "laravel/tinker": "~1.0",
-        "ardyn/adsense": "~2.0"
+        "laravel/tinker": "~1.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.3",

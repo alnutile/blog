@@ -177,8 +177,7 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
-        \AlfredNutileInc\Incomings\IncomingsServiceProvider::class,
-        \Ardyn\Adsense\AdsenseServiceProvider::class
+        \AlfredNutileInc\Incomings\IncomingsServiceProvider::class
     ],
 
     /*
@@ -230,8 +229,7 @@ return [
         'ImageToUse' => App\Facades\ImageFacade::class,
         'SearchAls' => App\Facades\SearchFacade::class,
         'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
-        'Adsense' => \Ardyn\Adsense\Facades\Adsense::class
+        'Html' => Collective\Html\HtmlFacade::class
     ],
 
 ];
