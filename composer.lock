@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "74c33ccc953355c73a994299071ebc89",
+    "content-hash": "9456a04ca8d2a933d86e4748df5c13f3",
     "packages": [
         {
             "name": "alfred-nutile-inc/incomings-client",

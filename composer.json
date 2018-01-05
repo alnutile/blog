@@ -20,7 +20,6 @@
         "laravel/tinker": "~1.0",
         "czukowski/markdown-toc": "~1.0",
         "laravelista/sherlock": "dev-master",
-        "dompdf/dompdf": "^0.8.2",
         "barryvdh/laravel-dompdf": "^0.8.1"
     },
     "require-dev": {
