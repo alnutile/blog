@@ -104,7 +104,8 @@ Route::get('rss_full', function () {
     return Response::make($feed, 200, ['Content-Type' => 'text/xml']);
 });
 
-
+Route::get("help", "HelpController@show")->name("help");
+Route::get("pdf", "HelpController@pdf")->name("pdf");
 
 Route::auth();
 

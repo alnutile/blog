@@ -177,7 +177,8 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
-        \AlfredNutileInc\Incomings\IncomingsServiceProvider::class
+        \AlfredNutileInc\Incomings\IncomingsServiceProvider::class,
+        \Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -229,7 +230,8 @@ return [
         'ImageToUse' => App\Facades\ImageFacade::class,
         'SearchAls' => App\Facades\SearchFacade::class,
         'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class
+        'Html' => Collective\Html\HtmlFacade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

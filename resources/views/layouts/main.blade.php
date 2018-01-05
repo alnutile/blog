@@ -31,7 +31,9 @@
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> @stack('head')
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!--  -->
+    @stack('head')
 </head>
 
 <body>

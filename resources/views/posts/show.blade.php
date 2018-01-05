@@ -44,10 +44,10 @@
             @if (Auth::user())
             <a href="/posts/{{$post->id}}/edit" class="btn btn-success">edit</a>
             @endif
-            <!-- -->
-            @include('shared._podcast')
             <!--  -->
             @include('shared._google_ads')
+            <!-- -->
+            @include('shared._podcast')
             <!-- -->
             @include('shared.contactme')
             <div>
