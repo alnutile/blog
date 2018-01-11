@@ -1,7 +1,7 @@
 ## Going Laravel 5
 
 [![Build Status](https://travis-ci.org/alnutile/alsblog5.svg?branch=master)](https://travis-ci.org/alnutile/alsblog5)
-
+....
 
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
