@@ -73,7 +73,7 @@
         <div class="row">
             <div class="ads col-md-12">
                 <!--  -->
-                @if(!\App::environment("foo"))
+                @if(!\App::environment("local"))
                 <!-- Homepage Leaderboard -->
                 <!-- tools -->
                 <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1002021299472446" data-ad-slot="2583363170"></ins>
