@@ -2,7 +2,7 @@
 
 return [
 
-    'cdn' => 'https://dbfz0pdxv8lk5.cloudfront.net',
+    'cdn' => env("CDN_URL", false),
 
     'default' => env('FILESYSTEM_DRIVER', 'local'),
 
