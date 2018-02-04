@@ -11,10 +11,10 @@ trait TagsHelper
 
     public function handleTags(Model $model, Request $request)
     {
-        if ($request->get('tags') && count($request->get('tags')) > 0) {
+        $tags = $request->get('tags');
+
+        if ($tags) {
             $date = $model->created_at;
-            //@TODO move into shared method
-            $tags = $request->get('tags');
 
             if ($tags) {
                 $tags_array = explode(",", $tags);
@@ -23,7 +23,7 @@ trait TagsHelper
                     if (!$t) {
                         $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
                     }
-                    $model->tags()->attach((array) $t->id, ['created_at' => $date, 'updated_at' => $date]);
+                    $model->tags()->attach((array)$t->id, ['created_at' => $date, 'updated_at' => $date]);
                 }
             }
         }

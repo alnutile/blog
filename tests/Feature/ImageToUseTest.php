@@ -15,6 +15,6 @@ class ImageToUseTest extends BrowserKitTestCase
 
         $results = $image->exists("foo.png");
 
-        $this->assertEquals("/img/foo.png", $results);
+        $this->assertContains("foo.png", $results);
     }
 }

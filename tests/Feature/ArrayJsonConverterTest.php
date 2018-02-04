@@ -7,20 +7,6 @@ use function GuzzleHttp\json_encode;
 class ArrayJsonConverterTest extends TestCase
 {
 
-    public function testStringArrayToJson()
-    {
-        $this->markTestSkipped("Not sure I cna do this");
-        $string = <<<EOD
-    [
-        "foo" => "bar",
-        "baz" => [
-            1,2,3
-        ]
-]
-EOD;
-        dd((array)$string);
-    }
-
     public function testConvertToArrayToJson()
     {
         $array = [
@@ -33,6 +19,7 @@ EOD;
         ])->assertStatus(200);
 
         $this->assertNotNull($results);
+
         $this->assertEquals('"{\"foo\":\"bar\",\"baz\":{\"foobar\":[1,2,3]}}"', $results->getContent());
 
     }
@@ -51,8 +38,4 @@ EOD;
 
     }
 
-    public function testDealWithBadJson()
-    {
-
-    }
 }

@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
+use App\TagsHelper;
 
 class PostsController extends BaseController
 {
 
-    use MarkDownHelper;
+    use MarkDownHelper, TagsHelper;
 
     public function __construct(MarkdownExtraParser $mk, SchedulerAls $scheduler)
     {
@@ -32,7 +33,7 @@ class PostsController extends BaseController
 
         $posts = (new Post())->search($input);
 
-        return Response::json(['data' => $posts->toArray(), 'status'=>'success', 'message' => "Post Search"], 200);
+        return Response::json(['data' => $posts->toArray(), 'status' => 'success', 'message' => "Post Search"], 200);
     }
 
     public function index()
@@ -54,8 +55,9 @@ class PostsController extends BaseController
             return View::make('posts.index', compact('posts'));
         } else {
             return Response::json(
-                ['data' => $posts->toArray(),
-                    'status'=>'success',
+                [
+                    'data' => $posts->toArray(),
+                    'status' => 'success',
                     'message' => "Post Index"
                 ],
                 200
@@ -78,7 +80,7 @@ class PostsController extends BaseController
      *
      * @return Response
      */
-    public function store()
+    public function store(\Illuminate\Http\Request $request)
     {
         $validator = Validator::make($data = Input::all(), Post::$rules);
         if ($validator->fails()) {
@@ -86,42 +88,25 @@ class PostsController extends BaseController
         }
         //TODO REMOVE name field after imports
 
-        $data['name']           = "Not needed";
-        $data['rendered_body']  = $this->getMarkdownTool()->defaultTransform($data['body']);
-        $data['scheduled']      = new \Carbon\Carbon();
-
-        if (empty($data['tags'])) {
-            $data['tags'] = 0;
-        }
+        $data['name'] = "Not needed";
+        $data['rendered_body'] = $this->getMarkdownTool()->defaultTransform($data['body']);
+        $data['scheduled'] = new \Carbon\Carbon();
 
         $post = Post::create($data);
 
         $date = $post->created_at;
 
-        if (Input::get('tags') && count(Input::get('tags')) > 0) {
-            //@TODO move into shared method
-
-            $tags = Input::get('tags');
-
-            if ($tags) {
-                $tags_array = explode(",", $tags);
-                foreach ($tags_array as $tag) {
-                    $t = Tag::where("name", "=", trim($tag))->first();
-                    if (!$t) {
-                        $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
-                    }
-                    $post->tags()->attach((array) $t->id, ['created_at' => $date, 'updated_at' => $date]);
-                }
-            }
-        }
+        $this->handleTags($post, $request);
 
         if (Request::format() == 'html') {
             return Redirect::route('posts.index');
         } else {
             return Response::json(
-                ['data' => $post->toArray(),
-                    'status'=>'success',
-                    'message' => "Post Created"],
+                [
+                    'data' => $post->toArray(),
+                    'status' => 'success',
+                    'message' => "Post Created"
+                ],
                 200
             );
         }
@@ -171,7 +156,7 @@ class PostsController extends BaseController
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(\Illuminate\Http\Request $request, $id)
     {
         $post = Post::findOrFail($id);
 
@@ -180,28 +165,11 @@ class PostsController extends BaseController
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
         }
-        $data['rendered_body']  = $this->getMarkdownTool()->defaultTransform($data['body']);
+        $data['rendered_body'] = $this->getMarkdownTool()->defaultTransform($data['body']);
         $post->update($data);
         $post->tags()->detach();
-        if (Input::get('tags') && count(Input::get('tags')) > 0) {
-            //@TODO move into shared method
 
-            $tags = Input::get('tags');
-            $tag_ids = [];
-
-            if ($tags) {
-                $date = $post->created_at;
-                $tags_array = explode(",", $tags);
-
-                foreach ($tags_array as $tag) {
-                    $t = Tag::where("name", "=", trim($tag))->first();
-                    if (!$t) {
-                        $t = Tag::create(['name' => trim($tag), 'created_at' => $date, 'updated_at' => $date]);
-                    }
-                    $post->tags()->attach((array) $t->id, ['created_at' => $date, 'updated_at' => $date]);
-                }
-            }
-        }
+        $this->handleTags($post, $request);
 
         return Redirect::route('posts.show', $post->id);
     }
