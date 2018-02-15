@@ -44,6 +44,8 @@ Route::resource('projects', 'ProjectsController');
 
 Route::get('tags/{tag_id}', 'TagsController@show');
 
+Route::get("rekognition", "RekognitionController@show")->name("rekognition.show");
+
 Route::get('rss', function () {
 
     $full = Input::get('full');

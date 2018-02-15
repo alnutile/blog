@@ -14,6 +14,7 @@ window.Vue = require("vue");
 Vue.component("j2a-tool", require("./tools/J2A.vue"));
 Vue.component("a2j-tool", require("./tools/A2J.vue"));
 Vue.component("codename-tool", require("./tools/Codename.vue"));
+Vue.component("celebrity", require("./tools/UploadForCelebrityRecognition.vue"));
 
 const app = new Vue({
   el: "#app",

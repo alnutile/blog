@@ -1,0 +1,66 @@
+{
+    "FaceDetails": [
+        {
+            "BoundingBox": {
+                "Width": 0.3509615361690521,
+                "Height": 0.46794870495796204,
+                "Left": 0.5240384340286255,
+                "Top": 0.14743590354919434
+            },
+            "Landmarks": [
+                {
+                    "Type": "eyeLeft",
+                    "X": 0.6320282816886902,
+                    "Y": 0.36517131328582764
+                },
+                {
+                    "Type": "eyeRight",
+                    "X": 0.7473422288894653,
+                    "Y": 0.29966989159584045
+                },
+                {
+                    "Type": "nose",
+                    "X": 0.7362852096557617,
+                    "Y": 0.39560046792030334
+                },
+                {
+                    "Type": "mouthLeft",
+                    "X": 0.6682090163230896,
+                    "Y": 0.5153160691261292
+                },
+                {
+                    "Type": "mouthRight",
+                    "X": 0.7871294617652893,
+                    "Y": 0.4394541084766388
+                }
+            ],
+            "Pose": {
+                "Roll": -24.46632957458496,
+                "Yaw": 19.171340942382812,
+                "Pitch": 6.629786491394043
+            },
+            "Quality": {
+                "Brightness": 41.47148895263672,
+                "Sharpness": 99.99090576171875
+            },
+            "Confidence": 99.92295837402344
+        }
+    ],
+    "OrientationCorrection": "ROTATE_0",
+    "@metadata": {
+        "statusCode": 200,
+        "effectiveUri": "https:\/\/rekognition.us-east-1.amazonaws.com",
+        "headers": {
+            "content-type": "application\/x-amz-json-1.1",
+            "date": "Thu, 15 Feb 2018 01:58:04 GMT",
+            "x-amzn-requestid": "a8c1852a-11f3-11e8-aac7-6f84bb6f3906",
+            "content-length": "713",
+            "connection": "keep-alive"
+        },
+        "transferStats": {
+            "http": [
+                []
+            ]
+        }
+    }
+}
