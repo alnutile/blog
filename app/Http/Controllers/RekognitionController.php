@@ -37,19 +37,19 @@ class RekognitionController extends Controller
 
             $name = $request->file('image')->getClientOriginalName();
 
-            \Storage::disk('s3')->putFileAs(
-                "rekognition",
-                $request->file('image'),
-                $name
-            );
+            $this->saveFile($request);
+
             $results = RekognitionService::facialAnalysis($name);
+
+            $this->deleteFile($name);
+
             return response()->json($results, 200);
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
             return response()->json(['error' => $e->getMessage()], 422);
         }
-
     }
+
 
     public function text(Request $request)
     {
@@ -59,15 +59,10 @@ class RekognitionController extends Controller
                     'image' => 'required|image'
                 ]);
             }
-
             $name = $request->file('image')->getClientOriginalName();
-
-            \Storage::disk('s3')->putFileAs(
-                "rekognition",
-                $request->file('image'),
-                $name
-            );
+            $this->saveFile($request);
             $results = RekognitionService::detectText($name);
+            $this->deleteFile($name);
             return response()->json($results, 200);
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
@@ -84,27 +79,11 @@ class RekognitionController extends Controller
                     'image' => 'required|image'
                 ]);
             }
-
             $name = $request->file('image')->getClientOriginalName();
-
-            \Storage::disk('s3')->putFileAs(
-                "rekognition",
-                $request->file('image'),
-                $name
-            );
-
-            $results = $this->rekognize_client->recognizeCelebrities(
-                [
-                    'Image' => [
-                        'S3Object' => [
-                            'Bucket' => config("filesystems.disks.s3.bucket"),
-                            'Name' => sprintf("rekognition/%s", $name)
-                        ]
-                    ]
-                ]
-            );
-
-            return response()->json($this->transformCelebrityResults($results), 200);
+            $this->saveFile($request);
+            $results = RekognitionService::recognizeCelebrities($name);
+            $this->deleteFile($name);
+            return response()->json($results, 200);
         } catch (\Exception $e) {
             //oops
             //log and return error
@@ -113,4 +92,23 @@ class RekognitionController extends Controller
         }
 
     }
+
+    protected function deleteFile($name)
+    {
+        \Storage::disk('s3')->delete(
+            "rekognition/" . $name
+        );
+    }
+
+    protected function saveFile($request)
+    {
+        $name = $request->file('image')->getClientOriginalName();
+
+        \Storage::disk('s3')->putFileAs(
+            "rekognition",
+            $request->file('image'),
+            $name
+        );
+    }
+
 }

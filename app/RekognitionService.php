@@ -21,6 +21,23 @@ class RekognitionService
         $this->client = $client;
     }
 
+    public function recognizeCelebrities($file)
+    {
+        $results = $this->client->recognizeCelebrities(
+            [
+                'Image' => [
+                    'S3Object' => [
+                        'Bucket' => config("filesystems.disks.s3.bucket"),
+                        'Name' => sprintf("rekognition/%s", $file)
+                    ]
+                ]
+            ]
+        );
+
+        return $this->transformCelebrityResults($results);
+    }
+
+
     public function facialAnalysis($file)
     {
         $results = $this->client->detectFaces(
