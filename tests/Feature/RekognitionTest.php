@@ -10,9 +10,21 @@ use Illuminate\Http\File;
 use Aws\AwsClient;
 use Aws\Rekognition\RekognitionClient;
 use Illuminate\Http\UploadedFile;
+use App\Helpers\RekognitionHelper;
+use function GuzzleHttp\json_decode;
+use Facades\App\RekognitionService;
 
 class RekognitionTest extends \BrowserKitTestCase
 {
+    use RekognitionHelper;
+
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        //$this->markTestSkipped("@WIP need to mock");
+    }
     /**
      * A basic test example.
      *
@@ -44,7 +56,7 @@ class RekognitionTest extends \BrowserKitTestCase
 
     public function testStartCelebrityRecognition()
     {
-        $path_to_image = base_path("tests/fixtures/rekognition/barack-obama-smile.jpg");
+        $path_to_image = base_path("tests/fixtures/rekognition/happy.jpg");
         $name = "happy.jpg";
         \Storage::disk('s3')->putFileAs("rekognition", new File($path_to_image), $name);
 
@@ -75,4 +87,46 @@ class RekognitionTest extends \BrowserKitTestCase
             'image' => $image
         ])->assertResponseOk();
     }
+
+    public function testTextApi()
+    {
+        RekognitionService::shouldReceive("detectText")->andReturn(['foo']);
+        $path = base_path("tests/fixtures/rekognition/bookcover.jpg");
+        $image = new UploadedFile($path, 'bookcover.jpg');
+        $this->json("POST", "/api/recognize/text", [
+            'image' => $image
+        ])->assertResponseOk();
+    }
+
+
+    public function testTextClient()
+    {
+
+        $path_to_image = base_path("tests/fixtures/rekognition/bookcover.jpg");
+        $name = "bookcover.jpg";
+        \Storage::disk('s3')->putFileAs("rekognition", new File($path_to_image), $name);
+
+        $results = RekognitionService::detectText($name);
+
+        dd($results);
+    }
+
+    public function testTransformations()
+    {
+        $fixture = \File::get(base_path("tests/fixtures/rekognition/recognize_celeberties_results.json"));
+        $fixture = json_decode($fixture, true);
+
+        $results = $this->transformCelebrityResults($fixture);
+
+        $this->assertNotEmpty($results);
+        $this->assertCount(1, $results);
+        $result = array_first($results);
+        $this->assertEquals([
+            "url" => "https://www.imdb.com/name/nm1682433",
+            "name" => "Barack Obama",
+            "confidence" => null
+        ], $result);
+    }
+
+
 }

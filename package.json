@@ -55,6 +55,8 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "modernizr-webpack-plugin": "^1.0.6",
+    "sweetalert": "^2.1.0",
+    "uiv": "^0.18.0",
     "vue-typeahead": "^2.3.2"
   }
 }

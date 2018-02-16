@@ -18,3 +18,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::post("recognize/celebrities", "RekognitionController@recognizeCelebrities");
+Route::post("recognize/text", "RekognitionController@text");

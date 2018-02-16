@@ -1,4 +1,4 @@
-@extends('layouts.ads')
+@extends('layouts.app_full_page')
 <!-- -->
 @section('content')
 
@@ -10,7 +10,7 @@
             <i class="fa fa-lightbulb-o"></i>
             Playing around with AWS Rekognition
         </div>
-        <celebrity></celebrity>
+        <rekognition></rekognition>
     </div>
 </div>
 @endsection
