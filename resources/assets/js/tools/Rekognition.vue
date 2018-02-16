@@ -12,6 +12,9 @@
                   <tab title="OCR API">
                     <text-api></text-api>
                   </tab>
+                  <tab title="Face API">
+                    <face-api></face-api>
+                  </tab>
                 </tabs>
               </div>
         </div>

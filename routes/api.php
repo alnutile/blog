@@ -19,3 +19,4 @@ Route::get('/user', function (Request $request) {
 
 Route::post("recognize/celebrities", "RekognitionController@recognizeCelebrities");
 Route::post("recognize/text", "RekognitionController@text");
+Route::post("recognize/faces", "RekognitionController@faces");

@@ -26,6 +26,31 @@ class RekognitionController extends Controller
         return view("rekognition.show");
     }
 
+    public function faces(Request $request)
+    {
+        try {
+            if (!\App::environment("testing")) {
+                $this->validate($request, [
+                    'image' => 'required|image'
+                ]);
+            }
+
+            $name = $request->file('image')->getClientOriginalName();
+
+            \Storage::disk('s3')->putFileAs(
+                "rekognition",
+                $request->file('image'),
+                $name
+            );
+            $results = RekognitionService::facialAnalysis($name);
+            return response()->json($results, 200);
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+
+    }
+
     public function text(Request $request)
     {
         try {

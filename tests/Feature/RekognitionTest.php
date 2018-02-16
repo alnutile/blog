@@ -98,6 +98,19 @@ class RekognitionTest extends \BrowserKitTestCase
         ])->assertResponseOk();
     }
 
+    public function testFacialAnalysis()
+    {
+
+        $path_to_image = base_path("tests/fixtures/rekognition/happy.jpg");
+
+        $name = "happy.jpg";
+
+        \Storage::disk('s3')->putFileAs("rekognition", new File($path_to_image), $name);
+
+        $results = RekognitionService::facialAnalysis($name);
+
+        dd($results);
+    }
 
     public function testTextClient()
     {
