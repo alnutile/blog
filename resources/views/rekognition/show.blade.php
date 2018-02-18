@@ -10,7 +10,8 @@
             <i class="fa fa-lightbulb-o"></i>
             Playing around with AWS Rekognition
         </div>
-        <rekognition></rekognition>
+        Comming back soon...
+        <!-- <rekognition></rekognition> -->
     </div>
 </div>
 @endsection
