@@ -36,6 +36,34 @@ class RekognitionService
         return $this->transformCelebrityResults($results);
     }
 
+    public function detectVideo($file)
+    {
+        $results = $this->client->startStreamProcessor(
+            [
+                'Name' => $file
+            ]
+        );
+
+        $results = $this->client->detectFaces(
+            [
+                'Attributes' => ["ALL"],
+                'Image' => [
+                    'S3Object' => [
+                        'Bucket' => config("filesystems.disks.s3.bucket"),
+                        'Name' => sprintf("rekognition/%s", $file)
+                    ]
+                ]
+            ]
+        );
+
+        $results = $this->client->stopStreamProcessor(
+            [
+                'Name' => $file
+            ]
+        );
+
+        return $this->transformFaceDetectResults($results);
+    }
 
     public function facialAnalysis($file)
     {
@@ -66,6 +94,8 @@ class RekognitionService
                 ]
             ]
         );
+
+        \File::put("/tmp/ocr_page.json", json_encode($results->toArray(), 128));
 
         return $this->transformTextResults($results);
     }

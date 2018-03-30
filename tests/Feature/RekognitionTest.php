@@ -56,28 +56,17 @@ class RekognitionTest extends \BrowserKitTestCase
         \File::put($fixture, json_encode($results->toArray(), true));
     }
 
-    public function testStartCelebrityRecognition()
+    public function testMakeOCRFixture()
     {
-        $path_to_image = base_path("tests/fixtures/rekognition/happy.jpg");
+        $path_to_image = base_path("tests/fixtures/rekognition/text-from-paper.jpg");
         $name = "happy.jpg";
         \Storage::disk('s3')->putFileAs("rekognition", new File($path_to_image), $name);
 
-        $client = \App::make(RekognitionClient::class);
+        $results = RekognitionService::detectText($name);
 
-        $results = $client->recognizeCelebrities(
-            [
-                'Image' => [
-                    'S3Object' => [
-                        'Bucket' => config("filesystems.disks.s3.bucket"),
-                        'Name' => sprintf("rekognition/%s", $name)
-                    ]
-                ]
-            ]
-        );
+        $fixture = base_path("tests/fixtures/rekognition/text-from-paper.json");
 
-        $fixture = base_path("tests/fixtures/rekognition/recognize_celeberties_results.json");
-
-        \File::put($fixture, json_encode($results->toArray(), true));
+        \File::put($fixture, json_encode($results, true));
 
     }
 
@@ -100,6 +89,7 @@ class RekognitionTest extends \BrowserKitTestCase
         ])->assertResponseOk();
     }
 
+
     public function testFacialAnalysis()
     {
 
@@ -110,6 +100,18 @@ class RekognitionTest extends \BrowserKitTestCase
         \Storage::disk('s3')->putFileAs("rekognition", new File($path_to_image), $name);
 
         $results = RekognitionService::facialAnalysis($name);
+
+        dd($results);
+    }
+
+    public function testVideoClient()
+    {
+
+        $path_to_image = base_path("tests/fixtures/rekognition/example_video.mp4");
+        $name = "bookcover.jpg";
+        \Storage::disk('s3')->putFileAs("rekognition", new File($path_to_image), $name);
+
+        $results = RekognitionService::detectVideo($name);
 
         dd($results);
     }
