@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4523d54f221e6f7d3a9e26f9ba3eacc",
+    "content-hash": "3c7bb35167db664ad2d48262ecf5bf4a",
     "packages": [
         {
             "name": "alfred-nutile-inc/incomings-client",
@@ -55,16 +55,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.48.7",
+            "version": "3.52.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1f272175777111bb5b18831a9048e3aa113c4538"
+                "reference": "f1d453c2c090ef7a8d4887c7d121bdd0cb7b7613"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1f272175777111bb5b18831a9048e3aa113c4538",
-                "reference": "1f272175777111bb5b18831a9048e3aa113c4538",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f1d453c2c090ef7a8d4887c7d121bdd0cb7b7613",
+                "reference": "f1d453c2c090ef7a8d4887c7d121bdd0cb7b7613",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-01-02T21:47:08+00:00"
+            "time": "2018-03-29T22:20:51+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -519,6 +519,61 @@
             "time": "2017-11-26T14:49:08+00:00"
         },
         {
+            "name": "elasticsearch/elasticsearch",
+            "version": "v5.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elastic/elasticsearch-php.git",
+                "reference": "4b29a4121e790bbfe690d5ee77da348b62d48eb8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/4b29a4121e790bbfe690d5ee77da348b62d48eb8",
+                "reference": "4b29a4121e790bbfe690d5ee77da348b62d48eb8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/ringphp": "~1.0",
+                "php": "^5.6|^7.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "cpliakas/git-wrapper": "~1.0",
+                "doctrine/inflector": "^1.1",
+                "mockery/mockery": "0.9.4",
+                "phpunit/phpunit": "^4.7|^5.4",
+                "sami/sami": "~3.2",
+                "symfony/finder": "^2.8",
+                "symfony/yaml": "^2.8"
+            },
+            "suggest": {
+                "ext-curl": "*",
+                "monolog/monolog": "Allows for client-level logging and tracing"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Elasticsearch\\": "src/Elasticsearch/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Zachary Tong"
+                }
+            ],
+            "description": "PHP Client for Elasticsearch",
+            "keywords": [
+                "client",
+                "elasticsearch",
+                "search"
+            ],
+            "time": "2017-11-08T17:04:47+00:00"
+        },
+        {
             "name": "erusev/parsedown",
             "version": "1.6.4",
             "source": {
@@ -745,6 +800,107 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
+            "name": "guzzlehttp/ringphp",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/RingPHP.git",
+                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/streams": "~3.0",
+                "php": ">=5.4.0",
+                "react/promise": "~2.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "ext-curl": "Guzzle will use specific adapters if cURL is present"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Ring\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
+            "time": "2015-05-20T03:37:09+00:00"
+        },
+        {
+            "name": "guzzlehttp/streams",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/streams.git",
+                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Stream\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Provides a simple abstraction over streams of data",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "stream"
+            ],
+            "time": "2014-10-12T19:18:40+00:00"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -830,6 +986,53 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "jsq/amazon-es-php",
+            "version": "0.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeskew/amazon-es-php.git",
+                "reference": "b5cc8c2ba2ba5e39fa7150a013077ddda8ec5151"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeskew/amazon-es-php/zipball/b5cc8c2ba2ba5e39fa7150a013077ddda8ec5151",
+                "reference": "b5cc8c2ba2ba5e39fa7150a013077ddda8ec5151",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.0",
+                "elasticsearch/elasticsearch": "^2.1|^5.0|^6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0|~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aws\\ElasticsearchService\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Eskew",
+                    "email": "jonathan@jeskew.net"
+                }
+            ],
+            "description": "Support for using IAM authentication with the official Elasticsearch PHP client",
+            "keywords": [
+                "aws",
+                "client",
+                "elasticsearch",
+                "iam",
+                "search"
+            ],
+            "time": "2018-01-25T17:54:48+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1253,6 +1456,51 @@
             ],
             "description": "Flysystem adapter for the AWS S3 SDK v3.x",
             "time": "2017-06-30T06:29:25+00:00"
+        },
+        {
+            "name": "madewithlove/elasticsearcher",
+            "version": "0.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/madewithlove/elasticsearcher.git",
+                "reference": "b50a340790e947d3e62f3e9aadb78bde07f13a3d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/madewithlove/elasticsearcher/zipball/b50a340790e947d3e62f3e9aadb78bde07f13a3d",
+                "reference": "b50a340790e947d3e62f3e9aadb78bde07f13a3d",
+                "shasum": ""
+            },
+            "require": {
+                "elasticsearch/elasticsearch": "^5.1",
+                "illuminate/support": "^4.2|~5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ElasticSearcher\\": [
+                        "src"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Wrapper on top of the ElasticSearch PHP SDK which allows easier index/document/query management.",
+            "keywords": [
+                "elastic",
+                "elasticsearch"
+            ],
+            "time": "2017-08-18T12:27:11+00:00"
         },
         {
             "name": "mayconbordin/rss-l5",
@@ -2007,6 +2255,52 @@
                 "uuid"
             ],
             "time": "2017-09-22T20:46:04+00:00"
+        },
+        {
+            "name": "react/promise",
+            "version": "v2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/promise.git",
+                "reference": "62785ae604c8d69725d693eb370e1d67e94c4053"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/62785ae604c8d69725d693eb370e1d67e94c4053",
+                "reference": "62785ae604c8d69725d693eb370e1d67e94c4053",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "React\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com"
+                }
+            ],
+            "description": "A lightweight implementation of CommonJS Promises/A for PHP",
+            "keywords": [
+                "promise",
+                "promises"
+            ],
+            "time": "2017-03-25T12:08:31+00:00"
         },
         {
             "name": "sabberworm/php-css-parser",

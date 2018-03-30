@@ -1,0 +1,251 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "ES and other Resources for the blog",
+    "Parameters": {
+        "ElasticInstance": {
+            "Type": "String",
+            "ConstraintDescription": "See Pricing",
+            "Description": "t2.small.elasticsearch non-stage and m3.medium.elasticsearch prod",
+            "MinLength": "1",
+            "Default": "t2.small.elasticsearch"
+        },
+        "AppName": {
+            "Default": "blog",
+            "Type": "String",
+            "ConstraintDescription": "Please Specify one",
+            "Description": "This will prefix all the resources"
+        },
+        "AppEnv": {
+            "Default": "staging",
+            "Type": "String",
+            "ConstraintDescription": "Please Specify one",
+            "Description": "This will suffix all the resources",
+            "AllowedValues": [
+                "staging",
+                "production"
+            ]
+        }
+    },
+    "Outputs": {
+        "SecretKeyForAppUser": {
+            "Description": "Secret for User you only get this on creation of user",
+            "Value": {
+                "Fn::GetAtt": [
+                    "UserAccessKey",
+                    "SecretAccessKey"
+                ]
+            }
+        },
+        "AccessKeyForAppUser": {
+            "Description": "Key for User you only get this on creation of user",
+            "Value": {
+                "Ref": "UserAccessKey"
+            }
+        },
+        "AppName": {
+            "Description": "Application Name / CodeDeploy Application Name",
+            "Value": {
+                "Ref": "AppName"
+            }
+        }
+    },
+    "Resources": {
+        "ESPolicy": {
+            "Type": "AWS::IAM::Policy",
+            "Properties": {
+                "PolicyName": {
+                    "Fn::Join": [
+                        "-",
+                        [
+                            "access-to-es-policies",
+                            {
+                                "Ref": "AppName"
+                            },
+                            {
+                                "Ref": "AppEnv"
+                            }
+                        ]
+                    ]
+                },
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": "es:*",
+                            "Resource": [
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:es:",
+                                            {
+                                                "Ref": "AWS::Region"
+                                            },
+                                            ":",
+                                            {
+                                                "Ref": "AWS::AccountId"
+                                            },
+                                            ":",
+                                            "domain/",
+                                            {
+                                                "Ref": "ElasticsearchDomain"
+                                            },
+                                            "/*"
+                                        ]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "Roles": [
+                    {
+                        "Ref": "RootRole"
+                    }
+                ],
+                "Groups": [
+                    {
+                        "Ref": "AppGroup"
+                    }
+                ]
+            },
+            "DependsOn": [
+                "ElasticsearchDomain"
+            ]
+        },
+        "ElasticsearchDomain": {
+            "Type": "AWS::Elasticsearch::Domain",
+            "Properties": {
+                "ElasticsearchVersion": "5.5",
+                "ElasticsearchClusterConfig": {
+                    "InstanceType": {
+                        "Ref": "ElasticInstance"
+                    }
+                },
+                "DomainName": {
+                    "Fn::Join": [
+                        "-",
+                        [
+                            {
+                                "Ref": "AppName"
+                            },
+                            {
+                                "Ref": "AppEnv"
+                            }
+                        ]
+                    ]
+                },
+                "Tags": [
+                    {
+                        "Key": "AppNmae",
+                        "Value": {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    {
+                                        "Ref": "AppName"
+                                    }
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "Value": {
+                            "Ref": "AppEnv"
+                        },
+                        "Key": "environment"
+                    }
+                ],
+                "EBSOptions": {
+                    "EBSEnabled": true,
+                    "Iops": 0,
+                    "VolumeSize": 10,
+                    "VolumeType": "gp2"
+                },
+                "SnapshotOptions": {
+                    "AutomatedSnapshotStartHour": "0"
+                },
+                "AdvancedOptions": {
+                    "rest.action.multi.allow_explicit_index": "true"
+                }
+            },
+            "DependsOn": [
+                "AppUser"
+            ]
+        },
+        "RootRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "Path": "/",
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+                ],
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "ec2.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "UserAccessKey": {
+            "Type": "AWS::IAM::AccessKey",
+            "Properties": {
+                "UserName": {
+                    "Ref": "AppUser"
+                }
+            },
+            "DependsOn": [
+                "AppUser"
+            ]
+        },
+        "AppUser": {
+            "Type": "AWS::IAM::User",
+            "Properties": {
+                "UserName": {
+                    "Fn::Join": [
+                        "-",
+                        [
+                            "machine-user-",
+                            {
+                                "Ref": "AppName"
+                            },
+                            {
+                                "Ref": "AppEnv"
+                            }
+                        ]
+                    ]
+                },
+                "Path": "/"
+            },
+            "DependsOn": [
+                "AppGroup"
+            ]
+        },
+        "RootInstanceProfile": {
+            "Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+                "Path": "/",
+                "Roles": [
+                    {
+                        "Ref": "RootRole"
+                    }
+                ]
+            }
+        },
+        "AppGroup": {
+            "Type": "AWS::IAM::Group"
+        }
+    }
+}

@@ -4,6 +4,9 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\Search\CreateIndex;
+use App\Console\Commands\Search\DeleteIndex;
+use App\Console\Commands\IndexPostsWithElasticSearch;
 
 class Kernel extends ConsoleKernel
 {
@@ -14,7 +17,10 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\PasswordReset::class,
-        Commands\CanaryBuildCommand::class
+        Commands\CanaryBuildCommand::class,
+        CreateIndex::class,
+        IndexPostsWithElasticSearch::class,
+        DeleteIndex::class
     ];
 
     /**
