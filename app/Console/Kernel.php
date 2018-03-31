@@ -7,6 +7,8 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Console\Commands\Search\CreateIndex;
 use App\Console\Commands\Search\DeleteIndex;
 use App\Console\Commands\IndexPostsWithElasticSearch;
+use App\Jobs\Search\IndexProjectJob;
+use App\Console\Commands\IndexProjectsWithElasticSearch;
 
 class Kernel extends ConsoleKernel
 {
@@ -20,6 +22,7 @@ class Kernel extends ConsoleKernel
         Commands\CanaryBuildCommand::class,
         CreateIndex::class,
         IndexPostsWithElasticSearch::class,
+        IndexProjectsWithElasticSearch::class,
         DeleteIndex::class
     ];
 

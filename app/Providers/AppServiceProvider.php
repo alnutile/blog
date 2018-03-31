@@ -15,8 +15,10 @@ use Aws\ElasticsearchService\ElasticsearchPhpHandler;
 use ElasticSearcher\ElasticSearcher;
 use ElasticSearcher\Environment;
 use Elasticsearch\Client;
+use App\Search\ProjectNormalizerInterface;
 use App\Search\PostNormalizerInterface;
 use App\Search\PostNormalizer;
+use App\Search\ProjectNormalizer;
 use Elasticsearch\ClientBuilder;
 
 class AppServiceProvider extends ServiceProvider
@@ -74,7 +76,7 @@ class AppServiceProvider extends ServiceProvider
             ];
 
 
-            if (!config('elasticsearch.use_aws') && !\App::environment("local")) {
+            if (!config('elasticsearch.use_aws') && !\App::environment(["local", "testing"])) {
                 // Create a handler for ES-AWS requests. This provides the bridge code
                 // to allow signing of AWS requests but still use the ES PHP library.
                 $handler = new ElasticsearchPhpHandler(config('elasticsearch.region'), $provider);
@@ -110,6 +112,10 @@ class AppServiceProvider extends ServiceProvider
         // Provide a default document normalizer. This can be overridden per app.
         $this->app->singleton(PostNormalizerInterface::class, function ($app) {
             return new PostNormalizer($app->make('log'));
+        });
+
+        $this->app->singleton(ProjectNormalizerInterface::class, function ($app) {
+            return new ProjectNormalizer($app->make('log'));
         });
     }
 

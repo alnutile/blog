@@ -11,22 +11,24 @@ use Illuminate\Support\Facades\Log;
 use App\Jobs\Search\BulkIndexHitJob;
 use App\Jobs\Search\IndexPostJob;
 use Elasticsearch\ClientBuilder;
+use App\Project;
+use App\Jobs\Search\IndexProjectJob;
 
-class IndexPostsWithElasticSearch extends Command
+class IndexProjectsWithElasticSearch extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'elasticsearch:index-posts';
+    protected $signature = 'elasticsearch:index-projects';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Index Posts';
+    protected $description = 'Index Projects';
 
     /**
      * Create a new command instance.
@@ -47,10 +49,10 @@ class IndexPostsWithElasticSearch extends Command
     {
         try {
 
-            $posts = Post::all();
-            foreach ($posts as $model) {
-                $this->info("Indexing post " . $model->id);
-                $job = (new IndexPostJob($model));
+            $models = Project::all();
+            foreach ($models as $model) {
+                $this->info("Indexing project " . $model->id);
+                $job = (new IndexProjectJob($model));
                 app(Dispatcher::class)->dispatchNow($job);
             }
         } catch (Exception $e) {

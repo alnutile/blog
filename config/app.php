@@ -179,6 +179,9 @@ return [
 
         \AlfredNutileInc\Incomings\IncomingsServiceProvider::class,
         \Barryvdh\DomPDF\ServiceProvider::class,
+
+        Laravel\Scout\ScoutServiceProvider::class,
+        Addons\Elasticsearch\ServiceProvider::class,
     ],
 
     /*
@@ -232,6 +235,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Elasticsearch' => Addons\Elasticsearch\Facade::class,
     ],
 
 ];
