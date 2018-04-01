@@ -19,6 +19,7 @@ class ContentQuery extends BaseQuery
             'query' => [
                 'match' => [
                     //body or title
+
                     'body' => $this->getQuery()
                 ]
             ]
