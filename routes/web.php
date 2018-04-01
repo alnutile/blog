@@ -111,6 +111,10 @@ Route::get("pdf", "HelpController@pdf")->name("pdf");
 
 Route::auth();
 
+Route::get("testing", function () {
+    return view("testing");
+});
+
 Route::post('register', function () {
     return redirect('login')->withErrors(["email" => "Not allowed to register"]);
 });
