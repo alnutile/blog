@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Facades\Elasticsearch\Client;
 use App\Search\Results\ContentResultParser;
-use App\Search\Query\ContentQuery;
+use Facades\App\Search\Query\ContentQuery;
 
 
 class ElasticSearchController extends Controller
@@ -16,11 +16,8 @@ class ElasticSearchController extends Controller
     {
         try {
 
-            /** @var ContentQuery $query */
-            $query = \App::make(ContentQuery::class);
-
             /** @var ContentResultParser $results */
-            $results = $query->setRequest($request->all())->run();
+            $results = ContentQuery::setRequest($request->all())->run();
 
             return response()->json($results->getPaginated(), 200);
         } catch (\Exception $e) {

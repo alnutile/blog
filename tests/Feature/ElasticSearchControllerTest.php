@@ -14,6 +14,9 @@ class ElasticSearchControllerTest extends TestCase
 
     public function testGetPaginatedResults()
     {
+
+        $data = \File::get(base_path("tests/fixtures/results_search.json"));
+
         $results = $this->json("GET", "/api/search", ['page' => 2, 'q' => "Laravel"])
             ->assertStatus(200);
 

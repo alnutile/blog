@@ -22,6 +22,7 @@ Vue.component("rekognition", require("./tools/Rekognition.vue"));
 Vue.component("celebrity-api", require("./tools/CelebrityAPI.vue"));
 Vue.component("text-api", require("./tools/TextAPI.vue"));
 Vue.component("face-api", require("./tools/FaceAPI.vue"));
+Vue.component("elastic-search", require("./components/ElasticSearch.vue"));
 
 const app = new Vue({
   el: "#app",
