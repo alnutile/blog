@@ -25,6 +25,7 @@ class ContentQuery extends BaseQuery
             ]
         ];
 
+
         $this->setBody($body);
 
         $this->parseResultsWith(
@@ -32,6 +33,10 @@ class ContentQuery extends BaseQuery
                 ->setPerPage($this->size)
                 ->setCurrentPage($this->getPageFromRequest())
         );
+
+        return $this->getResultParser()->getPaginated();
+
+
     }
 
 
