@@ -64,10 +64,10 @@
 <script>
 export default {
   created: function() {
-    this.searching = "Laravel";
-    this.is_searching = true;
-    this.searchingFor();
-    this.results = [1, 2, 3];
+    // this.searching = "Laravel";
+    // this.is_searching = true;
+    // this.searchingFor();
+    // this.results = [1, 2, 3];
   },
   data() {
     return {
