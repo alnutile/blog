@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Facades\Elasticsearch\ClientBuilder;
+use Facades\Elasticsearch\Client;
+use App\Search\Results\ContentResultParser;
+use Facades\App\Search\Query\ContentQuery;
 
 class ElasticSearchController extends Controller
 {
@@ -13,27 +15,10 @@ class ElasticSearchController extends Controller
     {
         try {
 
-            /**
-             * Will move a lot of this out after
-             */
-            $params = [
-                'index' => 'default',
-                'type' => 'post',
-                'body' => [
-                    'query' => [
-                        'match' => [
-                            'body' => $request->q
-                        ]
-                    ]
-                ]
-            ];
+            /** @var ContentResultParser $results */
+            $results = ContentQuery::setRequest($request->all())->run();
 
-            $results = ClientBuilder::search($params);
-
-            $results = array_get($results, 'hits', []);
-
-            return response()->json($results, 200);
-
+            return response()->json($results->getPaginated(), 200);
         } catch (\Exception $e) {
             \Log::error($e);
             return response()->json(null, 422);

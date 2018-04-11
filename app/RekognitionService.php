@@ -5,7 +5,6 @@ namespace App;
 use Aws\Rekognition\RekognitionClient;
 use App\Helpers\RekognitionHelper;
 
-
 class RekognitionService
 {
 
@@ -70,5 +69,4 @@ class RekognitionService
 
         return $this->transformTextResults($results);
     }
-
 }

@@ -17,6 +17,12 @@ if (!function_exists('getBody')) {
     }
 };
 
+
+
+Route::get("vue", function () {
+    return view("testing");
+});
+
 Route::get('/', 'StaticController@showHome');
 Route::get('/about', 'StaticController@showAbout')->name('about');
 Route::get('/products', 'StaticController@showProducts')->name('products');
@@ -110,6 +116,7 @@ Route::get("help", "HelpController@show")->name("help");
 Route::get("pdf", "HelpController@pdf")->name("pdf");
 
 Route::auth();
+
 
 Route::post('register', function () {
     return redirect('login')->withErrors(["email" => "Not allowed to register"]);

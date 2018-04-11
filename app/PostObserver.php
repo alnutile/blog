@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Support\Facades\Cache;
+use App\Jobs\Search\IndexPostJob;
 
 /**
  * @codeCoverageIgnore
@@ -28,5 +29,10 @@ class PostObserver
         }
 
         Cache::forget('post_' . $model->id);
+
+        if (!\App::environment("testing")
+            || !config('elasticsearch.disable_boot')) {
+            dispatch(new IndexPostJob($model));
+        }
     }
 }

@@ -8,32 +8,34 @@ use Elasticsearch\Client;
 use Illuminate\Log\Writer;
 use App\Search\PostNormalizerInterface;
 use Elasticsearch\ClientBuilder;
+use App\Project;
+use App\Search\ProjectNormalizerInterface;
 
-class IndexPostJob extends SearchJobBase
+class IndexProjectJob extends SearchJobBase
 {
     /**
-     * @var \App\Post
+     * @var \App\Project
      */
-    protected $post;
+    protected $project;
 
-    public function __construct(Post $post)
+    public function __construct(Project $project)
     {
-        $this->post = $post;
+        $this->project = $project;
     }
 
     /**
      * Execute the job.
      *
      * @param \Elasticsearch\Client $client
-     * @param \App\Search\PostNormalizerInterface $normallizer
+     * @param \App\Search\ProjectNormalizerInterface $normallizer
      * @param \Illuminate\Log\Writer $logger
      */
-    public function handle(Client $client, PostNormalizerInterface $normallizer, Writer $logger)
+    public function handle(Client $client, ProjectNormalizerInterface $normallizer, Writer $logger)
     {
 
-        $params = $this->generateBaseParameters($this->post->id, 'content');
+        $params = $this->generateBaseParameters($this->project->id, 'content');
 
-        $params['body'] = $normallizer->normalize($this->post);
+        $params['body'] = $normallizer->normalize($this->project);
 
         $indexed = $client->index($params);
 

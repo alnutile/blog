@@ -68,7 +68,6 @@ class RekognitionController extends Controller
             \Log::error($e->getMessage());
             return response()->json(['error' => $e->getMessage()], 422);
         }
-
     }
 
     public function recognizeCelebrities(Request $request)
@@ -90,7 +89,6 @@ class RekognitionController extends Controller
             \Log::error($e->getMessage());
             return response()->json(['error' => $e->getMessage()], 422);
         }
-
     }
 
     protected function deleteFile($name)
@@ -110,5 +108,4 @@ class RekognitionController extends Controller
             $name
         );
     }
-
 }

@@ -4,9 +4,9 @@ namespace App\Search;
 
 use Illuminate\Log\Writer;
 use Illuminate\Support\Collection;
-use App\Post;
+use App\Project;
 
-class PostNormalizer implements PostNormalizerInterface
+class ProjectNormalizer implements ProjectNormalizerInterface
 {
     /**
      * ES friendly date/time format.
@@ -26,15 +26,16 @@ class PostNormalizer implements PostNormalizerInterface
     /**
      * {@inheritdoc}
      */
-    public function normalize(Post $post)
+    public function normalize(Project $model)
     {
         return [
-            'id' => $post->id,
-            'title' => $post->title,
-            'body' => $post->body,
-            'type' => "post",
-            'created_at' => $this->formatDateTimeObject($post->created_at),
-            'updated_at' => $this->formatDateTimeObject($post->updated_at),
+            'id' => $model->id,
+            'title' => $model->title,
+            'body' => $model->body,
+            'file_name' => $model->photo_file_name,
+            'type' => "project",
+            'created_at' => $this->formatDateTimeObject($model->created_at),
+            'updated_at' => $this->formatDateTimeObject($model->updated_at),
         ];
     }
 

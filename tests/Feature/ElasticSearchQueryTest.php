@@ -13,6 +13,7 @@ class ElasticSearchQueryTest extends TestCase
 
     public function testGettingResults()
     {
+        $this->markTestSkipped("learning api");
         //$client = ClientBuilder::create()->build();
 
         //$client = ClientBuilder::class;

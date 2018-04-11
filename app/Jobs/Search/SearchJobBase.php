@@ -20,7 +20,7 @@ abstract class SearchJobBase implements ShouldQueue
     /**
      * @return array
      */
-    protected function generateBaseParameters($id, $type = 'post')
+    protected function generateBaseParameters($id, $type = 'content')
     {
         return [
             'index' => $this->index,

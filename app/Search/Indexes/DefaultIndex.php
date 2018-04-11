@@ -52,7 +52,7 @@ class DefaultIndex extends AbstractIndex
         $this->setSettings($settings);
 
         $types = [
-            'project' => [
+            'content' => [
                 'properties' => [
                     // Internal ID for Laravel Model. This allows for easy
                     // loading.
@@ -61,19 +61,9 @@ class DefaultIndex extends AbstractIndex
                     'body' => new TextAndKeywordMappingFragment(),
                     'created_at' => new DateFragment(),
                     'updated_at' => new DateFragment(),
+                    'type' => new TextAndKeywordMappingFragment(),
                 ],
-            ],
-            'post' => [
-                'properties' => [
-                    // Internal ID for Laravel Model. This allows for easy
-                    // loading.
-                    'id' => new IntegerFragment(),
-                    'title' => new TextAndKeywordMappingFragment(),
-                    'body' => new TextAndKeywordMappingFragment(),
-                    'created_at' => new DateFragment(),
-                    'updated_at' => new DateFragment(),
-                ],
-            ],
+            ]
         ];
 
         $this->setTypes($types);

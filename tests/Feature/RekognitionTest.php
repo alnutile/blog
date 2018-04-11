@@ -23,6 +23,8 @@ class RekognitionTest extends \BrowserKitTestCase
     {
         parent::setUp();
 
+        $this->markTestSkipped("Just playing with API");
+
         //$this->markTestSkipped("@WIP need to mock");
     }
     /**
