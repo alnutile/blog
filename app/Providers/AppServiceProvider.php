@@ -46,8 +46,6 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->elasticSearchRegister();
-
-
     }
 
     protected function elasticSearchRegister()

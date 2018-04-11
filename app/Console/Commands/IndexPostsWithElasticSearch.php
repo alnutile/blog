@@ -46,7 +46,6 @@ class IndexPostsWithElasticSearch extends Command
     public function handle()
     {
         try {
-
             $posts = Post::all();
             foreach ($posts as $model) {
                 $this->info("Indexing post " . $model->id);

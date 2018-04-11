@@ -30,7 +30,6 @@ class ElasticSearchControllerTest extends TestCase
         $this->assertArrayHasKey('to', $results);
         $this->assertEquals(40, $results['to']);
         $this->assertArrayHasKey('max_score', $results);
-        $this->assertEquals(2.0322325, $results['max_score']);
     }
 
     public function testGetNonPaginatedResultsPageOne()
@@ -47,7 +46,6 @@ class ElasticSearchControllerTest extends TestCase
         $this->assertArrayHasKey('to', $results);
         $this->assertEquals(20, $results['to']);
         $this->assertArrayHasKey('max_score', $results);
-        $this->assertEquals(2.545662, $results['max_score']);
 
         $this->assertArrayHasKey('data', $results);
         $this->assertEquals(20, count($results['data']));

@@ -34,6 +34,11 @@
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!--  -->
     @stack('head')
+
+    <script>
+        window.Blog = {};
+        window.Blog.cdn = <?php echo json_encode(config('filesystems.cdn')); ?>;
+    </script>
 </head>
 
 <body>
@@ -172,10 +177,13 @@
     <!-- start: Java Script -->
     <script src="{{ mix('js/app.js') }}"></script>
 
+
     <!--  -->
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+
+
     <!-- end: Java Script -->
     <script>
         var _gaq = [

@@ -7,7 +7,6 @@ use Facades\Elasticsearch\Client;
 use App\Search\Results\ContentResultParser;
 use Facades\App\Search\Query\ContentQuery;
 
-
 class ElasticSearchController extends Controller
 {
 

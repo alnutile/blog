@@ -48,7 +48,6 @@ class IndexProjectsWithElasticSearch extends Command
     public function handle()
     {
         try {
-
             $models = Project::all();
             foreach ($models as $model) {
                 $this->info("Indexing project " . $model->id);

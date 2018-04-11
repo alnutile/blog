@@ -3,8 +3,6 @@ namespace App\Search\Query;
 
 use App\Search\Results\ContentResultParser;
 
-
-
 class ContentQuery extends BaseQuery
 {
 
@@ -35,10 +33,5 @@ class ContentQuery extends BaseQuery
         );
 
         return $this->getResultParser()->getPaginated();
-
-
     }
-
-
-
 }

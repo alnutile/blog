@@ -3,8 +3,6 @@ namespace App\Search\Query;
 
 use ElasticSearcher\Abstracts\AbstractQuery;
 
-
-
 abstract class BaseQuery extends AbstractQuery
 {
     protected $request = [];
@@ -35,6 +33,4 @@ abstract class BaseQuery extends AbstractQuery
         $this->request = $request;
         return $this;
     }
-
-
 }

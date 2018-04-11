@@ -32,6 +32,7 @@ class ProjectNormalizer implements ProjectNormalizerInterface
             'id' => $model->id,
             'title' => $model->title,
             'body' => $model->body,
+            'file_name' => $model->photo_file_name,
             'type' => "project",
             'created_at' => $this->formatDateTimeObject($model->created_at),
             'updated_at' => $this->formatDateTimeObject($model->updated_at),

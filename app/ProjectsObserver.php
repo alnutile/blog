@@ -1,6 +1,8 @@
 <?php namespace App;
 
 use Illuminate\Support\Facades\Cache;
+use App\Jobs\Search\IndexProjectJob;
+use Illuminate\Events\Dispatcher;
 
 /**
  * @codeCoverageIgnore
@@ -26,5 +28,10 @@ class ProjectsObserver
         }
 
         Cache::forget('project_' . $model->id);
+
+        if (!\App::environment("testing")
+            || !config('elasticsearch.disable_boot')) {
+            dispatch(new IndexProjectJob($model));
+        }
     }
 }

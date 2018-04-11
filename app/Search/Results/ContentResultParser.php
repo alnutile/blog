@@ -1,7 +1,6 @@
 <?php
 namespace App\Search\Results;
 
-
 class ContentResultParser extends BaseResultParser
 {
 
@@ -9,7 +8,4 @@ class ContentResultParser extends BaseResultParser
     {
         return $this->getHits();
     }
-
-
-
 }
