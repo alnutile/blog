@@ -15,10 +15,9 @@ class ContentQuery extends BaseQuery
             'from' => $this->getNextFrom(),
             'size' => $this->size,
             'query' => [
-                'match' => [
-                    //body or title
-
-                    'body' => $this->getQuery()
+                'multi_match' => [
+                   "fields" => ["body", "title"],
+                   "query" => "%" . $this->request['q'] . "%"
                 ]
             ]
         ];

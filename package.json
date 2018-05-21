@@ -57,6 +57,7 @@
     "modernizr-webpack-plugin": "^1.0.6",
     "sweetalert": "^2.1.0",
     "uiv": "^0.18.0",
-    "vue-typeahead": "^2.3.2"
+    "vue-typeahead": "^2.3.2",
+    "yarn": "^1.6.0"
   }
 }
