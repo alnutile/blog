@@ -179,13 +179,15 @@
 
 
     <!--  -->
-    <script>
+
+
+@if(!\App::environment('local'))
+        <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+        </script>
 
-
-    <!-- end: Java Script -->
-    <script>
+        <!-- end: Java Script -->
+        <script>
         var _gaq = [
             ['_setAccount', 'UA-39925227-1'],
             ['_trackPageview']
@@ -197,6 +199,7 @@
             s.parentNode.insertBefore(g, s)
         }(document, 'script'));
     </script>
+@endif
 
     <!-- -->
     @stack('scripts')

@@ -1,7 +1,6 @@
 @extends('layouts.main') @section('content')
 
 <home>
-
     <section>
     <div id="circles" class="row-fluid">
                 <div class="posts">

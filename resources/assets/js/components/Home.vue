@@ -7,9 +7,9 @@
         <div id="wrapper" class="full">
 
             <div class="row-fluid">
-                    <elastic-search
-                        v-on:resultsFound="hideBody"
-                    ></elastic-search>
+              <elastic-search
+                  v-on:resultsFound="hideBody"
+              ></elastic-search>
             </div>
 
             <transition name="fade">

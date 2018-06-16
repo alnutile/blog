@@ -21,7 +21,7 @@
                     <i class="fa fa-gears fa-spin fa-5x"></i>
                   </div>
                   <ul class="list-unstyled">
-                    <li v-if="results.length > 0" v-for="result in results">
+                    <li v-if="results.length > 0" v-for="result in results" :key="result.id">
                       <ul>
                         <li>Age Guess High: {{ result.age_high }}</li>
                         <li>Age Guess Low: {{ result.age_low }}</li>
@@ -31,7 +31,7 @@
                         <li>Mustache: {{ result.mustache }}</li>
                         <li>Emotions:
                             <ul>
-                              <li v-for="emo in result.emotions">
+                              <li v-for="emo in result.emotions" :key="emo.Type">
                                 {{ emo.Type }} at {{ emo.Confidence }} Confidence
                               </li>
                             </ul>
@@ -72,30 +72,30 @@ export default {
       e.preventDefault();
       this.showPreview();
       swal({
-        title: 'Uploading image and getting results',
+        title: "Uploading image and getting results",
         timer: 2000
       });
       axios
-        .post('/api/recognize/faces', this.gatherFormData())
+        .post("/api/recognize/faces", this.gatherFormData())
         .then(results => {
           this.results = results.data;
           this.loading = false;
         })
         .catch(error => {
           swal({
-            title: 'Error getting results sorry :(',
+            title: "Error getting results sorry :(",
             timer: 2000,
-            icon: 'warning'
+            icon: "warning"
           });
 
-          console.log('error');
+          console.log("error");
           console.log(error);
         });
     },
     gatherFormData() {
       const data = new FormData();
 
-      data.append('image', this.$refs.image.files[0]);
+      data.append("image", this.$refs.image.files[0]);
 
       return data;
     }

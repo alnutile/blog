@@ -37,3 +37,7 @@ mix.js([
 if (mix.inProduction()) {
     mix.version();
 }
+
+if (!mix.inProduction()) {
+    mix.sourceMaps();
+}
