@@ -8,11 +8,13 @@
             v-model="searching"
             class="span12 form-control"
             v-on:change="searchingFor"
+            v-on:input="searchingForAuto"
             id="search"
+            autocomplete="off"
             placeholder="Search for Posts and Projects Press Enter">
           </div>
         </div>
-        <div v-if="results.length < 1 && searching != null && is_searching" class="alert alert-warning">
+        <div v-if="showNoResults()" class="alert alert-warning">
           <span class="no-results">Looks like there are no results for <strong>"{{ searching }}"</strong></span>
         </div>
       </div>
@@ -81,31 +83,48 @@ export default {
   computed: {
     projects: function() {
       return _.filter(this.results, function(item) {
-        return item.type === "project";
+        return item.type === 'project';
       });
     },
     posts: function() {
       return _.filter(this.results, function(item) {
-        return item.type === "post";
+        return item.type === 'post';
       });
     }
   },
   methods: {
+    showNoResults() {
+      if (
+        this.results.length < 1 &&
+        this.searching != null &&
+        this.is_searching
+      ) {
+        setTimeout(function() {
+          return true;
+        }, 2000);
+      }
+
+      return false;
+    },
+    searchingForAuto() {
+      if (this.searching.length > 1) {
+        this.searchingFor();
+      }
+    },
     searchingFor() {
       this.is_searching = true;
-
       axios
-        .get("/api/search?q=" + this.searching)
+        .get('/api/search?q=' + this.searching)
         .then(results => {
-          console.log("sent get");
+          console.log('sent get');
           console.log(results);
           this.results = results.data.data;
-          this.$emit("resultsFound", this.results);
+          this.$emit('resultsFound', this.results);
           this.total_found = results.data.total;
           this.curent_page = results.data.curent_page;
         })
         .catch(error => {
-          console.log("error");
+          console.log('error');
           console.log(error);
         });
     }

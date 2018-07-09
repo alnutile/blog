@@ -16,9 +16,9 @@ class ContentQuery extends BaseQuery
             'size' => $this->size,
             'query' => [
                 'multi_match' => [
-                   "fields" => ["body", "title"],
-                   "fuzziness" => "AUTO",
-                   "query" => $this->request['q']
+                    "fields" => ["body", "title"],
+                    "fuzziness" => "2",
+                    "query" => $this->request['q']
                 ]
             ]
         ];
