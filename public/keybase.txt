@@ -6,59 +6,47 @@ I hereby claim:
 
   * I am an admin of https://alfrednutile.info
   * I am alfrednutile (https://keybase.io/alfrednutile) on keybase.
-  * I have a public key with fingerprint 9E37 A135 9B41 67A8 8252  819A 75F3 3A19 75EB 9121
+  * I have a public key ASALHG2YsFQEXKMFGhUqPyfg7yz2rw1vRjHM85j0HLywUgo
 
 To do so, I am signing this object:
 
 {
-    "body": {
-        "key": {
-            "eldest_kid": "0101ec44f4aa87962e793029ae4034d57e37e3e0cc31e6289a73b3043b4dc29b722f0a",
-            "fingerprint": "9e37a1359b4167a88252819a75f33a1975eb9121",
-            "host": "keybase.io",
-            "key_id": "75f33a1975eb9121",
-            "kid": "0101ec44f4aa87962e793029ae4034d57e37e3e0cc31e6289a73b3043b4dc29b722f0a",
-            "uid": "d8168498bbb5aa98e513d2a7f04abf19",
-            "username": "alfrednutile"
-        },
-        "service": {
-            "hostname": "alfrednutile.info",
-            "protocol": "https:"
-        },
-        "type": "web_service_binding",
-        "version": 1
+  "body": {
+    "key": {
+      "eldest_kid": "0101ec44f4aa87962e793029ae4034d57e37e3e0cc31e6289a73b3043b4dc29b722f0a",
+      "host": "keybase.io",
+      "kid": "01200b1c6d98b054045ca3051a152a3f27e0ef2cf6af0d6f4631ccf398f41cbcb0520a",
+      "uid": "d8168498bbb5aa98e513d2a7f04abf19",
+      "username": "alfrednutile"
     },
-    "ctime": 1490113718,
-    "expire_in": 157680000,
-    "prev": "27c33868381a7472d5df43b9aa6fd3ad94a6efbe8189f0be97ff512ca888f5a9",
-    "seqno": 4,
-    "tag": "signature"
+    "merkle_root": {
+      "ctime": 1531145333,
+      "hash": "20e1e93fd41cf8d8e84473cb838149772f50f1b33a09d77c3fa7de83ade859a8442c4ef3356c6ccb09dfe76b3e52a7a0df0adae2fd00ed08c041a9eb6e97b96d",
+      "hash_meta": "2d2dd1679ce103cd322d6752b2b45d047b7d77252e2583eb9e4c104fd59c4635",
+      "seqno": 3219848
+    },
+    "service": {
+      "entropy": "cTwvadBmaTK361H/3LVyu7hQ",
+      "hostname": "alfrednutile.info",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.1.2"
+  },
+  "ctime": 1531145373,
+  "expire_in": 504576000,
+  "prev": "7f5e674542112df08f26fd7d859c31da96a9c0bde9ee5c1a89caafe81e39e9a0",
+  "seqno": 33,
+  "tag": "signature"
 }
 
 which yields the signature:
 
------BEGIN PGP MESSAGE-----
-Version: Keybase OpenPGP v2.0.66
-Comment: https://keybase.io/crypto
-
-yMInAnicrVJbSFRBGN7tYriLZVBRQWwcCozUzpw5l5l9iHqqoKCbZWptc86Zs3tc
-PWc9e9YylXroAsoWBZZtYPYSWulLaghFJV2oqMhAMipUogdN7EJEdLE5Um89NgwM
-M//3ffN9/8ydnOm+gH9GzpgdvjvR5390uzXlK362vaeWU229hgvXcnE6tdAKnSbd
-SNzUuTDHAx5QTRQNkRCkYFmgCoa8gAkVeSjqkkIhm5TXNAioLCBMFKhCXoSqqGsC
-VhVBMHjC5XOGaUWpk3BMy2WymNEIgBJWRSArBCFBEhBgZMmAkACsSFTFQACMGLOT
-HoOZU0mSFpo2O2ObyJS9f+D/s+/UlJyOgIxEjFRVlQjBiEoA6gJRDF4kqgGwB0xS
-xyKVlKFJheFQ3Uq5ZgXl6vM5Vqk2Neo110vzD1ShaRlesIRju7ZmV7ByzHUTybBH
-d2sSHn4fVSN/lCKqaemsoYxRTZ2kaVtcGDCk5pqeNBAxDwBUAMrn6P6E6dCI6SEk
-RUY8G949tJpJCooGIZIRRIAooiLokm6wFmBCZEOHRMcikamhUgQQNniVYsUwJCBo
-7MGQIREvdpJWWTYXFplNEmWSSTNqETflsOB9t8pm+PwBX9bMad5H8wWyc/9+vzJh
-1iQ9XjuS2fjmxoD/Rt7yvvbYs1SwObqnIXfuWGj+JhwM9rYGDusP3o3n/fxRmH4e
-/7Ty6oK6V8ezO0oKrscGMgcfhpaen7vhVDpyRNmqDXWqsZtvf6Xrzdwzjd0XJ+vO
-Li9Jr2o82ff0xd7Bk6XnZjfhRO8DoXH3h13FBS1rPw60dHbC/d8fz8uUg/c40l3W
-3jDSfGJxaGdTYAW3uf9DR9u9+7NDxxZljb6uHPTP2SI6E+sTHXz7yq7M0UvLYu97
-e65+vbxt3aWil6u/lJtzTj1ZE1wSOHQgWFPVNSzXP5ksLcHtV5rOpRPxUNHpoZaF
-3675LvR3fR5uq99RMp7fsHGWO5r5DcliRbQ=
-=1uZc
------END PGP MESSAGE-----
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgCxxtmLBUBFyjBRoVKj8n4O8s9q8Nb0YxzPOY9By8sFIKp3BheWxvYWTESpcCIcQgf15nRUIRLfCPJv19hZwx2papwL3p7lwaicqv6B456aDEIN4utez2jxphGyfDhUoAc+yyRtwpkRnz9MEiZ+8th8h/AgHCo3NpZ8RA7KVqdjsbHZHsq7t/FDYEPSvsU5IeYVoBqwcYdd4uHssPF/YbreNSc+gymKtVvBI4dZgnQ+BcPTzCyet8d0vdCqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIGZnpv3YdY7rZKW0DSOt8IOEJM7SWG342tYCFP1wuKEjo3RhZ80CAqd2ZXJzaW9uAQ==
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
@@ -66,5 +54,3 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/alfrednutile
 
 ==================================================================
-
-
