@@ -39,7 +39,7 @@ class IndexProjectJob extends SearchJobBase
 
         $indexed = $client->index($params);
 
-        $logger->info($this->formatIndexedMessage($indexed));
+        //$logger->info($this->formatIndexedMessage($indexed));
     }
 
     /**

@@ -62,24 +62,24 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton(ElasticSearcher::class, function ($app) {
             // Create an AWS client credentials instance to sign requests with.
-            $provider = CredentialProvider::fromCredentials(
-                new Credentials(
-                    config('elasticsearch.key'),
-                    config('elasticsearch.secret')
-                )
-            );
+            // $provider = CredentialProvider::fromCredentials(
+            //     new Credentials(
+            //         config('elasticsearch.key'),
+            //         config('elasticsearch.secret')
+            //     )
+            // );
 
             $params = [
                 'hosts' => config('elasticsearch.hosts'),
             ];
 
 
-            if (!config('elasticsearch.use_aws') && !\App::environment(["local", "testing"])) {
-                // Create a handler for ES-AWS requests. This provides the bridge code
-                // to allow signing of AWS requests but still use the ES PHP library.
-                $handler = new ElasticsearchPhpHandler(config('elasticsearch.region'), $provider);
-                $params['handler'] = $handler;
-            }
+            // if (!config('elasticsearch.use_aws') && !\App::environment(["local", "testing"])) {
+            //     // Create a handler for ES-AWS requests. This provides the bridge code
+            //     // to allow signing of AWS requests but still use the ES PHP library.
+            //     $handler = new ElasticsearchPhpHandler(config('elasticsearch.region'), $provider);
+            //     $params['handler'] = $handler;
+            // }
 
 
             // Create an ElasticSearcher instance instead of an ES Client instance directly.
