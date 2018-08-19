@@ -31,11 +31,12 @@
                                 <div class="text-center">
                                     <div class="tags">
                                         <a href="/tags/78">Laravel</a>
+                                        <a href="/tags/153">VueJS</a>
+                                        <a href="/tags/3">Angular</a>
                                         <a href="/tags/27">PHP</a>
                                         <a href="/tags/145">Serverless</a>
                                         <a href="/tags/133">AWS</a>
                                         <a href="/tags/7">REST</a>
-                                        <a href="/tags/3">Angular</a>
                                     </div>
                                 </div>
                             </div>
