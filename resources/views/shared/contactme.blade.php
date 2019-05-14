@@ -6,7 +6,7 @@
         <div class="span5">
             <h4>Contact</h4>
             <ul class="unstyled">
-                <li><i class="icon fa-icon-phone"></i>&nbsp; 413-345-5103</li>
+                <li><i class="icon fa-icon-phone"></i>&nbsp; 413-230-4767</li>
                 <li>
                     <i class="icon fa-icon-envelope"></i>&nbsp;
                     <a href="mailto:me@alfrednutile.info">me [at] alfrednutile.info</a>
