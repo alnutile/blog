@@ -64,7 +64,7 @@
                 <span class="span3">
                     <address>
                         <h3>Alfred Nutile</h3>
-                        <abbr title="Phone">P:</abbr> (413) 345-5103
+                        <abbr title="Phone">P:</abbr> (413) 230-4767
                     </address>
                     <address>
                         <a href="mailto:#">me@alfrednutile.info</a>
@@ -80,7 +80,7 @@
                     <h3>Resume</h3>
                     <p>
                         <i class="halflings-icon white user"></i>
-                        <a href="https://docs.google.com/document/d/1CzorvUeHZh7o4N_v4c_Z6ClL_NgOf8bdbROqHMdFe2w/edit?usp=sharing" target="_blank">DOC Here</a>
+                        <a href="https://www.dropbox.com/s/i9u794b9rmv944a/Al%20Nutile%20Resume.docx?dl=0" target="_blank">DOC Here</a>
                     </p>
                 </span>
                 <span id="social-block" class="pull-right span6">

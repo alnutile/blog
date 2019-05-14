@@ -71,8 +71,8 @@
                 <h3>More info</h3>
                 <h4>Resume</h4>
                 <p>
-                    <i class="halflings-icon  user"></i><a href="https://goo.gl/z9R72W" target="_blank">PDF Here</a></br>
-                    <i class="halflings-icon  user"></i><a href="https://goo.gl/z9R72W" target="_blank">DOC Here</a>
+                    <i class="halflings-icon  user"></i><a href="https://www.dropbox.com/s/4u3tcn4mwi0rpgz/Al%20Nutile%20Resume.pdf?dl=0" target="_blank">PDF Here</a></br>
+                    <i class="halflings-icon  user"></i><a href="https://www.dropbox.com/s/i9u794b9rmv944a/Al%20Nutile%20Resume.docx?dl=0" target="_blank">DOC Here</a>
                 </p>
             </div>
             <hr>
