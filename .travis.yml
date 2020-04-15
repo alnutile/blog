@@ -8,16 +8,6 @@ php:
 sudo: required
 dist: trusty
 
-notifications:
-  webhooks:
-    urls:
-      - https://dashboard.alfrednutile.info/webhooks/travis
-    on_success: always # default: always
-    on_failure: always # default: always
-    on_start: always   # default: never
-    on_cancel: always # default: always
-    on_error: always # default: always
-
 services:
   - mysql
 
@@ -48,16 +38,15 @@ script:
   # see error here https://travis-ci.org/alnutile/alsblog5/builds/261309412
   # will come back later otherwise run locally
   #- php artisan dusk
+# after_script:
+#   - |
+#     if [[ "$TRAVIS_PHP_VERSION" != 'hhvm' && "$TRAVIS_PHP_VERSION" != '7.0' ]]; then
+#     wget https://scrutinizer-ci.com/ocular.phar
+#       php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+#     fi
 
-after_script:
-  - |
-    if [[ "$TRAVIS_PHP_VERSION" != 'hhvm' && "$TRAVIS_PHP_VERSION" != '7.0' ]]; then
-    wget https://scrutinizer-ci.com/ocular.phar
-      php ocular.phar code-coverage:upload --format=php-clover coverage.clover
-    fi
-
-after_success:
-  - |
-    if [[ "$TRAVIS_BRANCH" == 'master' ]]; then
-      bash ./deploy.sh
-    fi
+# after_success:
+#   - |
+#     if [[ "$TRAVIS_BRANCH" == 'master' ]]; then
+#       bash ./deploy.sh
+#     fi
