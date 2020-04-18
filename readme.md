@@ -1,16 +1,11 @@
 ## Going Laravel 5
-
-[![Build Status](https://travis-ci.org/alnutile/alsblog5.svg?branch=master)](https://travis-ci.org/alnutile/alsblog5)
-....
-
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
+[![Build Status](https://travis-ci.org/alnutile/blog.svg?branch=master)](https://travis-ci.org/alnutile/blog)
 
 ## Assets
 
 Updated to default format of [https://laravel.com/docs/5.4/mix](https://laravel.com/docs/5.4/mix)
 
-`npm run dev` 
+`npm run dev`
 
 Just like the docs note or watch
 
@@ -37,7 +32,7 @@ Xvfb :0 -screen 0 1280x8000x24 &
 ### JS testing
 
 ```
-npm run tests 
+npm run tests
 ```
 
 These are in tests/js
@@ -72,14 +67,14 @@ Main
   * Home
   * About
   * Products
-  * Talks 
+  * Talks
   * Posts
   * Projects/Portfolio
   * Tags
 App
  * Login in items
-    
-    
+
+
 ## Scraps
 
 ```
@@ -87,8 +82,8 @@ App
  live-search-item-template="<a href='/posts/@{{result.id}}'>@{{result.title}}</a>"
  live-search-select="fullName"
  live-search-max-result-size="100"
- ng-model="title"     
- 
- 
-  ng-app="search" ng-controller='SearchController' 
+ ng-model="title"
+
+
+  ng-app="search" ng-controller='SearchController'
 ```

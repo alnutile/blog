@@ -17,6 +17,8 @@ cache:
 before_script:
   - cp .env.travis .env
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+  - composer install
+  - php artisan migrate
 
 script:
   - vendor/bin/phpcs --standard=psr2 app/
