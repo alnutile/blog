@@ -177,7 +177,6 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
-        \AlfredNutileInc\Incomings\IncomingsServiceProvider::class,
         \Barryvdh\DomPDF\ServiceProvider::class,
 
         Laravel\Scout\ScoutServiceProvider::class,

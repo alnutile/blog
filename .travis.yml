@@ -3,8 +3,6 @@ language: php
 php:
   - 7.1
 
-# This triggers builds to run on the new TravisCI infrastructure.
-# See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
 sudo: required
 dist: trusty
 
@@ -17,36 +15,10 @@ cache:
     - $HOME/.composer/cache
 
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - cp .env.travis .env
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-  - |
-    if [[ "$TRAVIS_BRANCH" == 'master' && "$TRAVIS_COMMIT_MESSAGE" != *'[update]'* ]]; then
-      travis_retry composer install ${COMPOSER_FLAGS} --no-interaction --prefer-dist
-    else
-      travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
-    fi
-  - php artisan serve &
-  - php artisan migrate
 
 script:
   - vendor/bin/phpcs --standard=psr2 app/
-  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
-  # Dusk Not working times out :(
-  # see error here https://travis-ci.org/alnutile/alsblog5/builds/261309412
-  # will come back later otherwise run locally
-  #- php artisan dusk
-# after_script:
-#   - |
-#     if [[ "$TRAVIS_PHP_VERSION" != 'hhvm' && "$TRAVIS_PHP_VERSION" != '7.0' ]]; then
-#     wget https://scrutinizer-ci.com/ocular.phar
-#       php ocular.phar code-coverage:upload --format=php-clover coverage.clover
-#     fi
-
-# after_success:
-#   - |
-#     if [[ "$TRAVIS_BRANCH" == 'master' ]]; then
-#       bash ./deploy.sh
-#     fi
+  - vendor/bin/phpunit --coverage-clover clover.xml --stop-on-failure
+  - php ./coverage-checker.php clover.xml 38

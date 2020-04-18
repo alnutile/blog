@@ -19,6 +19,12 @@ class TagsHelperTest extends \TestCase
     use TagsHelper, DatabaseTransactions, DatabaseMigrations;
 
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->withoutJobs();
+    }
+
     /**
      * @covers ::handleTags
      */

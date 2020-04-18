@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Log;
 class PostTest extends \TestCase
 {
     use DatabaseTransactions, DatabaseMigrations;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->withoutJobs();
+    }
+
     /**
      * A basic test example.
      *
@@ -27,7 +34,5 @@ class PostTest extends \TestCase
         factory(\App\Post::class)->create(['title' => 'Test Yup', 'active' => 1]);
         $posts = (new Post())->search("Test");
         $this->assertCount(1, $posts->toArray());
-
     }
-
 }

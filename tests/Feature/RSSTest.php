@@ -11,6 +11,13 @@ class RSSTest extends BrowserKitTestCase
 {
     use DatabaseTransactions, DatabaseMigrations;
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->withoutJobs();
+    }
+
+
     /**
      * @test
      */
@@ -20,7 +27,7 @@ class RSSTest extends BrowserKitTestCase
         factory(\App\Post::class, 5)->create();
 
         $post = \App\Post::first();
-        
+
         $this->visit('/rss')->see($post->title);
 
         $this->assertResponseOk();

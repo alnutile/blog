@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -20,8 +21,6 @@ class ArrayToJsonController extends Controller
         ]);
 
         $data = $request->get("data");
-        \Log::debug(var_dump($data));
-        \Log::debug("is array " . is_array($data));
 
         try {
             $converted = json_encode(

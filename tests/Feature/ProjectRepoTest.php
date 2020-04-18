@@ -6,12 +6,14 @@ use App\Post;
 use App\Project;
 use App\ProjectRepo;
 use BrowserKitTestCase;
+use Facades\App\Search\Query\ContentQuery;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use TestCase;
 
 /**
  * Class ProjectRepoTest
@@ -23,6 +25,12 @@ class ProjectRepoTest extends BrowserKitTestCase
 {
 
     use DatabaseMigrations, DatabaseTransactions, WithoutMiddleware;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->withoutJobs();
+    }
 
     /**
      * @covers ::createProject
@@ -84,10 +92,10 @@ class ProjectRepoTest extends BrowserKitTestCase
         $this->assertEquals("foo.jpg", $project->photo_file_name);
 
         $this->assertCount(3, $project->tags);
-
     }
 
-    public function testDataTags() {
+    public function testDataTags()
+    {
         $data['tags'] = false;
         $project_repo = new ProjectRepo();
         $project_repo->setDataTags($data);
@@ -97,7 +105,8 @@ class ProjectRepoTest extends BrowserKitTestCase
     /**
      * @covers ::setDefaultFileName
      */
-    public function testDefaultFileName() {
+    public function testDefaultFileName()
+    {
         $project = factory(\App\Project::class)->create(
             ['photo_file_name' => "foo.png"]
         );
@@ -105,18 +114,6 @@ class ProjectRepoTest extends BrowserKitTestCase
         $data = [];
         $results = $project_repo->setDefaultFileName($project, $data);
         $this->assertEquals('foo.png', $results['photo_file_name']);
-    }
-
-    public function setUp()
-    {
-        parent::setUp();
-        $this->cleanUp();
-    }
-
-    public function tearDown()
-    {
-        $this->cleanUp();
-        parent::tearDown();
     }
 
 

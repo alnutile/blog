@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -20,8 +21,10 @@ class ArrayJsonConverterTest extends TestCase
 
         $this->assertNotNull($results);
 
-        $this->assertEquals('"{\"foo\":\"bar\",\"baz\":{\"foobar\":[1,2,3]}}"', $results->getContent());
-
+        $this->assertEquals(
+            '"{\"foo\":\"bar\",\"baz\":{\"foobar\":[1,2,3]}}"',
+            $results->getContent()
+        );
     }
 
     public function testConvertToJsonToArray()
@@ -35,7 +38,5 @@ class ArrayJsonConverterTest extends TestCase
         ])->assertStatus(200);
 
         $this->assertNotNull($results);
-
     }
-
 }

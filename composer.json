@@ -16,7 +16,6 @@
         "michelf/php-markdown": "^1.6",
         "laravelcollective/html": "^5.2",
         "mayconbordin/rss-l5": "^1.1",
-        "alfred-nutile-inc/incomings-client": "dev-master",
         "laravel/tinker": "~1.0",
         "czukowski/markdown-toc": "~1.0",
         "laravelista/sherlock": "dev-master",

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use AlfredNutileInc\Incomings\Log;
 use App\MarkdownExtraParser;
 use App\MarkDownHelper;
 use App\Post;
@@ -14,8 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Input;
-
-
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 
 use Illuminate\Support\Facades\Storage;
@@ -57,8 +55,9 @@ class ProjectsController extends BaseController
             return View::make('projects.index', compact('projects', 'project'));
         } else {
             return Response::json(
-                ['data' => $projects->toArray(),
-                    'status'=>'success',
+                [
+                    'data' => $projects->toArray(),
+                    'status' => 'success',
                     'message' => "Projects Index"
                 ],
                 200
@@ -90,9 +89,11 @@ class ProjectsController extends BaseController
                 return Redirect::route('projects.index');
             } else {
                 return Response::json(
-                    ['data' => $project->toArray(),
-                        'status'=>'success',
-                        'message' => "Project Created"],
+                    [
+                        'data' => $project->toArray(),
+                        'status' => 'success',
+                        'message' => "Project Created"
+                    ],
                     200
                 );
             }
