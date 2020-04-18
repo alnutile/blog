@@ -1,10 +1,7 @@
 language: php
 
 php:
-  - 7.1
-
-sudo: required
-dist: trusty
+  - 7.3
 
 services:
   - mysql
