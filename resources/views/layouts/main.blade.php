@@ -80,7 +80,7 @@
                     <h3>Resume</h3>
                     <p>
                         <i class="halflings-icon white user"></i>
-                        <a href="https://www.dropbox.com/s/i9u794b9rmv944a/Al%20Nutile%20Resume.docx?dl=0" target="_blank">DOC Here</a>
+                        <a href="https://docs.google.com/document/d/1OcjiFV9mhNr6X_yxisQbvb-C9dMDfnP_FJrONyVSZlo" target="_blank">DOC Here</a>
                     </p>
                 </span>
                 <span id="social-block" class="pull-right span6">
