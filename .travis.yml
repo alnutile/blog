@@ -20,4 +20,4 @@ before_script:
 script:
   - vendor/bin/phpcs --standard=psr2 app/
   - vendor/bin/phpunit --coverage-clover clover.xml --stop-on-failure
-  - php ./coverage-checker.php clover.xml 38
+  - php ./coverage-checker.php clover.xml 20
