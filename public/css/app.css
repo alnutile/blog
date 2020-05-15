@@ -17332,7 +17332,6 @@ a.buy:hover {
     -webkit-border-radius: 75px;
     border-radius: 75px;
     width: 150px;
-    opacity: 0.5;
     cursor: pointer;
     margin-bottom: 5%;
     margin-right: 5%;
@@ -17355,7 +17354,7 @@ a.buy:hover {
 #about-me-circle {
     background-color: #BFB8A3;
     background-image: url('/img/me.jpg');
-    background-size: 105%;
+    background-size: 100%;
     background-repeat: no-repeat;
 }
 
